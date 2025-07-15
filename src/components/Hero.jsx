@@ -3,7 +3,7 @@ import HeroVector from "../assets/bg-vector.svg";
 import tshirt from "../assets/jersey_home.svg";
 import appicon from "../assets/App-Icon.svg";
 import MotionsFade from "../common/Motions";
-import StadiumMotion from "../common/StadiumMotion";
+
 export default function Hero() {
     return (
         <div className="bg-black font-hubot ">
