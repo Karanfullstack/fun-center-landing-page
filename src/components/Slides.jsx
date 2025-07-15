@@ -49,8 +49,8 @@ export default function Slides() {
             <Container size="1250px">
                 <div className="h-[560px] w-full">
                     {/* Header with Arrows */}
-                    <div className="h-[48px] flex justify-between items-center px-8">
-                        <span className="text-white text-lg font-normal">
+                    <div className="h-[48px] flex gap-2 justify-between items-center px-8">
+                        <span className="text-white text-md font-normal">
                             Predykcje, ciekawostki i Wy, Eksperci:
                         </span>
 

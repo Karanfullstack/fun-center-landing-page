@@ -32,7 +32,7 @@ export default function RankingTwo() {
                                 Bon do wykorzystania w Media Expert + Wkład Klubu/Ligi
                             </span>
                         </div>
-                        <span className="text-[18px] sm:text-[24px] font-bold">500 zł</span>
+                        <span className="text-[19px] sm:text-[24px] font-bold">500 zł</span>
                     </div>
                     <div className="w-full text-white font-hubot flex items-center justify-between px-4 py-3 bg-[#232323] ">
                         <div className="text-lg flex items-center gap-2">

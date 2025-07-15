@@ -9,7 +9,7 @@ export default function Download() {
     return (
         <section
             aria-labelledby="download-heading"
-            className="min-h-[90vh] w-full flex font-hubot justify-center items-center bg-black overflow-hidden py-10"
+            className="min-h-[70vh] sm:min-h-[50vh] w-full flex font-hubot justify-center items-center bg-black overflow-hidden py-10"
         >
             <article className="relative flex h-full w-full flex-col items-center justify-center gap-5 px-4 text-center">
                 <figure className="max-w-[200px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto">

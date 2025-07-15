@@ -3,11 +3,16 @@
 @tailwind utilities;
 
 html {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-	background: black;
-	width: 100%;
-	height: 100%;
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #dbfd01 !important;
 }
