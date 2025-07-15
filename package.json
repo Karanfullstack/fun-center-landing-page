@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "@fontsource-variable/hubot-sans": "^5.2.6",
+    "framer-motion": "^12.23.6",
+    "motion": "^12.23.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "uninstall": "^0.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
