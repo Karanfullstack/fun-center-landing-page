@@ -1,16 +1,32 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useMotionValue, useTransform } from "motion/react";
 
-export default function MotionsFade({ children }) {
+export default function MotionsFade({ children, delay = 0.1 }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 50, rotate: -2, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
-            transition={{
-                duration: 0.8,
-                ease: [0.25, 0.46, 0.45, 0.94], // easeOutBack style
-                delay: 0.1,
+            initial={{
+                opacity: 0,
+                y: 60,
+                scale: 0.9,
             }}
-            viewport={{ once: true, amount: 0.3 }} // triggers earlier
+            whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+            }}
+            transition={{
+                type: "spring",
+                stiffness: 80,
+                damping: 15,
+                mass: 0.5,
+                delay,
+            }}
+            viewport={{ once: false, amount: 0.3 }}
+            style={{
+                transformStyle: "preserve-3d",
+                willChange: "transform",
+                perspective: 1000, // give it some depth
+            }}
         >
             {children}
         </motion.div>

@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { EffectFade, Navigation } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/navigation";
-
+import "swiper/css/effect-fade";
 import Container from "./Container";
 import arrow from "../assets/chevron-left.svg";
 import Card from "./Card";
@@ -38,6 +39,15 @@ const data = [
         text: "Bądź na bieżąco z ciekawostkami i wynikami!",
     },
 ];
+
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
 
 export default function Slides() {
     const prevRef = useRef(null);
@@ -82,13 +92,15 @@ export default function Slides() {
                     </div>
 
                     {/* Swiper section */}
+
                     <section className="mt-10 px-4">
                         <Swiper
-                            modules={[Navigation]}
+                            modules={[Navigation, EffectFade]}
                             spaceBetween={50}
+                            fadeEffect={{ crossFade: true }}
                             slidesPerView={1}
                             breakpoints={{
-                                768: { slidesPerView: 2 },
+                                768: { slidesPerView: 1 },
                                 1024: { slidesPerView: 3 },
                             }}
                             onInit={(swiper) => {
@@ -100,7 +112,7 @@ export default function Slides() {
                         >
                             {data.map((item, index) => (
                                 <SwiperSlide>
-                                    <Card key={index} data={item} />
+                                    <Card index={index} key={index} data={item} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

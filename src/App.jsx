@@ -8,10 +8,12 @@ import Ranking from "./components/Ranking";
 import RankingTwo from "./components/RankingTwo";
 import Slides from "./components/Slides";
 import SmallCards from "./components/SmallCards";
+import CustomCursor from "./common/CursorEffect";
 
 function App() {
     return (
         <div className="w-full h-full ">
+            <CustomCursor />
             <Navbar />
             <Hero />
             <Frame />

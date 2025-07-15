@@ -1,6 +1,6 @@
 import CardVector from "../assets/Card-Vector.svg";
 
-export default function Card({ data }) {
+export default function Card({ data, index }) {
     return (
         <div className="relative bg-[#232323] w-full max-w-md  overflow-hidden">
             {/* Background image wrapper */}
