@@ -1,11 +1,11 @@
 import CardVector from "../assets/Card-Vector.svg";
 
-export default function Card({ data, index }) {
+export default function Card({ data }) {
     return (
-        <div className="relative bg-[#232323] w-full max-w-md  overflow-hidden">
+        <div className="relative bg-[#232323] w-full max-w-md overflow-hidden">
             {/* Background image wrapper */}
             <div
-                className="bg-cover bg-no-repeat relative w-full h-full p-5 flex flex-col justify-between min-h-[550px] sm:min-h-[670px]"
+                className="bg-cover bg-no-repeat w-full h-full p-5 flex flex-col justify-between min-h-[500px] sm:min-h-[620px] relative pb-[120px]"
                 style={{ backgroundImage: `url(${CardVector})` }}
             >
                 {/* Text content */}
@@ -15,12 +15,12 @@ export default function Card({ data, index }) {
                     </p>
                 </div>
 
-                {/* Bottom image with space only on small screens */}
-                <div className="flex absolute bottom-0 right-0 left-0 justify-center  mt-6 sm:mt-0">
+                {/* Bottom image always sticks to bottom with horizontal padding */}
+                <div className="flex justify-center absolute bottom-0 left-0 right-0 px-5  items-end">
                     <img
                         src={data.img}
                         alt="screenshot"
-                        className="max-w-full h-auto object-contain"
+                        className="max-w-[90%] h-auto object-contain"
                         loading="lazy"
                     />
                 </div>

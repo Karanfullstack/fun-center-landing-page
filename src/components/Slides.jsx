@@ -40,39 +40,30 @@ const data = [
     },
 ];
 
-const containerVariants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.1,
-        },
-    },
-};
-
 export default function Slides() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const [activeBtn, setActiveBtn] = useState("left");
 
     return (
-        <div className="w-full font-hubot font-[800] px-5 bg-black pt-4 min-h-[500px] sm:h-screen">
-            <Container size="1250px">
-                <div className="h-[560px] w-full">
+        <div className="w-full font-hubot font-[800] px-5 bg-black pt-4 h-screen flex flex-col">
+            <Container size="1250px" className="flex flex-col h-full">
+                <div className="flex flex-col h-full">
                     {/* Header with Arrows */}
-                    <div className="h-[48px] flex gap-2 justify-between items-center px-8">
+                    <div className="h-[48px] flex gap-2 justify-between items-center pt-4 px-4 sm:px-8">
                         <span className="text-white text-md font-normal">
                             Predykcje, ciekawostki i Wy, Eksperci:
                         </span>
 
                         {/* Custom arrow buttons */}
-                        <div className="w-[92px] flex items-center justify-between h-[48px]">
+                        <div className="w-[92px] flex items-center justify-between h-[48px] rounded-md shadow-sm bg-[#121212]">
                             <button
                                 onClick={() => setActiveBtn("left")}
                                 ref={prevRef}
-                                className={` ${
+                                className={`${
                                     activeBtn === "left"
                                         ? "bg-[#DBFD01] cursor-pointer"
-                                        : "bg-[#232323] "
+                                        : "bg-[#232323]"
                                 } w-1/2 font-bold flex items-center justify-center h-full`}
                             >
                                 <img src={arrow} alt="leftArrow" />
@@ -80,11 +71,11 @@ export default function Slides() {
                             <button
                                 onClick={() => setActiveBtn("right")}
                                 ref={nextRef}
-                                className={` ${
+                                className={`${
                                     activeBtn === "right"
                                         ? "bg-[#DBFD01] cursor-pointer"
-                                        : "bg-[#232323] "
-                                } w-1/2 font-bold flex items-center justify-center h-full`}
+                                        : "bg-[#232323]"
+                                } w-1/2 font-bold flex items-center justify-center h-full `}
                             >
                                 <img className="rotate-180" src={arrow} alt="rightArrow" />
                             </button>
@@ -92,17 +83,14 @@ export default function Slides() {
                     </div>
 
                     {/* Swiper section */}
-
-                    <section className="mt-10 px-4">
+                    <section className="flex-grow mt-10 px-4 flex items-center">
                         <Swiper
                             modules={[Navigation, EffectFade]}
-                            spaceBetween={50}
+                            spaceBetween={30}
                             fadeEffect={{ crossFade: true }}
-                            breakpoints={{
-                                0: { slidesPerView: 1 }, // Phones
-                                640: { slidesPerView: 2 }, // Small tablets
-                                768: { slidesPerView: 3 }, // Tablets & larger
-                                1024: { slidesPerView: 3 }, // Desktop
+                            navigation={{
+                                prevEl: prevRef.current,
+                                nextEl: nextRef.current,
                             }}
                             onInit={(swiper) => {
                                 swiper.params.navigation.prevEl = prevRef.current;
@@ -110,10 +98,16 @@ export default function Slides() {
                                 swiper.navigation.init();
                                 swiper.navigation.update();
                             }}
+                            breakpoints={{
+                                0: { slidesPerView: 1 }, // phones
+                                640: { slidesPerView: 2 }, // small tablets
+                                768: { slidesPerView: 3 }, // tablets & above
+                                1024: { slidesPerView: 3 }, // desktop
+                            }}
                         >
                             {data.map((item, index) => (
-                                <SwiperSlide>
-                                    <Card index={index} key={index} data={item} />
+                                <SwiperSlide key={index}>
+                                    <Card index={index} data={item} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
@@ -123,4 +117,3 @@ export default function Slides() {
         </div>
     );
 }
-// ..
