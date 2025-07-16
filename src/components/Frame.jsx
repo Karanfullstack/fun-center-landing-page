@@ -1,5 +1,4 @@
 import React from "react";
-// Re-importing the original assets as requested
 import groupFootbal from "../assets/Group.svg";
 
 const Container = ({ children }) => (
@@ -8,12 +7,11 @@ const Container = ({ children }) => (
 
 export default function App() {
     return (
-        <div className="bg-black min-h-[90vh]  font-hubot flex flex-col justify-center items-center">
+        <div className="bg-black min-h-[90vh] font-hubot flex flex-col justify-center items-center">
             <Container>
                 <div className="w-full p-3">
                     <div className="flex flex-col gap-5 justify-center items-center">
                         <div className="bg-white rounded-full mb-3 w-[80px] h-[80px] flex items-center justify-center overflow-hidden">
-                            {/* Using the imported image */}
                             <img
                                 src={groupFootbal}
                                 alt="football"
@@ -21,52 +19,29 @@ export default function App() {
                             />
                         </div>
 
-                        <div
-                            className="w-full max-w-sm text-center py-4 bg-[#DBFD01]
-                                        sm:w-[365px] sm:max-w-none"
-                        >
-                            {/* max-w-sm for mobile, original width for sm+ */}
-                            <span
-                                className="text-3xl flex items-center justify-center font-bold
-                                            sm:text-5xl"
-                            >
-                                {/* Smaller text for mobile, original for sm+ */}
+                        {/* Smallest box on mobile: 75% width */}
+                        <div className="w-[75%] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01]">
+                            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex items-center justify-center font-bold">
                                 “Wiedziałem!”
                             </span>
                         </div>
-                        <div
-                            className="w-full max-w-md text-center py-4 bg-white
-                                        sm:w-[445px] sm:max-w-none"
-                        >
-                            {/* max-w-md for mobile, original width for sm+ */}
-                            <span
-                                className="text-3xl flex items-center justify-center font-bold
-                                            sm:text-5xl"
-                            >
-                                {/* Smaller text for mobile, original for sm+ */}
+
+                        {/* Medium box on mobile: 85% width */}
+                        <div className="w-[85%] max-w-full sm:w-[445px] sm:max-w-none text-center py-4 bg-white">
+                            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex items-center justify-center font-bold">
                                 “A nie mówiłem?”
                             </span>
                         </div>
-                        <div
-                            className="w-full max-w-lg text-center py-4 bg-[#DBFD01]
-                                        sm:w-[510px] sm:max-w-none"
-                        >
-                            {/* max-w-lg for mobile, original width for sm+ */}
-                            <span
-                                className="text-3xl flex items-center justify-center font-bold
-                                            sm:text-5xl"
-                            >
-                                {/* Smaller text for mobile, original for sm+ */}
+
+                        {/* Largest box on mobile: 95% width */}
+                        <div className="w-[95%] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01]">
+                            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex items-center justify-center font-bold">
                                 “To było oczywiste!”
                             </span>
                         </div>
+
                         <div className="w-full h-[60px] flex justify-center items-center">
-                            {/* Reverted px-4 */}
-                            <span
-                                className="text-2xl text-white font-bold text-center leading-tight
-                                            sm:text-5xl"
-                            >
-                                {/* Smaller text for mobile, original for sm+ */}
+                            <span className="text-xl sm:text-2xl md:text-3xl lg:text-5xl text-white font-bold text-center leading-tight">
                                 Apka dla futbolowych Ekspertów.
                             </span>
                         </div>
@@ -76,4 +51,3 @@ export default function App() {
         </div>
     );
 }
-//

@@ -5,7 +5,7 @@ export default function Card({ data, index }) {
         <div className="relative bg-[#232323] w-full max-w-md  overflow-hidden">
             {/* Background image wrapper */}
             <div
-                className="bg-cover bg-no-repeat w-full h-full p-5 flex flex-col justify-between min-h-[550px] sm:min-h-[670px]"
+                className="bg-cover bg-no-repeat relative w-full h-full p-5 flex flex-col justify-between min-h-[550px] sm:min-h-[670px]"
                 style={{ backgroundImage: `url(${CardVector})` }}
             >
                 {/* Text content */}
@@ -16,7 +16,7 @@ export default function Card({ data, index }) {
                 </div>
 
                 {/* Bottom image with space only on small screens */}
-                <div className="flex justify-center mt-6 sm:mt-0">
+                <div className="flex absolute bottom-0 right-0 left-0 justify-center  mt-6 sm:mt-0">
                     <img
                         src={data.img}
                         alt="screenshot"

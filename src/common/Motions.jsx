@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useTransform } from "motion/react";
 
-export default function MotionsFade({ children, delay = 0.1 }) {
+export default function MotionsFade({ children, className = "", delay = 0.1 }) {
     return (
-        <motion.div
+        <motion.div  className={className}
             initial={{
                 opacity: 0,
                 y: 60,

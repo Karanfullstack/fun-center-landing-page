@@ -30,7 +30,7 @@ export default function Ranking() {
                         </h2>
                     </div>
 
-                    <div className="flex justify-center mt-4 w-full gap-x-2 sm:gap-x-4 items-end">
+                    <div className="flex justify-center mt-4 w-full  items-end">
                         {frames.map((frame, index) => (
                             <img
                                 key={index}

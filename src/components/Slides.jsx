@@ -98,10 +98,11 @@ export default function Slides() {
                             modules={[Navigation, EffectFade]}
                             spaceBetween={50}
                             fadeEffect={{ crossFade: true }}
-                            slidesPerView={1}
                             breakpoints={{
-                                768: { slidesPerView: 1 },
-                                1024: { slidesPerView: 3 },
+                                0: { slidesPerView: 1 }, // Phones
+                                640: { slidesPerView: 2 }, // Small tablets
+                                768: { slidesPerView: 3 }, // Tablets & larger
+                                1024: { slidesPerView: 3 }, // Desktop
                             }}
                             onInit={(swiper) => {
                                 swiper.params.navigation.prevEl = prevRef.current;
