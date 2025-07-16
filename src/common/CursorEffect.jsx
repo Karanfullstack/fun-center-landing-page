@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-
+import footbalIcon from "../assets/Group.svg";
 const CustomCursor = () => {
     const cursorRef = useRef(null);
     const pos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
@@ -44,14 +44,15 @@ const CustomCursor = () => {
                 position: "fixed",
                 top: 0,
                 left: 0,
-                width: 20,
+                width: 20, // Adjust size as needed
                 height: 20,
-                backgroundColor: "#DBFD01",
-                borderRadius: "50%",
+                backgroundImage: `url(${footbalIcon})`,
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
                 pointerEvents: "none",
-                boxShadow: "0 0 8px 3px #DBFD01",
                 zIndex: 9999,
-                transform: "translate3d(-100px, -100px, 0)",
+                transform: "translate3d(-200px, -200, 0)",
             }}
         />
     );
