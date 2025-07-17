@@ -22,10 +22,10 @@ export default function Ranking() {
             initial={{ opacity: 0, transform: "translateY(40px)" }}
             animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="min-h-screen relative bg-black flex gap-5 pt-20 pb-10 flex-col justify-center items-center w-full font-hubot"
+            className="min-h-screen relative bg-black mt-10  flex gap-2 pt-10 pb-10 flex-col justify-center items-center w-full font-hubot"
         >
             <Container>
-                <div className="flex pt-14  snap-start flex-col gap-12 justify-center items-center px-4 sm:px-0">
+                <div className="flex pt-14  snap-start flex-col gap-10 justify-center items-center px-4 sm:px-0">
                     {/* Title */}
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function Ranking() {
                     </motion.div>
 
                     {/* Frames */}
-                    <div className="flex justify-center mt-4 w-full items-end gap-3">
+                    <div className="flex relative justify-center mt-4 w-full items-end gap-3">
                         {frames.map((frame, index) => (
                             <motion.img
                                 key={index}
@@ -83,17 +83,16 @@ export default function Ranking() {
                             />
                         ))}
                     </div>
+                    {/* SmallCards */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
+                        className="mt-8 sm:mt-24  w-full"
+                    >
+                        <SmallCards />
+                    </motion.div>
                 </div>
-
-                {/* SmallCards */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
-                    className="mt-16 sm:mt-24 w-full"
-                >
-                    <SmallCards />
-                </motion.div>
             </Container>
         </motion.div>
     );
