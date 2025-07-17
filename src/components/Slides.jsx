@@ -10,12 +10,12 @@ import Container from "./Container";
 import arrow from "../assets/chevron-left.svg";
 import Card from "./Card";
 
-import screen1 from "../assets/Screenshot-2.svg";
-import screen2 from "../assets/Screenshot-1.svg";
-import screen3 from "../assets/Screenshot-5.svg";
-import screen4 from "../assets/Screenshot-6.svg";
-import screen5 from "../assets/Screenshot-7.svg";
-import screen6 from "../assets/Screenshot-3.svg";
+import screen1 from "../assets/Screenshot-2.webp";
+import screen2 from "../assets/Screenshot-1.webp";
+import screen3 from "../assets/Screenshot-5.webp";
+import screen4 from "../assets/Screenshot-6.webp";
+import screen5 from "../assets/Screenshot-7.webp";
+import screen6 from "../assets/Screenshot-3.webp";
 
 const data = [
     { img: screen1, text: "Zbieraj punkty w predykcjach przed i w trakcie meczu!" },
