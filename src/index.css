@@ -16,3 +16,8 @@ body {
 .swiper-button-next {
     color: #dbfd01 !important;
 }
+
+/* Tailwind-style override for iPhone fix */
+body.iphone-bottom-fix .iphone\:mb-\[60px\] {
+    margin-bottom: 60px !important;
+}

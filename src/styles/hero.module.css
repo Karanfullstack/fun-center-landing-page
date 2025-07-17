@@ -1,0 +1,13 @@
+/* Hero.module.css */
+
+.iphoneXFix {
+    /* Default fallback for spacing */
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+/* iPhone X, 11 Pro, 13 Mini, etc. */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .iphoneXFix {
+        margin-bottom: 80px !important;
+    }
+}

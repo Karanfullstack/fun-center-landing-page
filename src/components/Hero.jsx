@@ -24,16 +24,16 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="bg-black snap-start font-hubot overflow-hidden">
+        <div className="bg-black snap-start font-hubot overflow-hidden min-h-screen">
             <Navbar />
             <Container>
                 <div
                     className="
-                        relative 
-                        min-h-[600px]
-                        sm:h-[calc(100vh-88px)]  /* full viewport minus navbar height on sm+ */
+                        relative
                         flex flex-col
+                        min-h-[calc(100vh-88px)]  /* full viewport height minus navbar */
                         px-4 sm:px-0
+                        pb-[env(safe-area-inset-bottom)]  /* padding for iPhone safe-area */
                     "
                 >
                     {/* Background Vector */}
@@ -51,13 +51,7 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/75 z-[1]" />
 
                     {/* Foreground Content */}
-                    <div
-                        className="
-                            relative z-10
-                            flex flex-col items-center justify-center text-white 
-                            p-4 sm:p-6 flex-grow space-y-5
-                        "
-                    >
+                    <div className="relative z-10 flex flex-col items-center justify-center text-white p-4 sm:p-6 flex-grow space-y-5">
                         <MotionsFade delay={0.2}>
                             <div className="flex flex-col gap-4 justify-center items-center -mt-0 sm:-mt-4">
                                 <img
@@ -80,9 +74,18 @@ export default function Hero() {
                         </MotionsFade>
                     </div>
 
-                    {/* Bottom CTA Bar (pushes to bottom with mt-auto) */}
+                    {/* Bottom CTA Bar with mt-auto to push it down */}
                     <div className="w-full flex justify-center z-10 relative mt-auto mb-4 sm:mb-6">
-                        <div className="bg-[#232323] px-3 sm:px-4 py-2 w-[95vw] sm:w-fit flex items-center gap-2 h-[12vw] sm:h-[64px] max-h-[64px] overflow-hidden whitespace-nowrap rounded-md">
+                        <div
+                            className="
+                                bg-[#232323] 
+                                px-3 sm:px-4 py-2 
+                                w-[95vw] sm:w-fit 
+                                flex items-center gap-2 
+                                h-[12vw] sm:h-[64px] max-h-[64px] 
+                                overflow-hidden whitespace-nowrap rounded-md
+                            "
+                        >
                             <img
                                 src={appicon}
                                 alt="appicon"

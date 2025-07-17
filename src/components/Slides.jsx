@@ -35,6 +35,17 @@ export default function Slides() {
     const [activeIndex, setActiveIndex] = useState(defaultIndex);
     const [isMobile, setIsMobile] = useState(false);
 
+    // Dynamically set CSS variable --vh for correct viewport height on iPhones (fixes 100vh issue)
+    useEffect(() => {
+        const setVh = () => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty("--vh", `${vh}px`);
+        };
+        setVh();
+        window.addEventListener("resize", setVh);
+        return () => window.removeEventListener("resize", setVh);
+    }, []);
+
     useEffect(() => {
         const checkMobile = () => {
             setIsMobile(window.innerWidth < 768);
@@ -64,7 +75,10 @@ export default function Slides() {
     }, []);
 
     return (
-        <div className="w-full font-hubot snap-start font-[800] px-5 bg-black pt-4 h-screen flex flex-col">
+        <div
+            className="w-full font-hubot snap-start font-[800] px-5 bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+        >
             <Container size="1250px" className="flex flex-col h-full">
                 <div className="flex flex-col h-full">
                     {/* Header */}
@@ -104,7 +118,7 @@ export default function Slides() {
                         initial={{ opacity: 0, y: 80 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex-grow mt-10 px-4 flex items-center"
+                        className="flex-grow mt-10 px-4 flex items-center "
                     >
                         <Swiper
                             modules={[Navigation]}
@@ -113,6 +127,7 @@ export default function Slides() {
                             centeredSlides={true}
                             loop={false}
                             speed={500}
+                            style={{ height: "auto", minHeight: "70vh" }}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                             }}
