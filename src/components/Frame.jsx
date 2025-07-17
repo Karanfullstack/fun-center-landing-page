@@ -49,7 +49,7 @@ const finalTextVariants = {
 
 export default function App() {
     return (
-        <div className="bg-black h-screen font-hubot flex flex-col justify-center items-center">
+        <div className="bg-black h-screen snap-start font-hubot flex flex-col justify-center items-center">
             <Container>
                 <motion.div
                     className="w-full p-3"

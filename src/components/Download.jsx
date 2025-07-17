@@ -39,7 +39,7 @@ export default function Download() {
         <section
             ref={ref}
             aria-labelledby="download-heading"
-            className="min-h-screen sm:min-h-[50vh] w-full flex font-hubot justify-center items-start sm:items-center bg-black overflow-hidden pt-20 sm:py-10"
+            className="min-h-screen snap-start w-full flex font-hubot justify-center items-center sm:items-center bg-black overflow-hidden py-20"
         >
             <motion.article
                 variants={containerVariants}
@@ -84,7 +84,7 @@ export default function Download() {
                     />
                 </motion.figure>
 
-                {/* Decorative icons (optional animation for fun pop-in) */}
+                {/* Decorative icons */}
                 <motion.img
                     variants={itemVariants}
                     className="absolute

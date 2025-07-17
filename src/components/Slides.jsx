@@ -33,7 +33,16 @@ export default function Slides() {
 
     const defaultIndex = Math.floor(data.length / 2);
     const [activeIndex, setActiveIndex] = useState(defaultIndex);
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     const handleSlideChange = (swiper) => {
         setActiveIndex(swiper.realIndex);
@@ -55,7 +64,7 @@ export default function Slides() {
     }, []);
 
     return (
-        <div className="w-full font-hubot font-[800] px-5 bg-black pt-4 h-screen flex flex-col">
+        <div className="w-full font-hubot snap-start font-[800] px-5 bg-black pt-4 h-screen flex flex-col">
             <Container size="1250px" className="flex flex-col h-full">
                 <div className="flex flex-col h-full">
                     {/* Header */}
@@ -89,7 +98,7 @@ export default function Slides() {
                         </div>
                     </div>
 
-                    {/* Animate whole section on scroll into view */}
+                    {/* Animate section on scroll into view */}
                     <motion.section
                         ref={sectionRef}
                         initial={{ opacity: 0, y: 80 }}
@@ -110,19 +119,25 @@ export default function Slides() {
                             initialSlide={defaultIndex}
                             onSlideChange={handleSlideChange}
                         >
-                            {data.map((item, index) => (
-                                <SwiperSlide key={index}>
-                                    <div
-                                        className={`transition-all duration-300 ease-out ${
-                                            activeIndex === index
-                                                ? "scale-105 opacity-100 z-10"
-                                                : "scale-95 opacity-60 z-0"
-                                        }`}
-                                    >
-                                        <Card index={index} data={item} />
-                                    </div>
-                                </SwiperSlide>
-                            ))}
+                            {data.map((item, index) => {
+                                const isActive = activeIndex === index;
+                                return (
+                                    <SwiperSlide key={index}>
+                                        <div
+                                            style={{
+                                                transform: `scale(${isActive ? 1.05 : 0.95})`,
+                                                opacity: isActive ? 1 : 0.6,
+                                                transition:
+                                                    "transform 300ms ease-out, opacity 300ms ease-out",
+                                                willChange: "transform, opacity",
+                                            }}
+                                            className="z-10"
+                                        >
+                                            <Card index={index} data={item} />
+                                        </div>
+                                    </SwiperSlide>
+                                );
+                            })}
                         </Swiper>
                     </motion.section>
                 </div>

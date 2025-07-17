@@ -32,7 +32,7 @@ export default function RankingTwo() {
     return (
         <section
             ref={ref}
-            className="min-h-screen font-hubot pt-20 pb-10 flex flex-col items-center justify-center w-full px-4 sm:px-6 md:px-8 bg-black"
+            className="min-h-screen snap-start font-hubot pt-10 sm:pt-20 pb-10 flex flex-col items-center justify-center w-full px-4 sm:px-6 md:px-8 bg-black"
         >
             <motion.div
                 variants={containerVariants}

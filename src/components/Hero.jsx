@@ -4,6 +4,7 @@ import HeroVector from "../assets/bg-vector.svg";
 import tshirt from "../assets/jersey_home.svg";
 import appicon from "../assets/App-Icon.svg";
 import MotionsFade from "../common/Motions";
+import Navbar from "./Navbar";
 
 export default function Hero() {
     const bgRef = useRef(null);
@@ -23,7 +24,8 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="bg-black font-hubot overflow-hidden">
+        <div className="bg-black snap-start font-hubot overflow-hidden">
+            <Navbar />
             <Container>
                 <div
                     className="

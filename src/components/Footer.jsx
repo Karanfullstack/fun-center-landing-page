@@ -31,13 +31,13 @@ function Footer() {
     return (
         <footer
             ref={ref}
-            className="w-full min-h-screen bg-[#232323] font-hubot flex justify-end items-end"
+            className="w-full snap-start min-h-screen bg-[#232323] font-hubot flex justify-end items-end"
         >
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="relative w-full max-w-[1360px] m-auto min-h-[587px] px-4 sm:px-6 md:px-8 py-10 flex flex-col gap-10"
+                className="relative w-full max-w-[1360px] m-auto min-h-screen px-4 sm:px-6 md:px-8 py-10 flex flex-col gap-10"
             >
                 {/* Background Vector */}
                 <div

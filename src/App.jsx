@@ -10,9 +10,9 @@ import CustomCursor from "./common/CursorEffect";
 
 function App() {
     return (
-        <div className="w-full h-full ">
+        <div className="w-full h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth scrollbar-hide ">
             <CustomCursor />
-            <Navbar />
+            {/* <Navbar /> */}
             <Hero />
             <Frame />
             <Slides />

@@ -22,10 +22,10 @@ export default function Ranking() {
             initial={{ opacity: 0, transform: "translateY(40px)" }}
             animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="min-h-[90vh] bg-black flex gap-5 pt-20 pb-10 flex-col justify-center items-center w-full font-hubot"
+            className="min-h-screen relative bg-black flex gap-5 pt-20 pb-10 flex-col justify-center items-center w-full font-hubot"
         >
             <Container>
-                <div className="flex flex-col gap-12 justify-center items-center px-4 sm:px-0">
+                <div className="flex pt-14  snap-start flex-col gap-12 justify-center items-center px-4 sm:px-0">
                     {/* Title */}
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
