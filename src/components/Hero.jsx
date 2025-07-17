@@ -83,7 +83,7 @@ export default function Hero() {
                                 w-[95vw] sm:w-fit 
                                 flex items-center gap-2 
                                 h-[12vw] sm:h-[64px] max-h-[64px] 
-                                overflow-hidden whitespace-nowrap rounded-md
+                                overflow-hidden whitespace-nowrap 
                             "
                         >
                             <img
