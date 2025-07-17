@@ -29,7 +29,7 @@ const data = [
 export default function Slides() {
     const swiperRef = useRef(null);
     const sectionRef = useRef(null);
-    const inView = useInView(sectionRef, { amount: 0.75, once: true });
+    const inView = useInView(sectionRef, { amount: 0.1, once: true });
 
     const defaultIndex = Math.floor(data.length / 2);
     const [activeIndex, setActiveIndex] = useState(defaultIndex);
