@@ -1,9 +1,11 @@
 import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { motion, useInView } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/navigation";
+
 import Container from "./Container";
 import arrow from "../assets/chevron-left.svg";
 import Card from "./Card";
@@ -26,12 +28,15 @@ const data = [
 
 export default function Slides() {
     const swiperRef = useRef(null);
+    const sectionRef = useRef(null);
+    const inView = useInView(sectionRef, { amount: 0.75, once: true });
+
     const defaultIndex = Math.floor(data.length / 2);
     const [activeIndex, setActiveIndex] = useState(defaultIndex);
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
     const handleSlideChange = (swiper) => {
-        setActiveIndex(swiper.realIndex); // realIndex avoids duplicate on loop
+        setActiveIndex(swiper.realIndex);
     };
 
     const handlePrev = () => {
@@ -63,7 +68,7 @@ export default function Slides() {
                         <div className="w-[92px] flex gap-1 items-center justify-between h-[48px] rounded-md shadow-sm bg-[#121212]">
                             <button
                                 onClick={handlePrev}
-                                className={`w-1/2 flex  items-center justify-center h-full transition-colors ${
+                                className={`w-1/2 flex items-center justify-center h-full transition-colors ${
                                     activeIndex === 0
                                         ? "bg-[#232323] cursor-not-allowed"
                                         : "bg-[#DBFD01] cursor-pointer"
@@ -84,8 +89,14 @@ export default function Slides() {
                         </div>
                     </div>
 
-                    {/* Swiper */}
-                    <section className="flex-grow mt-10 px-4 flex items-center">
+                    {/* Animate whole section on scroll into view */}
+                    <motion.section
+                        ref={sectionRef}
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="flex-grow mt-10 px-4 flex items-center"
+                    >
                         <Swiper
                             modules={[Navigation]}
                             spaceBetween={16}
@@ -102,7 +113,6 @@ export default function Slides() {
                             {data.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <div
-                                        style={{ willChange: "transform, opacity" }}
                                         className={`transition-all duration-300 ease-out ${
                                             activeIndex === index
                                                 ? "scale-105 opacity-100 z-10"
@@ -114,7 +124,7 @@ export default function Slides() {
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-                    </section>
+                    </motion.section>
                 </div>
             </Container>
         </div>
