@@ -1,0 +1,11 @@
+@media screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .ranking-section {
+        gap: 1rem !important;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .ranking-small-cards {
+        margin-top: 1rem !important;
+    }
+}

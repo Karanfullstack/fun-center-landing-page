@@ -97,7 +97,7 @@ function Footer() {
             >
                 <p>© FOOVA 2025</p>
 
-                <nav className="flex flex-col sm:flex-row items-center gap-3">
+                <nav className="flex flex-col sm:flex-row  items-center gap-3">
                     <Link to="polityka-prytwatności" className="hover:underline">
                         Polityka Prytwatności
                     </Link>
