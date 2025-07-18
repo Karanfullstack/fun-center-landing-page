@@ -3,7 +3,7 @@ import logo from "../assets/Vector.svg";
 export default function Navbar() {
     return (
         <header>
-            <nav className="w-full font-hubot h-[88px] flex items-center justify-between px-4 md:px-6 bg-black">
+            <nav className="w-full font-hubot   h-[10vh] flex items-center justify-between  md:px-6 bg-black">
                 <div className="flex items-center h-10 md:h-12">
                     <img
                         src={logo}

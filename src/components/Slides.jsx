@@ -33,7 +33,6 @@ export default function Slides() {
 
     const defaultIndex = Math.floor(data.length / 2);
     const [activeIndex, setActiveIndex] = useState(defaultIndex);
-    const [isMobile, setIsMobile] = useState(false);
 
     // Dynamically set CSS variable --vh for correct viewport height on iPhones (fixes 100vh issue)
     useEffect(() => {
@@ -44,15 +43,6 @@ export default function Slides() {
         setVh();
         window.addEventListener("resize", setVh);
         return () => window.removeEventListener("resize", setVh);
-    }, []);
-
-    useEffect(() => {
-        const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
     const handleSlideChange = (swiper) => {
@@ -76,19 +66,19 @@ export default function Slides() {
 
     return (
         <div
-            className="w-full font-hubot snap-start font-[800] px-5 bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            className="w-full font-hubot snap-start   font-[800] px-5 bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
-            <Container size="1250px" className="flex flex-col h-full">
-                <div className="flex flex-col h-full">
+            <Container size="1250px" className="flex  flex-col items-start  h-full">
+                <div className="  flex flex-col h-full">
                     {/* Header */}
-                    <div className="h-[48px] flex gap-2 justify-between items-center pt-4 px-4 sm:px-8">
-                        <span className="text-white text-md font-normal">
+                    <div className="h-[48px]   flex gap-2  justify-between items-center -mt-10  px-4 sm:px-8">
+                        <span className="text-white text-sm sm:text-base lg:text-md font-normal">
                             Predykcje, ciekawostki i Wy, Eksperci:
                         </span>
 
                         {/* Arrows */}
-                        <div className="w-[92px] flex gap-1 items-center justify-between h-[48px] rounded-md shadow-sm bg-[#121212]">
+                        <div className="w-[80px] sm:w-[92px] flex gap-1 items-center justify-between h-[40px] sm:h-[48px] rounded-md shadow-sm bg-[#121212]">
                             <button
                                 onClick={handlePrev}
                                 className={`w-1/2 flex items-center justify-center h-full transition-colors ${
@@ -96,8 +86,10 @@ export default function Slides() {
                                         ? "bg-[#232323] cursor-not-allowed"
                                         : "bg-[#DBFD01] cursor-pointer"
                                 }`}
+                                aria-label="Previous slide"
+                                disabled={activeIndex === 0}
                             >
-                                <img src={arrow} alt="leftArrow" />
+                                <img src={arrow} alt="left arrow" />
                             </button>
                             <button
                                 onClick={handleNext}
@@ -106,8 +98,10 @@ export default function Slides() {
                                         ? "bg-[#232323] cursor-not-allowed"
                                         : "bg-[#DBFD01] cursor-pointer"
                                 }`}
+                                aria-label="Next slide"
+                                disabled={activeIndex >= data.length - 1}
                             >
-                                <img className="rotate-180" src={arrow} alt="rightArrow" />
+                                <img className="rotate-180" src={arrow} alt="right arrow" />
                             </button>
                         </div>
                     </div>
@@ -118,16 +112,21 @@ export default function Slides() {
                         initial={{ opacity: 0, y: 80 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex-grow mt-10 px-4 flex items-center "
+                        className="flex-grow mt-6 px-2 sm:px-4 flex items-center overflow-visible"
                     >
                         <Swiper
                             modules={[Navigation]}
                             spaceBetween={16}
-                            slidesPerView={isMobile ? 1.2 : 3}
                             centeredSlides={true}
                             loop={false}
                             speed={500}
-                            style={{ height: "auto", minHeight: "70vh" }}
+                            breakpoints={{
+                                0: { slidesPerView: 1.2 },
+                                640: { slidesPerView: 1.5 },
+                                768: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 },
+                            }}
+                            style={{ height: "auto" }}
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                             }}

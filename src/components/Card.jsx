@@ -2,7 +2,7 @@ import CardVector from "../assets/Card-Vector.svg";
 
 export default function Card({ data }) {
     return (
-        <div className="relative bg-[#232323] w-full max-w-md overflow-hidden rounded-md">
+        <div className="relative bg-[#232323]  w-full max-w-md overflow-hidden rounded-md">
             {/* Background image wrapper */}
             <div
                 className="
@@ -35,7 +35,7 @@ export default function Card({ data }) {
                     <img
                         src={data.img}
                         alt="screenshot"
-                        className="max-w-[90%] h-auto object-contain"
+                        className="max-w-full h-auto sm:h-[50vh] object-contain"
                         loading="lazy"
                         style={{ maxHeight: "100%" }}
                     />
