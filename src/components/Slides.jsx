@@ -118,8 +118,9 @@ export default function Slides() {
                             modules={[Navigation]}
                             spaceBetween={16}
                             centeredSlides={true}
-                            loop={false}
-                            speed={500}
+                            centeredSlidesBounds={true}
+                            loop={true}
+                            speed={400}
                             breakpoints={{
                                 0: { slidesPerView: 1.2 },
                                 640: { slidesPerView: 1.5 },
@@ -130,6 +131,7 @@ export default function Slides() {
                             onSwiper={(swiper) => {
                                 swiperRef.current = swiper;
                             }}
+                            slidesPerView={1.2}
                             initialSlide={defaultIndex}
                             onSlideChange={handleSlideChange}
                         >
@@ -137,18 +139,20 @@ export default function Slides() {
                                 const isActive = activeIndex === index;
                                 return (
                                     <SwiperSlide key={index}>
-                                        <div
-                                            style={{
-                                                transform: `scale(${isActive ? 1.05 : 0.95})`,
-                                                opacity: isActive ? 1 : 0.6,
-                                                transition:
-                                                    "transform 300ms ease-out, opacity 300ms ease-out",
-                                                willChange: "transform, opacity",
-                                            }}
-                                            className="z-10"
-                                        >
-                                            <Card index={index} data={item} />
-                                        </div>
+                                        {({ isActive }) => (
+                                            <div
+                                                style={{
+                                                    transform: `scale(${isActive ? 1.05 : 0.95})`,
+                                                    opacity: isActive ? 1 : 0.6,
+                                                    transition:
+                                                        "transform 300ms ease-out, opacity 300ms ease-out",
+                                                    willChange: "transform, opacity",
+                                                }}
+                                                className="z-10"
+                                            >
+                                                <Card index={index} data={item} />
+                                            </div>
+                                        )}
                                     </SwiperSlide>
                                 );
                             })}

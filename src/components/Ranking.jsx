@@ -5,6 +5,7 @@ import Container from "./Container";
 import FrameOne from "../assets/Frame.svg";
 import FrameTwo from "../assets/Frame2.svg";
 import FramThree from "../assets/Frame3.svg";
+import "../styles/ranking.module.css";
 
 const frames = [
     { image: FrameOne },
@@ -16,7 +17,6 @@ export default function Ranking() {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { amount: 0.15, once: true });
 
-    // Ensure --vh variable is set (in case not handled globally)
     useEffect(() => {
         const setVH = () => {
             document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
@@ -32,46 +32,42 @@ export default function Ranking() {
             initial={{ opacity: 0, transform: "translateY(40px)" }}
             animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            style={{ minHeight: "calc(var(--vh, 1vh) * 100)" }}
-            className="relative bg-black mt-10 flex gap-2 pt-10 pb-10 flex-col justify-center items-center w-full font-hubot"
+            viewport={{ once: true, amount: 0.4 }}
+            className="ranking-container  min-h-screen snap-start relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
         >
             <Container>
                 <div className="flex relative pt-14 sm:pt-20 snap-start flex-col gap-10 justify-center items-center px-4 sm:px-0">
-                    {/* Title */}
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-                        className="text-3xl font-hubot sm:text-5xl font-bold text-white text-center leading-tight"
+                        className="ranking-title text-3xl font-hubot sm:text-5xl font-bold text-white text-center leading-tight"
                     >
                         Wygraj niesamowite nagrody
                     </motion.h2>
 
-                    {/* Button */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
                         className="-mt-4"
                     >
-                        <button className="bg-[#DBFD01] py-[8px] text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[40px] w-[140px] min-w-[120px] fill-transparent">
+                        <button className="ranking-button bg-[#DBFD01] py-[8px] text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[40px] w-[140px] min-w-[120px] fill-transparent">
                             pobierz apkę
                         </button>
                     </motion.div>
 
-                    {/* Subtitle */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
                     >
-                        <h2 className="text-2xl sm:text-3xl font-hubot font-bold text-white text-center">
+                        <h2 className="ranking-subtitle text-2xl sm:text-3xl font-hubot font-bold text-white text-center">
                             Ranking miesięczny
                         </h2>
                     </motion.div>
 
-                    {/* Frames */}
-                    <div className="flex relative justify-center mt-4 w-full items-end gap-0">
+                    <div className="ranking-frames flex relative justify-center mt-4 w-full items-end gap-0">
                         {frames.map((frame, index) => (
                             <motion.img
                                 key={index}
@@ -95,12 +91,11 @@ export default function Ranking() {
                         ))}
                     </div>
 
-                    {/* SmallCards */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
-                        className="mt-8 sm:mt-24 w-full"
+                        className=" sm:mt-24 mb-4 ranking-cards w-full"
                     >
                         <SmallCards />
                     </motion.div>
