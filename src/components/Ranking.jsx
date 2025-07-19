@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import SmallCards from "./SmallCards";
 import Container from "./Container";
@@ -16,16 +16,27 @@ export default function Ranking() {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { amount: 0.15, once: true });
 
+    // Ensure --vh variable is set (in case not handled globally)
+    useEffect(() => {
+        const setVH = () => {
+            document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+        };
+        setVH();
+        window.addEventListener("resize", setVH);
+        return () => window.removeEventListener("resize", setVH);
+    }, []);
+
     return (
         <motion.div
             ref={sectionRef}
             initial={{ opacity: 0, transform: "translateY(40px)" }}
             animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="min-h-screen relative bg-black mt-10  flex gap-2 pt-10 pb-10 flex-col justify-center items-center w-full font-hubot"
+            style={{ minHeight: "calc(var(--vh, 1vh) * 100)" }}
+            className="relative bg-black mt-10 flex gap-2 pt-10 pb-10 flex-col justify-center items-center w-full font-hubot"
         >
             <Container>
-                <div className="flex pt-14  snap-start flex-col gap-10 justify-center items-center px-4 sm:px-0">
+                <div className="flex relative pt-14 sm:pt-20 snap-start flex-col gap-10 justify-center items-center px-4 sm:px-0">
                     {/* Title */}
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -60,7 +71,7 @@ export default function Ranking() {
                     </motion.div>
 
                     {/* Frames */}
-                    <div className="flex relative justify-center mt-4 w-full items-end gap-3">
+                    <div className="flex relative justify-center mt-4 w-full items-end gap-0">
                         {frames.map((frame, index) => (
                             <motion.img
                                 key={index}
@@ -83,12 +94,13 @@ export default function Ranking() {
                             />
                         ))}
                     </div>
+
                     {/* SmallCards */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
-                        className="mt-8 sm:mt-24  w-full"
+                        className="mt-8 sm:mt-24 w-full"
                     >
                         <SmallCards />
                     </motion.div>
