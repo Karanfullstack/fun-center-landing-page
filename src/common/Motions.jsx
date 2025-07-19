@@ -3,7 +3,8 @@ import { motion, useMotionValue, useTransform } from "motion/react";
 
 export default function MotionsFade({ children, className = "", delay = 0.1 }) {
     return (
-        <motion.div  className={className}
+        <motion.div
+            className={className}
             initial={{
                 opacity: 0,
                 y: 60,

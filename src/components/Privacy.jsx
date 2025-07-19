@@ -1,13 +1,13 @@
 // src/pages/PrivacyPolicy.jsx
-import React from "react";
+
 import logo from "../assets/App-Icon.svg";
 
 const PrivacyPolicy = () => {
     return (
-        <div className="bg-black text-white min-h-screen px-4 py-8 font-hubspot">
+        <div className="bg-black text-white  min-h-screen px-4 py-10 font-hubspot">
             <div className="max-w-5xl mx-auto">
                 <div className="text-center mb-8">
-                    <img src={logo} alt="Foova Logo" className="mx-auto w-40" />
+                    <img src={logo} alt="Foova Logo" className=" m-auto w-28 sm:-w-40" />
                     <h1 className="text-3xl mt-4 font-bold">Polityka Prywatności</h1>
                     <p className="text-sm text-gray-400 mt-2">
                         Data wprowadzenia aktualnej polityki: 15.07.2025
