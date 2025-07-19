@@ -11,3 +11,17 @@
         margin-bottom: 80px !important;
     }
 }
+
+/* for hero section in safari browser absolute bottom positoin  */
+@media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+        /* Safari-only override */
+        /* safari:bottom-6 */
+        .safari\:bottom-6 {
+            bottom: 10px !important; /* Tailwind's bottom-6 = 1.5rem */
+        }
+        .safari\:m-top-6 {
+            margin-top: 10px !important ;
+        }
+    }
+}

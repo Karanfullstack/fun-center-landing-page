@@ -5,9 +5,20 @@ import tshirt from "../assets/jersey_home.svg";
 import appicon from "../assets/App-Icon.svg";
 import MotionsFade from "../common/Motions";
 import Navbar from "./Navbar";
+import "../styles/hero.module.css";
 
 export default function Hero() {
     const bgRef = useRef(null);
+
+    // Fix for mobile viewport height inconsistency
+    useEffect(() => {
+        const setVH = () => {
+            document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+        };
+        setVH();
+        window.addEventListener("resize", setVH);
+        return () => window.removeEventListener("resize", setVH);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -24,15 +35,18 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className="bg-black  px-3 snap-start font-hubot overflow-hidden min-h-screen relative">
+        <div className="bg-black px-3 snap-start font-hubot overflow-hidden min-h-screen relative">
             <Navbar />
 
             <Container>
-                <div className="relative  flex flex-col px-2 sm:px-0 pt-6 sm:min-h-[calc(100vh-88px)] pb-32 min-h-[calc(100vh-150px)]">
+                <div
+                    className="relative flex flex-col px-2 sm:px-0 pt-6 pb-32"
+                    style={{ minHeight: "calc(var(--vh, 1vh) * 100 - 88px)" }}
+                >
                     {/* Background Vector */}
                     <div
                         ref={bgRef}
-                        className="absolute top-3 left-0 right-0 h-[75vh] bg-no-repeat bg-contain bg-top transition-transform duration-75  ease-out will-change-transform pointer-events-none"
+                        className="absolute top-3 left-0 right-0 h-[75vh] bg-no-repeat bg-contain bg-top transition-transform duration-75 ease-out will-change-transform pointer-events-none"
                         style={{
                             backgroundImage: `url(${HeroVector})`,
                         }}
@@ -57,44 +71,28 @@ export default function Hero() {
                         </MotionsFade>
 
                         <MotionsFade delay={0.4}>
-                            <h1 className="text-3xl sm:text-[65px]  lg:text-[50px] font-bold leading-tight text-center mt-4">
+                            <h1 className="text-3xl sm:text-[65px] lg:text-[50px] font-bold leading-tight text-center mt-4">
                                 Udowodnij, że wiesz więcej
                                 <br />
                                 niż reszta i zgarnij nagrody!
                             </h1>
                         </MotionsFade>
                     </div>
+
                     {/* CTA Button - Fixed at bottom */}
-                    <MotionsFade delay={0.4} className="absolute bottom-2 left-0 w-full  px-4 ">
-                        <div
-                            className="
-                    "
-                        >
-                            <div
-                                className="bg-[#232323] 
-    w-full sm:w-fit 
-    mx-auto 
-    flex items-center 
-    gap-3 sm:gap-4 
-    h-[12vh] max-h-[64px] min-h-[48px] 
-    px-1 sm:px-1 
-    shadow-lg "
-                            >
-                                <img
-                                    src={appicon}
-                                    alt="app icon"
-                                    className="h-full p-2 aspect-square w-auto flex-shrink-0 object-contain"
-                                />
-                                <span
-                                    className="text-white 
-      text-[3.5vw] sm:text-sm md:text-base 
-      font-hubot  text-left pr-2
-      leading-tight 
-      break-words w-full"
-                                >
-                                    Pobierz apkę FOOVA FC i pokaż kto tu rządzi.
-                                </span>
-                            </div>
+                    <MotionsFade
+                        delay={0.4}
+                        className="absolute bottom-4 safari:bottom-6 left-0 w-full px-4"
+                    >
+                        <div className="bg-[#232323] w-full sm:w-fit mx-auto flex items-center gap-3 sm:gap-4 h-[60px] max-h-[64px] min-h-[48px] px-1 sm:px-1 shadow-lg">
+                            <img
+                                src={appicon}
+                                alt="app icon"
+                                className="h-full p-2 aspect-square w-auto flex-shrink-0 object-contain"
+                            />
+                            <span className="text-white text-[3.5vw] sm:text-sm md:text-base font-hubot text-left pr-2 leading-tight break-words w-full">
+                                Pobierz apkę FOOVA FC i pokaż kto tu rządzi.
+                            </span>
                         </div>
                     </MotionsFade>
                 </div>

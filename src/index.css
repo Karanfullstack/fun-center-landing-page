@@ -21,3 +21,7 @@ body {
 body.iphone-bottom-fix .iphone\:mb-\[60px\] {
     margin-bottom: 60px !important;
 }
+
+:root {
+    --vh: 1vh;
+}
