@@ -26,7 +26,7 @@ function Footer() {
     return (
         <footer
             ref={ref}
-            className="w-full snap-start min-h-screen bg-[#232323] font-hubot flex flex-col"
+            className="w-full snap-start h-[100vh] bg-[#232323]   font-hubot flex flex-col"
         >
             <motion.div
                 variants={containerVariants}
@@ -93,7 +93,7 @@ function Footer() {
             {/* Bottom Bar at footer bottom - no fixed */}
             <motion.div
                 variants={itemVariants}
-                className="w-full py-16  sm:py-4 border-t border-gray-600 text-[#D1D1D1] font-hubot flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-[14px] sm:text-[16px] z-10 max-w-[1360px] m-auto px-4 sm:px-6 md:px-8"
+                className="w-full pb-20  pt-4   sm:py-4 border-t border-gray-600 text-[#D1D1D1] font-hubot flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-[14px] sm:text-[16px] z-10 max-w-[1360px] m-auto px-4 sm:px-6 md:px-8"
             >
                 <p>© FOOVA 2025</p>
 
