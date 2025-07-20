@@ -26,7 +26,7 @@ function Footer() {
     return (
         <footer
             ref={ref}
-            className="w-full snap-start h-[100vh] bg-[#232323]   font-hubot flex flex-col"
+            className="w-full snap-start h-screen bg-[#232323]   font-hubot flex flex-col"
         >
             <motion.div
                 variants={containerVariants}
