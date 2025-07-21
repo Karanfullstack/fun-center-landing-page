@@ -18,23 +18,24 @@ const containerVariants = {
 };
 
 const itemVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95, rotateZ: -3 },
+    hidden: { opacity: 0, y: 50, scale: 0.9, rotateZ: 0 },
     visible: {
         opacity: 1,
-        y: 0,
+        y: -10,
         scale: 1,
         rotateZ: 0,
+
         transition: { duration: 0.6, ease: "easeOut" },
     },
 };
 
 const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 20 },
+    hidden: { opacity: 0, scale: 0.8, y: 0 },
     visible: {
         opacity: 1,
         scale: 1,
         y: 0,
-        
+
         transition: { duration: 0.6, ease: "easeOut" },
     },
 };

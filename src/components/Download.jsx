@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 import SZEF from "../assets/Layer_1.svg";
 import DownloadsIcon from "../assets/Stores.svg";
@@ -8,7 +8,6 @@ import Cup from "../assets/puchar.svg";
 import Glasses from "../assets/okularki.svg";
 import FootBall from "../assets/pilka.svg";
 
-// Animation Variants
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -35,6 +34,27 @@ export default function Download() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+    // Controls only for SZEF figure
+    const szefControls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            // Animate SZEF entrance first
+            szefControls.start("visible").then(() => {
+                // Then start infinite bounce loop
+                szefControls.start({
+                    y: [0, -10, 0],
+                    scale: [1, 1.05, 1],
+                    transition: {
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    },
+                });
+            });
+        }
+    }, [isInView, szefControls]);
+
     return (
         <section
             ref={ref}
@@ -47,8 +67,11 @@ export default function Download() {
                 animate={isInView ? "visible" : "hidden"}
                 className="relative flex h-full w-full flex-col items-center justify-center gap-5 px-4 text-center"
             >
+                {/* SZEF figure with custom controls for bounce */}
                 <motion.figure
                     variants={itemVariants}
+                    initial="hidden"
+                    animate={szefControls}
                     className="max-w-[200px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
                 >
                     <img
@@ -58,10 +81,11 @@ export default function Download() {
                     />
                 </motion.figure>
 
+                {/* Other content just uses variants for simple fade/slide */}
                 <motion.h2
                     variants={itemVariants}
-                    id="download-heading"
                     className="text-2xl sm:text-5xl md:text-[64px] font-hubot font-bold text-white leading-tight"
+                    id="download-heading"
                 >
                     Dawaj do gry!
                 </motion.h2>
@@ -87,43 +111,28 @@ export default function Download() {
                 {/* Decorative icons */}
                 <motion.img
                     variants={itemVariants}
-                    className="absolute
-                                -top-10 left-2 w-16 h-auto object-contain
-                                sm:top-8 sm:left-8 sm:w-16
-                                md:-top-16 md:left-56 md:w-28"
+                    className="absolute -top-10 left-2 w-16 h-auto object-contain sm:top-8 sm:left-8 sm:w-16 md:-top-16 md:left-56 md:w-28"
                     src={LeftTopIcon}
                     alt=""
                     aria-hidden="true"
                 />
-
                 <motion.img
                     variants={itemVariants}
-                    className="absolute
-                                bottom-30 left-2 w-16 h-auto object-contain
-                                sm:bottom-8 sm:left-8 sm:w-16
-                                md:bottom-32 md:left-12 md:w-28"
+                    className="absolute bottom-30 left-2 w-16 h-auto object-contain sm:bottom-8 sm:left-8 sm:w-16 md:bottom-32 md:left-12 md:w-28"
                     src={FootBall}
                     alt=""
                     aria-hidden="true"
                 />
-
                 <motion.img
                     variants={itemVariants}
-                    className="absolute
-                                top-2 right-2 w-16 h-auto object-contain
-                                sm:top-8 sm:right-8 sm:w-20
-                                md:-top-0 md:right-56 md:w-28"
+                    className="absolute top-2 right-2 w-16 h-auto object-contain sm:top-8 sm:right-8 sm:w-20 md:-top-0 md:right-56 md:w-28"
                     src={Cup}
                     alt=""
                     aria-hidden="true"
                 />
-
                 <motion.img
                     variants={itemVariants}
-                    className="absolute
-                                top-200 right-4 w-16 h-auto object-contain
-                                sm:top-50 sm:right-8 sm:w-16
-                                md:top-[20.25rem] md:right-14 md:w-28"
+                    className="absolute top-200 right-4 w-16 h-auto object-contain sm:top-50 sm:right-8 sm:w-16 md:top-[20.25rem] md:right-14 md:w-28"
                     src={Glasses}
                     alt=""
                     aria-hidden="true"

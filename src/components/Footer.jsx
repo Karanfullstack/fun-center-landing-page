@@ -1,8 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import Tshirt from "../assets/welcome-i.svg";
+import TshirtBack from "../assets/jersey-back.png";
 import Vector from "../assets/FOOVA.svg";
 
 const containerVariants = {
@@ -22,18 +23,49 @@ const itemVariants = {
 function Footer() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const [flipped, setFlipped] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setFlipped((prev) => !prev);
+        }, 3000); // Flip every 4 seconds
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <footer
             ref={ref}
-            className="w-full snap-start h-screen bg-[#232323]   font-hubot flex flex-col"
+            className="
+                w-full
+                min-h-screen
+                h-[100svh]
+                snap-start
+                bg-[#232323]
+                font-hubot
+                flex flex-col
+                relative
+                overflow-y-auto
+            "
         >
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                // flex-grow so content pushes bottom bar down
-                className="relative w-full max-w-[1360px] m-auto px-4 sm:px-6 md:px-8 flex flex-col flex-grow py-10 gap-10"
+                className="
+                    relative
+                    w-full
+                    max-w-[1360px]
+                    mx-auto
+                    flex-1
+                    flex
+                    flex-col
+                    justify-center
+                    items-center
+                    px-4 sm:px-6 md:px-8
+                    py-6 sm:py-10
+                    gap-6
+                    z-10
+                "
             >
                 {/* Background Vector */}
                 <div
@@ -41,44 +73,56 @@ function Footer() {
                     style={{ backgroundImage: `url(${Vector})` }}
                 />
 
-                {/* Content Area */}
-                <div className="flex flex-col gap-5 z-10">
-                    {/* Top Banner Section */}
+                {/* Content */}
+                <div className="flex flex-col md:items-start items-center gap-5 w-full z-10">
+                    {/* Banner */}
                     <motion.div
                         variants={itemVariants}
-                        className="w-full max-w-[480px] h-[65px] bg-[#343434] flex justify-between items-center overflow-hidden shadow-lg"
+                        className="w-full max-w-[480px] h-[55px] sm:h-[65px] bg-[#343434] flex items-center gap-3 justify-start shadow-lg"
                     >
-                        <p className="text-[#1A1A1A] font-hubot px-2 bg-[#DBFD01] h-full flex items-center justify-center font-bold text-[16px] sm:text-[20px] md:text-[28px]">
+                        <p className="text-[#1A1A1A] bg-[#DBFD01] h-full flex items-center justify-center font-bold px-3 text-[clamp(14px,2.5vw,20px)] leading-none m-0 flex-shrink-0">
                             W 1 dzień
                         </p>
-                        <p className="text-white font-hubot text-[15px] sm:text-[18px] md:text-[20px] pr-6 h-full flex items-center">
+                        <p className="text-white text-[clamp(14px,2vw,18px)] leading-none m-0 flex-shrink-0">
                             Wdrożenie na Twoich kanałach!
                         </p>
                     </motion.div>
 
-                    {/* Heading + Tshirt */}
                     <motion.div
                         variants={itemVariants}
                         className="w-full flex flex-col md:flex-row justify-between items-center gap-6"
                     >
-                        <div className="font-hubot text-white text-[6vw] sm:text-[48px] md:text-[64px] font-bold leading-tight text-center md:text-left">
+                        <div className="text-white font-bold leading-tight text-center md:text-left text-[clamp(28px,6vw,64px)]">
                             <p>Chcesz zostać</p>
                             <p>Partnerem Foova FC?</p>
                         </div>
-                        <img
-                            src={Tshirt}
-                            alt="tshirt"
-                            className="max-w-[180px] sm:max-w-[200px] md:max-w-[250px] w-full h-auto"
-                        />
+
+                        <div className="relative w-[clamp(200px,60vw,320px)] sm:w-[clamp(200px,50vw,400px)] h-auto perspective-1000">
+                            <div
+                                className={`transition-transform duration-1000 transform-style-preserve-3d ${
+                                    flipped ? "rotateY-180" : ""
+                                }`}
+                            >
+                                <img
+                                    src={Tshirt}
+                                    alt="tshirt front"
+                                    className="w-full h-auto backface-hidden"
+                                />
+                                <img
+                                    src={TshirtBack}
+                                    alt="tshirt back"
+                                    className="w-full h-auto backface-hidden absolute top-0 left-0 rotateY-180"
+                                />
+                            </div>
+                        </div>
                     </motion.div>
 
                     {/* Email */}
-                    <motion.div variants={itemVariants} className="z-10">
-                        <p className="text-white font-hubot text-[18px] sm:text-[20px] font-medium mb-1">
+                    <motion.div variants={itemVariants} className="z-10 text-center">
+                        <p className="text-white text-[clamp(14px,2vw,20px)] font-medium mb-1">
                             Napisz do nas:
                         </p>
-
-                        <p className="relative inline-block font-hubot text-white text-[30px] sm:text-[48px] md:text-[64px] font-bold">
+                        <p className="font-bold text-white text-[clamp(20px,5vw,48px)] break-words">
                             <a
                                 href="mailto:partners@foova.org"
                                 className="bg-[linear-gradient(to_top,_white_3px,_transparent_3px)] bg-no-repeat bg-[length:100%_3px] bg-bottom hover:bg-[length:0%_3px] transition-all duration-300"
@@ -90,18 +134,17 @@ function Footer() {
                 </div>
             </motion.div>
 
-            {/* Bottom Bar at footer bottom - no fixed */}
+            {/* Bottom Bar */}
             <motion.div
                 variants={itemVariants}
-                className="w-full pb-20  pt-4   sm:py-4 border-t border-gray-600 text-[#D1D1D1] font-hubot flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-[14px] sm:text-[16px] z-10 max-w-[1360px] m-auto px-4 sm:px-6 md:px-8"
+                className="w-full border-t border-gray-600 text-[#D1D1D1] text-[clamp(12px,1.5vw,16px)] py-2 sm:py-4 px-4 sm:px-6 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 z-10 max-w-[1360px] mx-auto"
             >
                 <p>© FOOVA 2025</p>
-
-                <nav className="flex flex-col sm:flex-row  items-center gap-3">
-                    <Link to="polityka-prytwatności" className="hover:underline">
+                <nav className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center">
+                    <Link to="/polityka-prytwatności" className="hover:underline">
                         Polityka Prytwatności
                     </Link>
-                    <Link to="regulamin" className="hover:underline">
+                    <Link to="/regulamin" className="hover:underline">
                         Regulamin
                     </Link>
                     <Link to="/informacje-Usunięciu-konta" className="hover:underline">

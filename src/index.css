@@ -6,6 +6,7 @@ html {
     scroll-behavior: smooth;
     --webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -26,4 +27,29 @@ body.iphone-bottom-fix .iphone\:mb-\[60px\] {
 
 :root {
     --vh: 1vh;
+}
+
+@media (max-width: 639px) {
+    footer {
+        height: var(--app-height);
+        max-height: var(--app-height);
+    }
+}
+
+@layer utilities {
+    .backface-hidden {
+        backface-visibility: hidden;
+    }
+
+    .rotateY-180 {
+        transform: rotateY(180deg);
+    }
+
+    .transform-style-preserve-3d {
+        transform-style: preserve-3d;
+    }
+
+    .perspective-1000 {
+        perspective: 1000px;
+    }
 }
