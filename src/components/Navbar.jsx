@@ -3,7 +3,7 @@ import Mobile from "../assets/mobileversionLogo.png";
 
 export default function Navbar() {
     return (
-        <header>
+        <header className="pt-2">
             <nav className="w-full font-hubot h-[10vh] flex items-center justify-between px-4 md:px-6 bg-black">
                 {/* Logo Wrapper */}
                 <div className="flex items-center h-10 md:h-12">
