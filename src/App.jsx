@@ -7,6 +7,7 @@ import Ranking from "./components/Ranking";
 import RankingTwo from "./components/RankingTwo";
 import Slides from "./components/Slides";
 import CustomCursor from "./common/CursorEffect";
+import { div } from "framer-motion/client";
 
 function App() {
     return (
@@ -19,7 +20,6 @@ function App() {
             <Ranking />
             <RankingTwo />
             <Download />
-
             <Footer />
         </div>
     );

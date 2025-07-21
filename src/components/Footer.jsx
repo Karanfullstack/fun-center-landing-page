@@ -28,44 +28,61 @@ function Footer() {
     useEffect(() => {
         const interval = setInterval(() => {
             setFlipped((prev) => !prev);
-        }, 2000); // Flip every 4 seconds
+        }, 2000);
         return () => clearInterval(interval);
+    }, []);
+
+    // Update --vh CSS variable on resize AND scroll for mobile viewport height fixes
+    useEffect(() => {
+        const setVh = () => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty("--vh", `${vh}px`);
+        };
+
+        setVh();
+
+        window.addEventListener("resize", setVh);
+        window.addEventListener("scroll", setVh);
+
+        return () => {
+            window.removeEventListener("resize", setVh);
+            window.removeEventListener("scroll", setVh);
+        };
     }, []);
 
     return (
         <footer
             ref={ref}
             className="
-                w-full
-                min-h-screen
-                h-[100svh]
-                snap-start
-                bg-[#232323]
-                font-hubot
-                flex flex-col
-                relative
-                overflow-y-auto
-            "
+        w-full
+        h-[calc(var(--vh,10vh)*100)]
+        snap-start
+        bg-[#232323]
+        font-hubot
+        flex flex-col
+        relative
+        overflow-hidden
+      "
         >
             <motion.div
                 variants={containerVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 className="
-                    relative
-                    w-full
-                    max-w-[1360px]
-                    mx-auto
-                    flex-1
-                    flex
-                    flex-col
-                    justify-center
-                    items-center
-                    px-4 sm:px-6 md:px-8
-                    py-6 sm:py-10
-                    gap-6
-                    z-10
-                "
+          relative
+          w-full
+          max-w-[1360px]
+          mx-auto
+          flex-1
+          flex
+          flex-col
+          justify-center
+          items-center
+          px-4 sm:px-6 md:px-8
+          py-6 sm:py-10
+          gap-6
+          z-10
+        "
             >
                 {/* Background Vector */}
                 <div
