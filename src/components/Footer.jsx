@@ -28,7 +28,7 @@ function Footer() {
     useEffect(() => {
         const interval = setInterval(() => {
             setFlipped((prev) => !prev);
-        }, 3000); // Flip every 4 seconds
+        }, 2000); // Flip every 4 seconds
         return () => clearInterval(interval);
     }, []);
 

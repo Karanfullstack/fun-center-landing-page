@@ -19,6 +19,14 @@ const containerVariants = {
             staggerChildren: 0.15,
         },
     },
+    exit: {
+        opacity: 0,
+        y: 50,
+        transition: {
+            duration: 0.6,
+            ease: "easeIn",
+        },
+    },
 };
 
 const itemVariants = {
@@ -32,7 +40,8 @@ const itemVariants = {
 
 export default function Download() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    // Remove 'once: true' so isInView updates every time section enters/leaves viewport
+    const isInView = useInView(ref, { margin: "-100px" });
 
     // Controls only for SZEF figure
     const szefControls = useAnimation();
@@ -52,6 +61,10 @@ export default function Download() {
                     },
                 });
             });
+        } else {
+            // Stop and reset animation when leaving viewport
+            szefControls.stop();
+            szefControls.set("hidden");
         }
     }, [isInView, szefControls]);
 
@@ -64,7 +77,7 @@ export default function Download() {
             <motion.article
                 variants={containerVariants}
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                animate={isInView ? "visible" : "exit"}
                 className="relative flex h-full w-full flex-col items-center justify-center gap-5 px-4 text-center"
             >
                 {/* SZEF figure with custom controls for bounce */}
@@ -72,7 +85,7 @@ export default function Download() {
                     variants={itemVariants}
                     initial="hidden"
                     animate={szefControls}
-                    className="max-w-[200px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
+                    className="max-w-[190px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
                 >
                     <img
                         src={SZEF}

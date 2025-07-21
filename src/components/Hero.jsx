@@ -112,7 +112,7 @@ export default function Hero() {
     useEffect(() => {
         const interval = setInterval(() => {
             setJerseyIndex((prev) => (prev + 1) % jerseys.length);
-        }, 3000);
+        }, 2000);
         return () => clearInterval(interval);
     }, []);
 
