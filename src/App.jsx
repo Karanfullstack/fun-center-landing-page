@@ -8,10 +8,10 @@ import RankingTwo from "./components/RankingTwo";
 import Slides from "./components/Slides";
 import CustomCursor from "./common/CursorEffect";
 import { div } from "framer-motion/client";
-
+// snap-y snap-mandatory
 function App() {
     return (
-        <div className="h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth scrollbar-hide ">
+        <div className="h-screen w-full overflow-y-scroll  scroll-smooth scrollbar-hide ">
             <CustomCursor />
             {/* <Navbar /> */}
             <Hero />

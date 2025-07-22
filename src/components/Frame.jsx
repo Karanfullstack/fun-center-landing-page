@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import groupFootbal from "../assets/Group.svg";
 
 const Container = ({ children }) => (
-    <div className="max-w-[1360px] mx-auto px-4 pt-0 pb-0 sm:px-6 lg:px-8">{children}</div>
+    <div className="max-w-[1100px] mx-auto px-4 pt-0 pb-0 sm:px-6 lg:px-8">{children}</div>
 );
 
 const containerVariants = {
@@ -54,13 +54,13 @@ const imageVariants = {
 
 export default function App() {
     return (
-        <div className="bg-black snap-start snap-y snap-mandatory font-hubot flex flex-col items-center min-h-[20vh] relative">
+        <div className="bg-black snap-start snap-y snap-mandatory font-hubot flex flex-col items-center min-h-screen relative">
             <Container>
                 <div className="min-h-[10vh] flex flex-col items-center pt-0">
                     {/* Content will appear in the sticky section below */}
                 </div>
 
-                <div className="relative min-h-[150vh] flex flex-col justify-center items-center pt-20">
+                <div className="relative  min-h-[20vh] flex flex-col justify-start items-center pt-20">
                     <motion.div
                         className="w-full p-3"
                         variants={containerVariants}
@@ -68,7 +68,7 @@ export default function App() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.4 }}
                     >
-                        <div className="flex relative min-h-[150vh] flex-col-reverse gap-5 justify-center items-center">
+                        <div className="flex  relative min-h-[100vh] flex-col-reverse gap-5 justify-center items-center">
                             {/* Subtitles rendered bottom to top for reversed animation */}
 
                             <motion.div
@@ -110,7 +110,7 @@ export default function App() {
                             {/* Football icon stays on top */}
 
                             <motion.div
-                                className="bg-white rounded-full mb-3 w-[80px] h-[80px] flex items-center justify-center overflow-hidden"
+                                className="bg-white sticky top-[5vh]  rounded-full mb-3 w-[80px] h-[80px] flex items-center justify-center overflow-hidden"
                                 variants={imageVariants}
                             >
                                 <img
