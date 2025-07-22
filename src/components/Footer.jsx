@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import Tshirt from "../assets/welcome-i.svg";
 import TshirtBack from "../assets/jersey-back.png";
 import Vector from "../assets/FOOVA.svg";
-
+import Lottie from "lottie-react";
+import JersePartner from "../assets/animation/lp-jersey-partner.json";
 const containerVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {
@@ -115,20 +116,12 @@ function Footer() {
                         </div>
 
                         <div className="relative w-[clamp(200px,60vw,320px)] sm:w-[clamp(200px,50vw,400px)] h-auto perspective-1000">
-                            <div
-                                className={`transition-transform duration-1000 transform-style-preserve-3d ${
-                                    flipped ? "rotateY-180" : ""
-                                }`}
-                            >
-                                <img
-                                    src={Tshirt}
-                                    alt="tshirt front"
+                            <div className="">
+                                <Lottie
+                                    animationData={JersePartner}
+                                    loop={true}
                                     className="w-full h-auto backface-hidden"
-                                />
-                                <img
-                                    src={TshirtBack}
-                                    alt="tshirt back"
-                                    className="w-full h-auto backface-hidden absolute top-0 left-0 rotateY-180"
+                                    autoplay={true}
                                 />
                             </div>
                         </div>

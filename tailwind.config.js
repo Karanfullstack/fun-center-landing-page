@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 import scrollHide from "tailwind-scrollbar-hide";
 import defaultTheme from "tailwindcss/defaultTheme";
+import aspectRation from "@tailwindcss/aspect-ratio";
 export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
@@ -15,5 +16,5 @@ export default {
         },
     },
 
-    plugins: [scrollHide],
+    plugins: [scrollHide, aspectRation],
 };

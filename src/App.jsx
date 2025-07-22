@@ -11,7 +11,7 @@ import { div } from "framer-motion/client";
 // snap-y snap-mandatory
 function App() {
     return (
-        <div className="h-screen w-full overflow-y-scroll  scroll-smooth scrollbar-hide ">
+        <div className="h-screen w-full max-w-[1400px] overflow-y-scroll  scroll-smooth scrollbar-hide ">
             <CustomCursor />
             {/* <Navbar /> */}
             <Hero />

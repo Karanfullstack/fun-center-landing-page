@@ -1,13 +1,13 @@
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
-
+import Lottie from "lottie-react";
 import SZEF from "../assets/Layer_1.svg";
 import DownloadsIcon from "../assets/Stores.svg";
 import LeftTopIcon from "../assets/stadion.svg";
 import Cup from "../assets/puchar.svg";
 import Glasses from "../assets/okularki.svg";
 import FootBall from "../assets/pilka.svg";
-
+import IPBOY from "../assets/animation/lp-boy.json";
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -87,10 +87,11 @@ export default function Download() {
                     animate={szefControls}
                     className="max-w-[190px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
                 >
-                    <img
-                        src={SZEF}
-                        alt="Postać Szefa aplikacji"
+                    <Lottie
+                        animationData={IPBOY}
+                        loop={true}
                         className="w-full h-auto object-contain"
+                        autoplay={true}
                     />
                 </motion.figure>
 

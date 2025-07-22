@@ -2,7 +2,7 @@ import CardVector from "../assets/Card-Vector.svg";
 
 export default function Card({ data }) {
     return (
-        <div className="relative bg-[#232323] w-full max-w-md overflow-hidden rounded-md">
+        <div className="relative bg-[#232323] sm:px-2 sm:pb-0 sm:p-[2rem] w-full max-w-md overflow-hidden">
             <div
                 className="
                     bg-cover bg-no-repeat w-full p-5 flex flex-col justify-between relative
@@ -11,11 +11,11 @@ export default function Card({ data }) {
                 style={{ backgroundImage: `url(${CardVector})` }}
             >
                 {/* Text */}
-                <div className="z-10">
+                <div className="z-10 sm:w-[373px] sm:leading-[125%]">
                     <p
                         className="
                         text-[#F6F6F6] text-start w-full py-3 font-hubot leading-tight 
-                        text-lg sm:text-xl md:text-3xl font-medium break-words
+                        text-lg sm:text-xl md:text-[1.75rem] font-[700] break-words
                     "
                     >
                         {data.text}
