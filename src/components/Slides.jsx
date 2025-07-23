@@ -72,10 +72,10 @@ export default function Slides() {
 
     return (
         <div
-            className="w-full font-hubot snap-start font-[800] px-5 bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            className="w-full items-center  font-hubot snap-start  font-[800] px-5 bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
-            <Container size="1250px" className="flex flex-col items-start h-full">
+            <div className="w-full m-auto ">
                 <div className="flex flex-col h-full">
                     {/* Header with arrows */}
                     <div className="h-[48px] flex gap-2 justify-between items-center -mt-10 px-4 sm:px-8">
@@ -156,7 +156,7 @@ export default function Slides() {
                         </Swiper>
                     </motion.section>
                 </div>
-            </Container>
+            </div>
         </div>
     );
 }

@@ -34,32 +34,35 @@ export default function SmallCards() {
     }, []);
 
     return (
-        <div className={`w-full md:-mt-20 mb-24  md:px-6 bg-black ${isIphone12Mini ? "pb-8" : ""}`}>
+        <div className={`w-full md:-mt-20 mb-24 m-auto   bg-black ${isIphone12Mini ? "pb-8" : ""}`}>
             <Swiper
                 modules={[Navigation, Autoplay]}
-                spaceBetween={12}
+                spaceBetween={5}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                slidesPerView={3} // default: 3 cards
                 breakpoints={{
-                    768: { slidesPerView: 7 }, // ≥768px: 7 cards
+                    0: { slidesPerView: 3 },
+                    640: { slidesPerView: 3 },
+                    768: { slidesPerView: 7 },
+                    1024: { slidesPerView: 7 },
                 }}
+                slidesPerView={1} // default: 3 cards
             >
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className="flex justify-center">
-                            <div className="w-[160px] h-[160px] aspect-square p-[16px] sm:p-[16px] bg-[#232323] shadow-md flex flex-col items-start">
+                            <div className="w-[170px] h-[170px] sm:w-[200px] aspect-square p-4 bg-[#232323] shadow-md flex flex-col items-start">
                                 <span className="font-hubot font-bold text-[20px] text-[#DBFD01]">
                                     {index + 1}.
                                 </span>
 
-                                <div className="mt-auto w-full">
+                                <div className="mt-auto w-full flex flex-col gap-2">
                                     <h2 className="text-white font-hubot font-bold text-[20px] sm:text-[24px] leading-tight">
                                         {item.price} zł
                                     </h2>
-                                    <p className="text-white text-[12px] sm:text-[14px] font-hubot line-clamp-2 font-medium leading-snug">
+                                    <p className="text-white text-[12px] sm:text-[14px] font-hubot font-medium leading-snug">
                                         {item.text}
                                     </p>
                                 </div>

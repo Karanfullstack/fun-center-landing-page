@@ -50,7 +50,7 @@ export default function App() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.4 }}
                     >
-                        <div className="flex relative min-h-[100vh] flex-col-reverse gap-5 justify-center items-center">
+                        <div className="flex relative min-h-[140vh] flex-col-reverse gap-5 justify-center items-center">
                             <motion.div
                                 className="w-full sticky top-[40vh] h-[60px] flex justify-center items-center"
                                 variants={itemVariants}

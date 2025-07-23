@@ -83,7 +83,7 @@ export default function Download() {
                 {/* SZEF figure with custom controls for bounce */}
                 <motion.figure
                     variants={itemVariants}
-                    initial="hidden"
+                    initial="hidden"zz
                     animate={szefControls}
                     className="max-w-[190px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
                 >

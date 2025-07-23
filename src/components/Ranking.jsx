@@ -33,10 +33,10 @@ export default function Ranking() {
             animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
             transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.4 }}
-            className="ranking-container  min-h-screen snap-start relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
+            className="ranking-container max-w-full m-auto  min-h-screen snap-start relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
         >
-            <Container>
-                <div className="flex relative pt-14 sm:pt-20 snap-start flex-col gap-10 justify-center items-center px-4 sm:px-0">
+            <section className="m-auto w-full">
+                <div className="flex relative pt-14 sm:pt-20 snap-start flex-col gap-10 justify-center items-center ">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -52,7 +52,7 @@ export default function Ranking() {
                         transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
                         className="-mt-4"
                     >
-                        <button className="ranking-button bg-[#DBFD01] py-[8px] text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[40px] w-[140px] min-w-[120px] fill-transparent">
+                        <button className="ranking-button bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93] py-[8px] text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[40px] w-[140px] min-w-[120px] fill-transparent">
                             pobierz apkę
                         </button>
                     </motion.div>
@@ -67,7 +67,7 @@ export default function Ranking() {
                         </h2>
                     </motion.div>
 
-                    <div className="ranking-frames flex relative justify-center mt-4 w-full items-end gap-0">
+                    <div className="ranking-frames  flex relative justify-center mt-4 w-full items-end gap-0">
                         {frames.map((frame, index) => (
                             <motion.img
                                 key={index}
@@ -90,17 +90,16 @@ export default function Ranking() {
                             />
                         ))}
                     </div>
-
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
-                        className=" sm:mt-24 mb-4 ranking-cards w-full"
+                        className=" sm:mt-20 mb-4 ranking-cards w-full"
                     >
                         <SmallCards />
                     </motion.div>
                 </div>
-            </Container>
+            </section>
         </motion.div>
     );
 }

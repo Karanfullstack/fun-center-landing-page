@@ -23,7 +23,7 @@ export default function Navbar() {
 
                 {/* Download Button */}
                 <div className="flex-shrink-0">
-                    <button className="bg-[#F1FF93] text-black text-sm md:text-base uppercase font-bold font-hubot font-semicondensed py-2 px-3 w-full md:w-[153px] h-10 md:h-12 overflow-hidden truncate">
+                    <button className="bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93] text-black text-sm md:text-base uppercase font-bold font-hubot font-semicondensed py-2 px-3 w-full md:w-[153px] h-10 md:h-12 overflow-hidden truncate">
                         pobierz apkę
                     </button>
                 </div>
