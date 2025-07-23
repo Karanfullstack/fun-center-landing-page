@@ -42,8 +42,7 @@ export default function RankingTwo() {
     return (
         <section
             ref={ref}
-            style={{ height: "calc(var(--vh, 1vh) * 100)" }}
-            className="snap-start font-hubot bg-black px-4 sm:px-6 md:px-8 pb-6 sm:pb-10 flex flex-col justify-start sm:justify-center items-center w-full"
+            className="snap-start font-hubot bg-black px-5 sm:px-6 md:px-8 pb-6 sm:pb-10 flex flex-col justify-start sm:justify-center items-center w-full"
         >
             <div className="flex flex-col justify-center flex-grow items-center w-full max-w-screen-xl">
                 <motion.div
@@ -57,15 +56,15 @@ export default function RankingTwo() {
                         variants={itemVariants}
                         className="flex flex-col items-start gap-3 w-full"
                     >
-                        <h2 className="text-[28px] font-bold text-white text-center sm:text-left w-full">
+                        <h2 className="text-[28px]  font-bold text-white text-left sm:text-left w-full">
                             Ranking kolejki
                         </h2>
 
                         <motion.div
                             variants={itemVariants}
-                            className="w-full text-white flex items-center justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
+                            className="w-full text-white flex sm:flex-row flex-col items-start justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
                         >
-                            <div className="text-lg flex items-center gap-2 max-w-[80%]">
+                            <div className="text-lg flex flex-col sm:flex-row items-start gap-1 max-w-[80%]">
                                 <span className="text-xl font-bold text-[#DBFD01]">1.</span>
                                 <span className="text-[0.80rem] sm:text-[1rem] font-normal text-left break-words">
                                     Bon do wykorzystania w Media Expert
@@ -82,29 +81,29 @@ export default function RankingTwo() {
                         variants={itemVariants}
                         className="flex flex-col items-start sm:gap-3 gap-6 w-full"
                     >
-                        <h2 className="text-[28px] font-bold text-white text-center sm:text-left w-full">
+                        <h2 className="text-[28px] font-bold text-white text-left sm:text-left w-full">
                             Ranking klubowy (miesięczny)
                         </h2>
 
                         {[1, 2, 3].map((pos) => (
                             <motion.div
                                 variants={itemVariants}
-                                className="w-full text-white flex items-center justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
+                                className="w-full flex-col sm:flex-row gap-2  text-white flex items-start justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
                             >
                                 <div className="text-lg flex flex-col items-start max-w-[80%]">
-                                    <div className="flex items-center gap-2 max-w-full">
+                                    <div className="flex flex-col  items-start sm:flex-row sm:items-center sm:gap-2 max-w-full">
                                         <span className="text-lg font-bold text-[#DBFD01]">
                                             {pos}.
                                         </span>
-                                        <span className="text-[0.80rem] sm:text-[1rem] font-normal text-left whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
+                                        <span className="text-[0.88rem] sm:text-[1rem] font-normal text-left whitespace-nowrap overflow-hidden text-ellipsis max-w-full">
                                             Bon do wykorzystania w Media Expert
                                         </span>
                                     </div>
-                                    <span className="text-[0.75rem] sm:text-[0.85rem] pl-4 leading-tight font-normal text-left">
+                                    <span className="text-[0.75rem] sm:text-[0.85rem] sm:pl-4  leading-tight font-normal text-left">
                                         + Wkład Klubu/Ligi
                                     </span>
                                 </div>
-                                <span className="text-[18px] sm:text-[24px] font-bold whitespace-nowrap">
+                                <span className="text-[18px] sm:p-0 pl-2 sm:text-[24px] font-bold whitespace-nowrap">
                                     500 zł
                                 </span>
                             </motion.div>

@@ -56,7 +56,7 @@ function Footer() {
             ref={ref}
             className="
         w-full
-        h-[calc(var(--vh,10vh)*100)]
+       max-h-[1440px]
         snap-start
         bg-[#232323]
         font-hubot

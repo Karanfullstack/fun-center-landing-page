@@ -6,7 +6,7 @@ import FrameOne from "../assets/Frame.svg";
 import FrameTwo from "../assets/Frame2.svg";
 import FramThree from "../assets/Frame3.svg";
 import "../styles/ranking.module.css";
-
+import RankingTwo from "../components/RankingTwo";
 const frames = [
     { image: FrameOne },
     { image: FrameTwo, css: "-mt-10" },
@@ -100,6 +100,8 @@ export default function Ranking() {
                     </motion.div>
                 </div>
             </section>
+
+            <RankingTwo />
         </motion.div>
     );
 }

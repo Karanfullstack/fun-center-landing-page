@@ -53,7 +53,7 @@ export default function SmallCards() {
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className="flex justify-center">
-                            <div className="w-[170px] h-[170px] sm:w-[200px] aspect-square p-4 bg-[#232323] shadow-md flex flex-col items-start">
+                            <div className="w-[170px] h-[150px] sm:aspect-square sm:w-[200px] aspect-square p-4 bg-[#232323] shadow-md flex flex-col items-start">
                                 <span className="font-hubot font-bold text-[20px] text-[#DBFD01]">
                                     {index + 1}.
                                 </span>
