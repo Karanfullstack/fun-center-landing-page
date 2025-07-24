@@ -1,5 +1,5 @@
 import { motion, useInView, useAnimation } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import Lottie from "lottie-react";
 import DownloadsIcon from "../assets/Stores.svg";
 import LeftTopIcon from "../assets/stadion.svg";
@@ -45,28 +45,6 @@ export default function Download() {
     // Controls only for SZEF figure
     const szefControls = useAnimation();
 
-    useEffect(() => {
-        if (isInView) {
-            // Animate SZEF entrance first
-            szefControls.start("visible").then(() => {
-                // Then start infinite bounce loop
-                szefControls.start({
-                    y: [0, -10, 0],
-                    scale: [1, 1.05, 1],
-                    transition: {
-                        duration: 1,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    },
-                });
-            });
-        } else {
-            // Stop and reset animation when leaving viewport
-            szefControls.stop();
-            szefControls.set("hidden");
-        }
-    }, [isInView, szefControls]);
-
     return (
         <section
             ref={ref}
@@ -81,10 +59,7 @@ export default function Download() {
             >
                 {/* SZEF figure with custom controls for bounce */}
                 <motion.figure
-                    variants={itemVariants}
                     initial="hidden"
-                    zz
-                    animate={szefControls}
                     className="max-w-[190px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
                 >
                     <Lottie

@@ -6,7 +6,6 @@ import { motion, useInView } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import Container from "./Container";
 import arrow from "../assets/chevron-left.svg";
 import Card from "./Card";
 
