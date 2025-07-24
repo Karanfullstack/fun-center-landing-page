@@ -2,36 +2,24 @@ import CardVector from "../assets/Card-Vector.svg";
 
 export default function Card({ data }) {
     return (
-        <div className="relative bg-[#232323] sm:px-2 sm:pb-0 sm:p-[2rem] w-full max-w-md overflow-hidden">
-            <div
-                className="
-                    bg-cover bg-no-repeat w-full p-5 flex flex-col justify-between relative
-                    pb-[50%] min-h-[450px] sm:min-h-[550px] md:min-h-[600px]
-                "
-                style={{ backgroundImage: `url(${CardVector})` }}
-            >
-                {/* Text */}
-                <div className="z-10 sm:w-[373px] sm:leading-[125%]">
-                    <p
-                        className="
-                        text-[#F6F6F6] text-start w-full py-3 font-hubot leading-tight 
-                        text-lg sm:text-xl md:text-[1.75rem] font-[700] break-words
-                    "
-                    >
+        <div
+            className="w-[80vw]  max-w-[437px] aspect-[437/680] bg-[#232323] bg-center bg-cover bg-no-repeat"
+            style={{ backgroundImage: `url(${CardVector})` }}
+        >
+            <div className="relative flex flex-col justify-between items-center w-full h-full p-4 sm:p-8">
+                {/* Title Section */}
+                <div className="w-[90%]">
+                    <h2 className="text-[#F6F6F6] font-bold text-[5vw] sm:text-[28px] leading-tight break-words">
                         {data.text}
-                    </p>
+                    </h2>
                 </div>
 
-                {/* Bottom Image */}
-                <div
-                    className="absolute bottom-0 left-0 right-0 px-5 flex justify-center items-end"
-                    style={{ height: "70%" }} // Now 50% of the card height
-                >
+                {/* Image Section */}
+                <div className="absolute  bottom-0 left-0 right-0 flex justify-center">
                     <img
                         src={data.img}
-                        alt="screenshot"
-                        className="w-auto max-w-full h-full max-h-[300px] sm:max-h-[350px] md:max-h-[400px] object-contain"
-                        loading="lazy"
+                        alt={data.alt || "Card image"}
+                        className="w-[100%]  h-auto"
                     />
                 </div>
             </div>

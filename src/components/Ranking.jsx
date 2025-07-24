@@ -1,7 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import SmallCards from "./SmallCards";
-import Container from "./Container";
 import FrameOne from "../assets/Frame.svg";
 import FrameTwo from "../assets/Frame2.svg";
 import FramThree from "../assets/Frame3.svg";
@@ -33,15 +32,15 @@ export default function Ranking() {
             animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
             transition={{ duration: 0.4, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.4 }}
-            className="ranking-container max-w-full m-auto  min-h-screen snap-start relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
+            className="ranking-container max-w-[1360px] m-auto  min-h-screen snap-start relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
         >
-            <section className="m-auto w-full">
+            <section className="m-auto w-full ">
                 <div className="flex relative pt-14 sm:pt-20 snap-start flex-col gap-10 justify-center items-center ">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-                        className="ranking-title text-3xl font-hubot sm:text-5xl font-bold text-white text-center leading-tight"
+                        className="ranking-title text-[32px] font-hubot sm:text-5xl font-bold text-white text-center leading-[1.25]"
                     >
                         Wygraj niesamowite nagrody
                     </motion.h2>
@@ -62,7 +61,7 @@ export default function Ranking() {
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
                     >
-                        <h2 className="ranking-subtitle text-2xl sm:text-3xl font-hubot font-bold text-white text-center">
+                        <h2 className="ranking-subtitle leading-[1.25] text-[28px] sm:text-3xl font-hubot font-bold text-white text-center">
                             Ranking miesięczny
                         </h2>
                     </motion.div>

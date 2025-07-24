@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../assets/App-Icon.svg";
 
 const Regulamin = () => {

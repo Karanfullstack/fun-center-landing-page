@@ -1,5 +1,4 @@
-import React from "react";
-import { motion } from "framer-motion";
+
 import groupFootbal from "../assets/Group.svg";
 
 const Container = ({ children }) => (

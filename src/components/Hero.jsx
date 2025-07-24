@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import Container from "./Container";
+import { useEffect, useRef } from "react";
 import HeroVector from "../assets/bg-vector.svg";
 import appicon from "../assets/App-Icon.svg";
 import MotionsFade from "../common/Motions";
@@ -36,7 +35,6 @@ export default function Hero() {
 
     return (
         <>
-            {" "}
             <Navbar />
             <div className="bg-black w-full max-w-[1400px] m-auto px-3 snap-start font-hubot overflow-hidden min-h-screen relative">
                 <div
@@ -77,7 +75,7 @@ export default function Hero() {
                     </div>
 
                     {/* CTA */}
-                    <MotionsFade
+                    <div
                         delay={0.5}
                         className="absolute bottom-5 safari:bottom-6 left-0 w-full px-4"
                     >
@@ -91,7 +89,7 @@ export default function Hero() {
                                 Pobierz apkę FOOVA FC i pokaż kto tu rządzi.
                             </span>
                         </div>
-                    </MotionsFade>
+                    </div>
                 </div>
             </div>
         </>

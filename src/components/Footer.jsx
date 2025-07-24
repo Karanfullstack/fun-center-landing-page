@@ -1,9 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import  { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-
-import Tshirt from "../assets/welcome-i.svg";
-import TshirtBack from "../assets/jersey-back.png";
 import Vector from "../assets/FOOVA.svg";
 import Lottie from "lottie-react";
 import JersePartner from "../assets/animation/lp-jersey-partner.json";
@@ -56,7 +53,7 @@ function Footer() {
             ref={ref}
             className="
         w-full
-       max-h-[1440px]
+        h-[calc(var(--vh,10vh)*100)]
         snap-start
         bg-[#232323]
         font-hubot

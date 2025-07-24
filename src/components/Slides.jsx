@@ -10,12 +10,12 @@ import Container from "./Container";
 import arrow from "../assets/chevron-left.svg";
 import Card from "./Card";
 
-import screen1 from "../assets/Screenshot-2.webp";
-import screen2 from "../assets/Screenshot-1.webp";
-import screen3 from "../assets/Screenshot-5.webp";
-import screen4 from "../assets/Screenshot-6.webp";
-import screen5 from "../assets/Screenshot-7.webp";
-import screen6 from "../assets/Screenshot-3.webp";
+import screen1 from "../assets/FOOVA SCREENS/Screen-1.svg";
+import screen2 from "../assets/FOOVA SCREENS/Screen-2.svg";
+import screen3 from "../assets/FOOVA SCREENS/Screen-3.svg";
+import screen4 from "../assets/FOOVA SCREENS/Screen-4.svg";
+import screen5 from "../assets/FOOVA SCREENS/Screen-5.svg";
+import screen6 from "../assets/FOOVA SCREENS/Screen-6.svg";
 
 const data = [
     { img: screen1, text: "Zbieraj punkty w predykcjach przed i w trakcie meczu!" },
@@ -72,11 +72,11 @@ export default function Slides() {
 
     return (
         <div
-            className="w-full items-center  font-hubot snap-start  font-[800] px-5 bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            className="w-full sm:max-w-[1360px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start   font-[800] sm:px-0 px-4  bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
-            <div className="w-full m-auto ">
-                <div className="flex flex-col h-full">
+            <div className="w-full   ">
+                <div className="flex flex-col gap-3 h-full">
                     {/* Header with arrows */}
                     <div className="h-[48px] flex gap-2 justify-between items-center -mt-10 px-4 sm:px-8">
                         <span className="text-white text-sm sm:text-base lg:text-md font-normal">
@@ -126,8 +126,8 @@ export default function Slides() {
                             loop={false}
                             speed={400}
                             breakpoints={{
-                                0: { slidesPerView: 1.2 },
-                                640: { slidesPerView: 1.5 },
+                                0: { slidesPerView: 1 },
+                                640: { slidesPerView: 2 },
                                 768: { slidesPerView: 2 },
                                 1024: { slidesPerView: 3 },
                             }}

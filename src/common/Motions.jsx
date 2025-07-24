@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { motion, useMotionValue, useTransform } from "motion/react";
+import { motion } from "motion/react";
 
 export default function MotionsFade({ children, className = "", delay = 0.1 }) {
     return (
@@ -16,7 +15,7 @@ export default function MotionsFade({ children, className = "", delay = 0.1 }) {
                 scale: 1,
             }}
             transition={{
-                type: "spring",
+                type: "tween",
                 stiffness: 80,
                 damping: 15,
                 mass: 0.5,
