@@ -56,7 +56,7 @@ export default function App() {
         <MotionsFade>
             <div
                 ref={sectionRef}
-                className="bg-black snap-start justify-center max-w-[1400px] m-auto font-hubot flex flex-col items-center sm:h-[100vh] h-[100vh] relative"
+                className="bg-black snap-start scroll-smooth justify-center max-w-[1400px] m-auto font-hubot flex flex-col items-center sm:h-[100vh] h-[100vh] relative"
                 style={{ scrollBehavior: "auto" }}
             >
                 <div
@@ -66,7 +66,7 @@ export default function App() {
                 >
                     <div className="flex   flex-col-reverse gap-8 justify-center items-center min-h-[125vh] w-full  relative">
                         <div
-                            className="w-full sticky top-[40vh] h-[60px] flex justify-center items-center will-change-top"
+                            className="w-full sticky top-[40vh] scroll-smooth h-[60px] flex justify-center items-center will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <span className="text-[32px] sm:text-2xl md:text-5xl lg:text-5xl text-white font-bold text-center leading-[1.25]">
@@ -75,7 +75,7 @@ export default function App() {
                         </div>
 
                         <div
-                            className="w-[95%] z-40 sticky !top-[24vh] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
+                            className="w-[95%] scroll-smooth z-40 sticky !top-[24vh] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <span className="text-2xl sm:text-3xl leading-[1.25] md:text-4xl lg:text-5xl font-bold">
@@ -84,7 +84,7 @@ export default function App() {
                         </div>
                         <div
                             delay={0.3}
-                            className="w-[85%] sticky top-[21.1vh] z-30 max-w-full sm:w-[445px] sm:max-w-none text-center py-4 bg-white will-change-top"
+                            className="w-[85%] scroll-smooth sticky top-[21.1vh] z-30 max-w-full sm:w-[445px] sm:max-w-none text-center py-4 bg-white will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -92,7 +92,7 @@ export default function App() {
                             </span>
                         </div>
                         <div
-                            className="w-[75%] sticky top-[18.5vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
+                            className="w-[75%] scroll-smooth sticky top-[18.5vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -101,7 +101,7 @@ export default function App() {
                         </div>
 
                         <div
-                            className="bg-white sticky top-[1.7rem] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
+                            className="bg-white scroll-smooth sticky top-[1.7rem] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <img

@@ -2,28 +2,29 @@ import Lottie from "lottie-react";
 import FoovaVector from "../assets/FOOVA.svg";
 import JerseyPartner from "../assets/animation/lp-jersey-partner.json";
 import { Link } from "react-router-dom";
+import MotionsFade from "../common/Motions";
 export default function Footer() {
     return (
-        <div
+        <MotionsFade
             className="
-            max-w-[393px] h-[684.66px] p-5 w-full
-        md:w-full  md:max-w-[1440px] snap-start  m-auto md:h-full flex justify-center items-center md:max-h-[661.61px]"
+            w-[100dvw]  h-[83dvh]  p-6 
+        md:w-full  md:max-w-[100vw] snap-start m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
         >
             <div
                 id="container"
                 className="
-                w-[353px]
-                h-[644.63px]
+                w-[100dvh]
+                h-[100dvh]
                 p-4
                 flex-col
-                gap-4
+                gap-2
                 md:w-full md:p-[32px] md:max-w-[1360px] flex md:flex-col md:items-start md:justify-start  md:gap-4 md:h-full md:max-h-[581.66px] m-auto  bg-[#232323] bg-center bg-cover bg-no-repeat"
                 style={{ backgroundImage: `url(${FoovaVector})` }}
             >
                 {/* Heading */}
                 <section
                     className=" 
-                 gap-2
+                 gap-1
     flex flex-col items-center justify-between
     w-[321px] h-[120px] p-1 bg-[#343434]
     md:flex-row md:justify-between md:items-center
@@ -31,15 +32,17 @@ export default function Footer() {
                 >
                     <div
                         className=" 
-                          h-full w-full  p-3
-                            flex  justify-center items-center                    
+                          h-[10.70vh] w-full  p-3 
+                        flex  justify-center items-center                    
                     md:w-[151px] bg-[#DBFD01] md:flex md:justify-center md:items-center md:h-[59px] "
                     >
-                        <p className="text-[28px] leading-[1.25] font-bold font-hubot">W 1 dzień</p>
+                        <p className="text-[1.7rem] leading-[1.25] font-bold font-hubot">
+                            W 1 dzień
+                        </p>
                     </div>
 
                     <div className="w-full p-1 h-full flex justify-center items-end  md:h-auto  md:w-auto">
-                        <p className="text-[20px] text-[#F6F6F6] font-medium leading-[1.25] font-hubot">
+                        <p className="text-[1.2rem] text-[#F6F6F6] font-medium leading-[1.25] font-hubot">
                             Wdrożenie na Twoich kanałach!
                         </p>
                     </div>
@@ -65,7 +68,7 @@ export default function Footer() {
                         </h3>
                     </div>
                     {/* animated image */}
-                    <div class=" md:w-[236px] md:h-[200.66px] w-[240px] h-[245.66px]">
+                    <div class=" md:w-[236px] md:h-[200.66px] w-[30vh] h-[245.66px]">
                         <Lottie
                             classID="w-[236px] h-[200.66px]"
                             animationData={JerseyPartner}
@@ -77,8 +80,8 @@ export default function Footer() {
 
                 {/* email section */}
 
-                <section className=" flex gap-2 flex-col md:flex md:justify-start md:flex-col md:items-start md:gap-3">
-                    <p className="text-[20px] font-medium leading-[1.25] text-[#F6F6F6] font-hubot">
+                <section className=" flex gap-1 flex-col md:flex md:justify-start md:flex-col md:items-start md:gap-3">
+                    <p className="text-[1rem] font-medium leading-[1.25] text-[#F6F6F6] font-hubot">
                         Napisz do nas:
                     </p>
                     <h2 className="md:text-[62px] text-2xl  underline text-[#F6F6F6] font-bold leading-[1.25] font-hubot">
@@ -103,7 +106,7 @@ export default function Footer() {
                         >
                             Informacje o Usunięciu Konta
                         </Link>
-                        <div className="flex items-center justify-between gap-2">
+                        <div className="flex   items-center justify-between gap-3">
                             <Link
                                 to="/polityka-prytwatności"
                                 className="md:text-[15px] text-[14px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
@@ -120,6 +123,6 @@ export default function Footer() {
                     </div>
                 </section>
             </div>
-        </div>
+        </MotionsFade>
     );
 }
