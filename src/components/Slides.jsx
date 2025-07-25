@@ -71,13 +71,13 @@ export default function Slides() {
 
     return (
         <div
-            className="w-full sm:max-w-[1360px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start   font-[800] sm:px-0 px-4  bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            className="w-full sm:max-w-[1368px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
-            <div className="w-full   ">
+            <div className="w-full    ">
                 <div className="flex flex-col gap-3 h-full">
                     {/* Header with arrows */}
-                    <div className="h-[48px] flex gap-2 justify-between items-center -mt-10 px-4 sm:px-8">
+                    <div className="h-[48px] flex gap-2 justify-between  mb-2 items-center  px-4 sm:px-8">
                         <span className="text-white text-sm sm:text-base lg:text-md font-normal">
                             Predykcje, ciekawostki i Wy, Eksperci:
                         </span>
@@ -117,7 +117,7 @@ export default function Slides() {
                         initial={{ opacity: 0, y: 80 }}
                         animate={inView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex-grow mt-6 px-2 sm:px-4 flex items-center overflow-visible"
+                        className="flex-grow  px-2 sm:px-4 flex items-center overflow-visible"
                     >
                         <Swiper
                             modules={[Navigation]}

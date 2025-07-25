@@ -35,8 +35,8 @@ export default function Hero() {
 
     return (
         <>
-            <Navbar />
             <div className="bg-black w-full max-w-[1400px] m-auto px-3 snap-start font-hubot overflow-hidden min-h-screen relative">
+                <Navbar />
                 <div
                     className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32"
                     style={{ minHeight: "calc(var(--vh, 1vh) * 100 - 88px)" }}

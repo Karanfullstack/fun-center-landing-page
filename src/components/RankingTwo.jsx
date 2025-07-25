@@ -42,7 +42,7 @@ export default function RankingTwo() {
     return (
         <section
             ref={ref}
-            className="snap-start font-hubot bg-black px-5 sm:px-6 md:px-8 pb-6 sm:pb-10 flex flex-col justify-start sm:justify-center items-center w-full"
+            className=" font-hubot bg-black px-5 sm:px-6 md:px-8 pb-6 sm:pb-10 flex flex-col justify-start sm:justify-center items-center w-full"
         >
             <div className="flex flex-col justify-center flex-grow items-center w-full max-w-screen-xl">
                 <motion.div
