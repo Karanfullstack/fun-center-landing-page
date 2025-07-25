@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import "../styles/hero.module.css";
 import Lottie from "lottie-react";
 import jersey from "../assets/animation/lp-jersey.json";
+import TextAnimate from "../common/TextAnimate";
 
 export default function Hero({ onScroll }) {
     const bgRef = useRef(null);
@@ -66,10 +67,11 @@ export default function Hero({ onScroll }) {
                         </MotionsFade>
 
                         <MotionsFade delay={0.4}>
-                            <h1 className="text-3xl sm:text-[65px] lg:text-[50px] font-bold leading-tight text-center mt-4">
-                                Udowodnij, że wiesz więcej
-                                <br />
-                                niż reszta i zgarnij nagrody!
+                            <h1 className="text-3xl sm:text-[64px] lg:text-[60px] font-bold leading-[1.5] text-center mt-4">
+                                <TextAnimate>
+                                    <p>Udowodnij, że wiesz więcej </p>
+                                    <p>niż reszta i zgarnij nagrody!</p>
+                                </TextAnimate>
                             </h1>
                         </MotionsFade>
                     </div>

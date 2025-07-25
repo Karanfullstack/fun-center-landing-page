@@ -65,9 +65,9 @@ export default function Footer() {
                         </h3>
                     </div>
                     {/* animated image */}
-                    <div class=" md:w-[240px] md:h-[205.66px] w-[240px] h-[245.66px]">
+                    <div class=" md:w-[236px] md:h-[200.66px] w-[240px] h-[245.66px]">
                         <Lottie
-                            classID="w-[240px] h-[205.66px]"
+                            classID="w-[236px] h-[200.66px]"
                             animationData={JerseyPartner}
                             loop={true}
                             autoplay={true}
@@ -81,7 +81,7 @@ export default function Footer() {
                     <p className="text-[20px] font-medium leading-[1.25] text-[#F6F6F6] font-hubot">
                         Napisz do nas:
                     </p>
-                    <h2 className="md:text-[64px] text-2xl  underline text-[#F6F6F6] font-bold leading-[1.25] font-hubot">
+                    <h2 className="md:text-[62px] text-2xl  underline text-[#F6F6F6] font-bold leading-[1.25] font-hubot">
                         partners@foova.org
                     </h2>
                 </section>
@@ -89,26 +89,34 @@ export default function Footer() {
                 {/* footer section */}
                 <section
                     className=" 
-                flex flex-col justify-center items-center gap-2
+                flex flex-col justify-center md:flex-row items-center gap-2
                 w-[321px] h-[80px]
                 md:max-w-[1296] md:mt-4 border-t-[1px]  border-t-[#FFFFFF4D] md:lex md:justify-between md:items-end md:w-full md:max-h-[44px] md:h-full "
                 >
-                    <p className="md:text-[16px] mt-2 font-medium font-hubot leading-[1.25] text-[#F6F6F6]">
+                    <p className="md:text-[15px] mt-2 font-medium font-hubot leading-[1.25] text-[#F6F6F6]">
                         © FOOVA 2025
                     </p>
-                    <div className=" flex gap-2 flex-col justify-center items-center md:flex md:justify-between md:gap-3 md:items-center">
+                    <div className=" flex gap-2 md:flex-row flex-col justify-center items-center md:flex md:justify-between md:gap-3 md:items-center">
                         <Link
-                            to="/polityka-prytwatności"
-                            className="md:text-[16px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                            to="/informacje-usunięciu-konta"
+                            className="md:text-[15px] text-[14px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
                         >
-                            Polityka Prytwatności
+                            Informacje o Usunięciu Konta
                         </Link>
-                        <Link
-                            to="/regulamin"
-                            className="md:text-[16px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
-                        >
-                            Regulamin
-                        </Link>
+                        <div className="flex items-center justify-between gap-2">
+                            <Link
+                                to="/polityka-prytwatności"
+                                className="md:text-[15px] text-[14px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                            >
+                                Polityka Prytwatności
+                            </Link>
+                            <Link
+                                to="/regulamin"
+                                className="md:text-[15px] text-[14px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                            >
+                                Regulamin
+                            </Link>
+                        </div>
                     </div>
                 </section>
             </div>
