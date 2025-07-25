@@ -72,11 +72,11 @@ export default function Slides() {
 
     return (
         <MotionsFade
-            className="w-full sm:max-w-[1368px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            className="w-full sm:max-w-[1368px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
             <div className="w-full    ">
-                <div className="flex flex-col gap-3 h-full">
+                <div className="flex flex-col justify-center gap-3 h-full">
                     {/* Header with arrows */}
                     <div className="h-[48px] flex gap-2 justify-between  mb-2 items-center  px-4 sm:px-8">
                         <span className="text-white text-sm sm:text-base lg:text-md font-normal">
@@ -124,7 +124,8 @@ export default function Slides() {
                             modules={[Navigation]}
                             spaceBetween={16}
                             loop={false}
-                            speed={400}
+                            speed={300}
+                            fadeEffect={{ crossFade: true }}
                             breakpoints={{
                                 0: { slidesPerView: 1 },
                                 640: { slidesPerView: 2 },

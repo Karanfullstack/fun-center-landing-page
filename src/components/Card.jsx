@@ -3,7 +3,7 @@ import CardVector from "../assets/Card-Vector.svg";
 export default function Card({ data }) {
     return (
         <div
-            className="md:w-[437px] md:h-[660px] w-[320px] h-[490px] m-auto max-w-[437px] bg-[#232323] bg-center bg-cover bg-no-repeat"
+            className="w-full max-w-[437px] aspect-[437/660] m-auto bg-[#232323] bg-center bg-cover bg-no-repeat"
             style={{ backgroundImage: `url(${CardVector})` }}
         >
             <div className="relative flex flex-col justify-between items-center w-full h-full p-4 sm:p-8">

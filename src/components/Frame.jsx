@@ -61,21 +61,21 @@ export default function App() {
             >
                 <div
                     ref={scrollRef}
-                    className=" w-full m-auto h-[70vh]  scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
+                    className=" w-full m-auto h-[75vh]  scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
                     style={{ scrollBehavior: "smooth" }}
                 >
-                    <div className="flex  flex-col-reverse gap-8 justify-center items-center min-h-[115vh] w-full  relative">
+                    <div className="flex   flex-col-reverse gap-8 justify-center items-center min-h-[125vh] w-full  relative">
                         <div
                             className="w-full sticky top-[40vh] h-[60px] flex justify-center items-center will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
-                            <span className="text-xl sm:text-2xl md:text-5xl lg:text-5xl text-white font-bold text-center leading-[1.25]">
+                            <span className="text-[32px] sm:text-2xl md:text-5xl lg:text-5xl text-white font-bold text-center leading-[1.25]">
                                 Apka dla futbolowych Ekspertów.
                             </span>
                         </div>
 
                         <div
-                            className="w-[95%] z-40 sticky top-[22vh] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
+                            className="w-[95%] z-40 sticky !top-[24vh] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <span className="text-2xl sm:text-3xl leading-[1.25] md:text-4xl lg:text-5xl font-bold">
@@ -101,7 +101,7 @@ export default function App() {
                         </div>
 
                         <div
-                            className="bg-white sticky top-[20px] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
+                            className="bg-white sticky top-[1.7rem] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <img

@@ -1,166 +1,117 @@
-import  { useRef, useState, useEffect } from "react";
-import { motion, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
-import Vector from "../assets/FOOVA.svg";
 import Lottie from "lottie-react";
-import JersePartner from "../assets/animation/lp-jersey-partner.json";
-const containerVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease: "easeOut", staggerChildren: 0.2 },
-    },
-};
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-function Footer() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [flipped, setFlipped] = useState(false);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setFlipped((prev) => !prev);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, []);
-
-    // Update --vh CSS variable on resize AND scroll for mobile viewport height fixes
-    useEffect(() => {
-        const setVh = () => {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty("--vh", `${vh}px`);
-        };
-
-        setVh();
-
-        window.addEventListener("resize", setVh);
-        window.addEventListener("scroll", setVh);
-
-        return () => {
-            window.removeEventListener("resize", setVh);
-            window.removeEventListener("scroll", setVh);
-        };
-    }, []);
-
+import FoovaVector from "../assets/FOOVA.svg";
+import JerseyPartner from "../assets/animation/lp-jersey-partner.json";
+import { Link } from "react-router-dom";
+export default function Footer() {
     return (
-        <footer
-            ref={ref}
+        <div
             className="
-        w-full
-        h-[calc(var(--vh,10vh)*100)]
-        snap-start
-        bg-[#232323]
-        font-hubot
-        flex flex-col
-        relative
-        overflow-hidden
-      "
+            max-w-[393px] h-[684.66px] p-5 w-full
+        md:w-full  md:max-w-[1440px] snap-start  m-auto md:h-full flex justify-center items-center md:max-h-[661.61px]"
         >
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+            <div
+                id="container"
                 className="
-          relative
-          w-full
-          max-w-[1360px]
-          mx-auto
-          flex-1
-          flex
-          flex-col
-          justify-center
-          items-center
-          px-4 sm:px-6 md:px-8
-          py-6 sm:py-10
-          gap-6
-          z-10
-        "
+                w-[353px]
+                h-[644.63px]
+                p-4
+                flex-col
+                gap-4
+                md:w-full md:p-[32px] md:max-w-[1360px] flex md:flex-col md:items-start md:justify-start  md:gap-4 md:h-full md:max-h-[581.66px] m-auto  bg-[#232323] bg-center bg-cover bg-no-repeat"
+                style={{ backgroundImage: `url(${FoovaVector})` }}
             >
-                {/* Background Vector */}
-                <div
-                    className="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-100 z-0 pointer-events-none"
-                    style={{ backgroundImage: `url(${Vector})` }}
-                />
-
-                {/* Content */}
-                <div className="flex flex-col md:items-start items-center gap-5 w-full z-10">
-                    {/* Banner */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="w-full max-w-[480px] h-[55px] sm:h-[65px] bg-[#343434] flex items-center gap-3 justify-start shadow-lg"
+                {/* Heading */}
+                <section
+                    className=" 
+                 gap-2
+    flex flex-col items-center justify-between
+    w-[321px] h-[120px] p-1 bg-[#343434]
+    md:flex-row md:justify-between md:items-center
+    md:w-full md:h-full md:max-w-[484px] md:max-h-[67px] md:pr-3"
+                >
+                    <div
+                        className=" 
+                          h-full w-full  p-3
+                            flex  justify-center items-center                    
+                    md:w-[151px] bg-[#DBFD01] md:flex md:justify-center md:items-center md:h-[59px] "
                     >
-                        <p className="text-[#1A1A1A] bg-[#DBFD01] h-full flex items-center justify-center font-bold px-3 text-[clamp(14px,2.5vw,20px)] leading-none m-0 flex-shrink-0">
-                            W 1 dzień
-                        </p>
-                        <p className="text-white text-[clamp(14px,2vw,18px)] leading-none m-0 flex-shrink-0">
+                        <p className="text-[28px] leading-[1.25] font-bold font-hubot">W 1 dzień</p>
+                    </div>
+
+                    <div className="w-full p-1 h-full flex justify-center items-end  md:h-auto  md:w-auto">
+                        <p className="text-[20px] text-[#F6F6F6] font-medium leading-[1.25] font-hubot">
                             Wdrożenie na Twoich kanałach!
                         </p>
-                    </motion.div>
+                    </div>
+                </section>
 
-                    <motion.div
-                        variants={itemVariants}
-                        className="w-full flex flex-col md:flex-row justify-between items-center gap-6"
-                    >
-                        <div className="text-white font-bold leading-tight text-center md:text-left text-[clamp(28px,6vw,64px)]">
-                            <p>Chcesz zostać</p>
+                {/* Animation section  */}
+                <section
+                    className="
+                        w-[321px] h-[315px]
+                        flex flex-col gap-10
+                         items-center justify-center
+                        
+                md:w-full md:gap-10  md:max-w-[1296] md:flex md:flex-row md:items-center md:justify-between md:h-full md:max-h-[205.66px]  "
+                >
+                    <div className=" w-[321px] h-[70px] md:w-[1016] md:h-[160px]">
+                        <h3
+                            className="
+                       
+                        md:text-[64px] text-[28px] w-[321px] h-[70px] md:w-[1016px]  md:h-[160px]  text-[#F6F6F6] font-hubot font-bold leading-[1.25]"
+                        >
+                            Chcesz zostać
                             <p>Partnerem Foova FC?</p>
-                        </div>
+                        </h3>
+                    </div>
+                    {/* animated image */}
+                    <div class=" md:w-[240px] md:h-[205.66px] w-[240px] h-[245.66px]">
+                        <Lottie
+                            classID="w-[240px] h-[205.66px]"
+                            animationData={JerseyPartner}
+                            loop={true}
+                            autoplay={true}
+                        />
+                    </div>
+                </section>
 
-                        <div className="relative w-[clamp(200px,60vw,320px)] sm:w-[clamp(200px,50vw,400px)] h-auto perspective-1000">
-                            <div className="">
-                                <Lottie
-                                    animationData={JersePartner}
-                                    loop={true}
-                                    className="w-full h-auto backface-hidden"
-                                    autoplay={true}
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
+                {/* email section */}
 
-                    {/* Email */}
-                    <motion.div variants={itemVariants} className="z-10 text-center">
-                        <p className="text-white text-[clamp(14px,2vw,20px)] font-medium mb-1">
-                            Napisz do nas:
-                        </p>
-                        <p className="font-bold text-white text-[clamp(20px,5vw,48px)] break-words">
-                            <a
-                                href="mailto:partners@foova.org"
-                                className="bg-[linear-gradient(to_top,_white_3px,_transparent_3px)] bg-no-repeat bg-[length:100%_3px] bg-bottom hover:bg-[length:0%_3px] transition-all duration-300"
-                            >
-                                partners@foova.org
-                            </a>
-                        </p>
-                    </motion.div>
-                </div>
-            </motion.div>
+                <section className=" flex gap-2 flex-col md:flex md:justify-start md:flex-col md:items-start md:gap-3">
+                    <p className="text-[20px] font-medium leading-[1.25] text-[#F6F6F6] font-hubot">
+                        Napisz do nas:
+                    </p>
+                    <h2 className="md:text-[64px] text-2xl  underline text-[#F6F6F6] font-bold leading-[1.25] font-hubot">
+                        partners@foova.org
+                    </h2>
+                </section>
 
-            {/* Bottom Bar */}
-            <motion.div
-                variants={itemVariants}
-                className="w-full border-t border-gray-600 text-[#D1D1D1] text-[clamp(12px,1.5vw,16px)] py-2 sm:py-4 px-4 sm:px-6 md:px-8 flex flex-col sm:flex-row justify-between items-center gap-2 z-10 max-w-[1360px] mx-auto"
-            >
-                <p>© FOOVA 2025</p>
-                <nav className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center">
-                    <Link to="/polityka-prytwatności" className="hover:underline">
-                        Polityka Prytwatności
-                    </Link>
-                    <Link to="/regulamin" className="hover:underline">
-                        Regulamin
-                    </Link>
-                    <Link to="/informacje-Usunięciu-konta" className="hover:underline">
-                        Informacje o Usunięciu konta
-                    </Link>
-                </nav>
-            </motion.div>
-        </footer>
+                {/* footer section */}
+                <section
+                    className=" 
+                flex flex-col justify-center items-center gap-2
+                w-[321px] h-[80px]
+                md:max-w-[1296] md:mt-4 border-t-[1px]  border-t-[#FFFFFF4D] md:lex md:justify-between md:items-end md:w-full md:max-h-[44px] md:h-full "
+                >
+                    <p className="md:text-[16px] mt-2 font-medium font-hubot leading-[1.25] text-[#F6F6F6]">
+                        © FOOVA 2025
+                    </p>
+                    <div className=" flex gap-2 flex-col justify-center items-center md:flex md:justify-between md:gap-3 md:items-center">
+                        <Link
+                            to="/polityka-prytwatności"
+                            className="md:text-[16px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                        >
+                            Polityka Prytwatności
+                        </Link>
+                        <Link
+                            to="/regulamin"
+                            className="md:text-[16px] hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                        >
+                            Regulamin
+                        </Link>
+                    </div>
+                </section>
+            </div>
+        </div>
     );
 }
-
-export default Footer;
