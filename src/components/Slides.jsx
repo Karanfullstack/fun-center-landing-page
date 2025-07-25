@@ -15,6 +15,7 @@ import screen3 from "../assets/FOOVA SCREENS/Screen-3.svg";
 import screen4 from "../assets/FOOVA SCREENS/Screen-4.svg";
 import screen5 from "../assets/FOOVA SCREENS/Screen-5.svg";
 import screen6 from "../assets/FOOVA SCREENS/Screen-6.svg";
+import MotionsFade from "../common/Motions";
 
 const data = [
     { img: screen1, text: "Zbieraj punkty w predykcjach przed i w trakcie meczu!" },
@@ -70,7 +71,7 @@ export default function Slides() {
     }, []);
 
     return (
-        <div
+        <MotionsFade
             className="w-full sm:max-w-[1368px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
@@ -156,6 +157,6 @@ export default function Slides() {
                     </motion.section>
                 </div>
             </div>
-        </div>
+        </MotionsFade>
     );
 }
