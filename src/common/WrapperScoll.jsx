@@ -1,37 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-const FadeInSection = ({ children }) => {
-    const ref = useRef();
-    const [isVisible, setVisible] = useState(false);
-
+const ParallaxWrapper = ({ speed = 0.3, children }) => {
+    const ref = useRef(null);
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                    observer.unobserve(ref.current); // stop observing after fade-in
-                }
-            },
-            {
-                threshold: 0.1, // trigger when 10% of component is visible
-            }
-        );
-        observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, []);
+        const handleScroll = () => {
+            const el = ref.current;
+            if (!el) return;
+
+            const offset = window.scrollY * speed;
+            el.style.transform = `translateY(${offset}px)`;
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [speed]);
 
     return (
-        <div
-            ref={ref}
-            style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "none" : "translateY(20px)",
-                transition: "opacity 1s ease-out, transform 1s ease-out",
-            }}
-        >
+        <div ref={ref} style={{ willChange: "transform", transition: "transform 0.1s linear" }}>
             {children}
         </div>
     );
 };
 
-export default FadeInSection;
+export default ParallaxWrapper;

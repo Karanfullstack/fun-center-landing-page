@@ -1,4 +1,5 @@
 import FadeInSection from "./common/WrapperScoll";
+import ParallaxWrapper from "./common/WrapperScoll";
 import WindScrollWrapper from "./common/WrapperScoll";
 import Download from "./components/Download";
 import Footer from "./components/Footer";
@@ -18,18 +19,29 @@ function App() {
     };
     return (
         <div className="h-screen snap-y scroll-container snap-mandatory  w-screen m-auto overflow-y-scroll  scroll-smooth scrollbar-hide ">
-            <Hero onScroll={scrollToPage2} />
+            <ParallaxWrapper delay={0.2}>
+                <Hero onScroll={scrollToPage2} />
+            </ParallaxWrapper>
 
-            <Frame />
+            <ParallaxWrapper delay={0.2}>
+                <Frame />
+            </ParallaxWrapper>
 
-            <Slides />
-            <Ranking onScroll={scrollToPage2} />
+            <ParallaxWrapper delay={0.3}>
+                <Slides />
+            </ParallaxWrapper>
 
-            <div ref={page2Ref}>
-                <Download />
-            </div>
-
-            <Footer />
+            <ParallaxWrapper delay={0.4}>
+                <Ranking onScroll={scrollToPage2} />
+            </ParallaxWrapper>
+            <ParallaxWrapper delay={0.5}>
+                <div ref={page2Ref}>
+                    <Download />
+                </div>
+            </ParallaxWrapper>
+            <ParallaxWrapper delay={0.6}>
+                <Footer />
+            </ParallaxWrapper>
         </div>
     );
 }
