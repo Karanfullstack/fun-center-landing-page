@@ -47,20 +47,20 @@ export default function App() {
         <MotionsFade>
             <div
                 ref={sectionRef}
-                className="bg-black justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[80vh] relative"
-                style={{ scrollBehavior: "auto" }}
+                className="bg-black snap-start justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[100vh] relative"
+                style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
             >
                 <div
                     ref={scrollRef}
                     className="w-full m-auto h-[70vh] flex-col-reverse scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
-                    style={{ scrollBehavior: "smooth" }}
+                    style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
                 >
-                    <div className="flex flex-col-reverse gap-8 justify-center items-center min-h-[120vh] w-full relative">
+                    <div className="flex flex-col-reverse gap-9 justify-center items-center min-h-[120vh] w-full relative">
                         <div
                             className="w-full sticky bottom-0 h-[60px] flex justify-center items-center will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
-                            <span className="text-xl sm:text-2xl md:text-5xl lg:text-5xl text-white font-bold text-center leading-[1.25]">
+                            <span className="text-3xl sm:text-[48px] md:text-5xl lg:text-5xl text-white font-bold text-center leading-[1.25]">
                                 Apka dla futbolowych Ekspertów.
                             </span>
                         </div>
@@ -84,8 +84,8 @@ export default function App() {
                         </div>
 
                         <div
-                            className="w-[75%] sticky bottom-[20vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            className="w-[75%] sticky bottom-[21vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
+                            style={{ transform: "translateY(6px)" }}
                         >
                             <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                                 “Wiedziałem!”
@@ -93,7 +93,7 @@ export default function App() {
                         </div>
 
                         <div
-                            className="bg-white sticky -top-0 rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
+                            className="bg-white sticky top-[1vh] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <img

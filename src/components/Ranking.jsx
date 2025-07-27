@@ -34,7 +34,7 @@ export default function Ranking({ onScroll }) {
                 animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.4 }}
-                className="ranking-container scroll-smooth max-w-[1360px] m-auto  min-h-screen  relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
+                className="ranking-container snap-start scroll-smooth max-w-[1360px] m-auto  min-h-screen  relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
             >
                 <section className="m-auto w-full">
                     <div className="flex relative pt-14 sm:pt-20  flex-col gap-10 justify-center items-center ">

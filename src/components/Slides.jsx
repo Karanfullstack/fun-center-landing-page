@@ -72,7 +72,7 @@ export default function Slides() {
 
     return (
         <MotionsFade
-            className="w-full sm:max-w-[1440px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot  h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            className="w-full sm:max-w-[1440px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start  h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
             <div className="w-full    ">

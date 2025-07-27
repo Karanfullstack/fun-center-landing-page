@@ -8,7 +8,7 @@ export default function Footer() {
         <MotionsFade
             className="
             h-[90vh] p-4 
-        md:w-full  md:max-w-[100vw]  font-hubot m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
+        md:w-full  md:max-w-[100vw]  snap-start font-hubot m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
         >
             <div
                 id="container"
