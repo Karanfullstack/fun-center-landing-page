@@ -62,7 +62,7 @@ export default function RankingTwo() {
 
                         <motion.div
                             variants={itemVariants}
-                            className="w-full text-white flex sm:flex-row flex-col items-start justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
+                            className="w-full text-white sm:items-center flex sm:flex-row flex-col items-start justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
                         >
                             <div className="text-lg flex flex-col sm:flex-row items-start gap-1 max-w-[80%]">
                                 <span className="text-[20px]  leading-[1] font-bold text-[#DBFD01]">
