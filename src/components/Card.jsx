@@ -19,6 +19,7 @@ export default function Card({ data }) {
                     <img
                         src={data.img}
                         alt={data.alt || "Card image"}
+                        loading="eager"
                         className="w-[120%] sm:w-[100%] h-auto object-contain"
                     />
                 </div>

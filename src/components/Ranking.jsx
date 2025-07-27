@@ -97,6 +97,7 @@ export default function Ranking({ onScroll }) {
                                             frame.css || ""
                                         } max-w-[30vw] sm:max-w-none h-auto object-contain`}
                                         src={frame.image}
+                                        loading="eager"
                                         alt={`Ranking Frame ${index + 1}`}
                                     />
                                 ))}
