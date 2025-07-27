@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/Vector.svg";
 import Mobile from "../assets/mobileversionLogo.png";
 
 export default function Navbar({ onScroll }) {
+    const navitate = useNavigate();
     return (
         <header className="pt-2">
             <nav className="w-full font-hubot h-[10vh] flex items-center justify-between px-4 md:px-6 bg-black">
@@ -9,15 +11,17 @@ export default function Navbar({ onScroll }) {
                 <div className="flex items-center h-10 md:h-12">
                     {/* Desktop Logo */}
                     <img
+                        onClick={() => navitate.push("/")}
                         src={logo}
                         alt="desktop logo"
-                        className="hidden md:block h-full w-auto max-w-[220px]"
+                        className="hidden cursor-pointer md:block h-full w-auto max-w-[220px]"
                     />
                     {/* Mobile Logo */}
                     <img
+                        onClick={() => navitate.push("/")}
                         src={Mobile}
                         alt="mobile logo"
-                        className="block md:hidden h-full w-auto max-w-[140px]"
+                        className="block md:hidden cursor-pointer h-full w-auto max-w-[140px]"
                     />
                 </div>
 

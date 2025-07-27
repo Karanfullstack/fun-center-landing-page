@@ -16,5 +16,21 @@ export default {
         },
     },
 
-    plugins: [scrollHide, aspectRation],
+    plugins: [
+        scrollHide,
+        aspectRation,
+        function ({ addUtilities }) {
+            addUtilities({
+                ".will-change-transform": {
+                    willChange: "transform",
+                },
+                ".will-change-top": {
+                    willChange: "top",
+                },
+                ".will-change-scroll": {
+                    willChange: "scroll-position",
+                },
+            });
+        },
+    ],
 };

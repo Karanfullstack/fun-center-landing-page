@@ -8,6 +8,8 @@ import Glasses from "../assets/okularki.svg";
 import FootBall from "../assets/pilka.svg";
 import IPBOY from "../assets/animation/lp-boy.json";
 import MotionsFade from "../common/Motions";
+import downloadApple from "../assets/downloadapple.svg";
+import downloadPlay from "../assets/downloadplay.svg";
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -90,12 +92,29 @@ export default function Download() {
 
                     <motion.figure
                         variants={itemVariants}
-                        className="max-w-[300px] sm:max-w-[250px] md:max-w-[300px] w-full h-auto"
+                        className=" w-[45%] flex items-center justify-center gap-4 sm:max-w-[250px] md:max-w-[200px]  h-auto"
                     >
                         <img
-                            src={DownloadsIcon}
+                            onClick={() =>
+                                window.open(
+                                    "https://apps.apple.com/us/app/foova-fc/id6748235923",
+                                    "_blank"
+                                )
+                            }
+                            src={downloadApple}
                             alt="Ikony sklepów App Store i Google Play"
-                            className="w-full h-auto object-contain"
+                            className="w-full hover:cursor-pointer h-auto object-contain"
+                        />
+                        <img
+                            onClick={() =>
+                                window.open(
+                                    "https://play.google.com/store/apps/details?id=org.foova",
+                                    "_blank"
+                                )
+                            }
+                            src={downloadPlay}
+                            alt="Ikony sklepów App Store i Google Play"
+                            className="w-full hover:cursor-pointer h-auto object-contain"
                         />
                     </motion.figure>
 

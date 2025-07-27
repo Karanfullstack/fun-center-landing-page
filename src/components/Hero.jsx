@@ -79,9 +79,12 @@ export default function Hero({ onScroll }) {
                     {/* CTA */}
                     <div
                         delay={0.5}
-                        className="absolute bottom-5 safari:bottom-6 left-0 w-full px-4"
+                        className="absolute bottom-[3.4vh] safari:bottom-6 left-0 w-full px-4"
                     >
-                        <div className="bg-[#232323] w-full sm:w-fit mx-auto flex items-center gap-3 sm:gap-4 h-[60px] max-h-[64px] min-h-[48px] px-1 sm:px-1 shadow-lg">
+                        <div
+                            onClick={onScroll}
+                            className="bg-[#232323] cursor-pointer w-full sm:w-fit mx-auto flex items-center gap-3 sm:gap-4 h-[60px] max-h-[64px] min-h-[48px] px-1 sm:px-1 shadow-lg"
+                        >
                             <img
                                 src={appicon}
                                 alt="app icon"

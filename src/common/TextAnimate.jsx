@@ -16,7 +16,7 @@ export default function TextAnimate({ children }) {
                     opacity: 1,
                     duration: 1.5,
                     ease: "elastic.out(1, 0.6)",
-                    delay: 0.3,
+                    delay: 1.3,
                     force3D: true,
                 }
             );
@@ -30,8 +30,8 @@ export default function TextAnimate({ children }) {
                     opacity: 1,
                     duration: 1.5,
                     ease: "elastic.out(1, 0.5)",
-                    delay: 1.2,
-                    force3D: true,
+                    delay: 2.2,
+                    force3D: false,
                 }
             );
         });
@@ -45,7 +45,7 @@ export default function TextAnimate({ children }) {
     });
     const second = React.cloneElement(children[1], {
         ref: ref2,
-        className: "animated-text",
+        className: "animated-text will-change-transform",
     });
 
     return (

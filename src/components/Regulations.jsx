@@ -6,7 +6,7 @@ import icon from "../assets/icon/chevron-left.png";
 const Regulamin = () => {
     return (
         <div>
-            <div className="bg-black font-hubot whitespace-normal  p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
+            <div className="bg-black snap-start font-hubot whitespace-normal  p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
                 <div className="h-[40px] p-2 hover:cursor-pointer  hover:bg-[#DBFD01] bg-[#232323] flex items-center justify-right w-[40px] ml-0 mr-0 m-auto ">
                     <Link to="/">
                         <img className="" src={icon} alt="back-icon" />
