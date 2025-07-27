@@ -36,7 +36,7 @@ export default function Hero({ onScroll }) {
 
     return (
         <>
-            <div className="bg-black w-full max-w-[1400px] m-auto px-3 snap-start font-hubot overflow-hidden min-h-screen relative">
+            <div className="bg-black w-full max-w-[1440px] m-auto px-3  font-hubot overflow-hidden min-h-screen relative">
                 <Navbar onScroll={onScroll} />
                 <div
                     className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32"

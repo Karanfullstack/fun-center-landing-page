@@ -72,7 +72,7 @@ export default function Slides() {
 
     return (
         <MotionsFade
-            className="w-full sm:max-w-[1368px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-end h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+            className="w-full sm:max-w-[1440px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot  h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
             style={{ height: "calc(var(--vh, 1vh) * 100)" }}
         >
             <div className="w-full    ">
@@ -122,7 +122,7 @@ export default function Slides() {
                     >
                         <Swiper
                             modules={[Navigation]}
-                            spaceBetween={16}
+                            spaceBetween={10}
                             loop={false}
                             speed={300}
                             fadeEffect={{ crossFade: true }}
@@ -130,7 +130,7 @@ export default function Slides() {
                                 0: { slidesPerView: 1 },
                                 640: { slidesPerView: 2 },
                                 768: { slidesPerView: 2 },
-                                1024: { slidesPerView: 3 },
+                                1024: { slidesPerView: 3.1 },
                             }}
                             style={{ height: "auto" }}
                             onSwiper={(swiper) => {

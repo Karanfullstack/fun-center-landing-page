@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import groupFootbal from "../assets/Group.svg";
 import MotionsFade from "../common/Motions";
 
@@ -8,7 +8,9 @@ const Container = ({ children }) => (
 
 export default function App() {
     const scrollRef = useRef(null);
-    const sectionRef = useRef(null);
+    const middleCardRef = useRef(null);
+
+    const [loaded, setLoaded] = useState(false);
 
     // Set --vh CSS var for mobile viewport height fix
     useEffect(() => {
@@ -20,54 +22,45 @@ export default function App() {
         return () => window.removeEventListener("resize", setVh);
     }, []);
 
-    // Scroll reset helper
-    const resetScroll = () => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollTo({ top: 0, behavior: "auto" });
+    // Center the "A nie mówiłem?" card on load
+    useEffect(() => {
+        const container = scrollRef.current;
+        const middleCard = middleCardRef.current;
+        if (container && middleCard) {
+            const containerHeight = container.clientHeight;
+            const cardOffset = middleCard.offsetTop;
+            const cardHeight = middleCard.clientHeight;
+
+            const scrollTop = cardOffset - containerHeight / 2 + cardHeight / 2;
+            container.scrollTo({ top: scrollTop, behavior: "smooth" });
+
+            // Trigger fade-in after scrolling starts
+            setTimeout(() => setLoaded(true), 300);
         }
-    };
-
-    // Scroll reset on mount
-    useEffect(() => {
-        resetScroll();
     }, []);
 
-    // Intersection Observer to reset scroll when section enters viewport
-    useEffect(() => {
-        if (!sectionRef.current) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        resetScroll();
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
-
-        observer.observe(sectionRef.current);
-
-        return () => observer.disconnect();
-    }, []);
+    // Common fade & slide styles for cards
+    const fadeSlideStyles = (delay = 0) => ({
+        opacity: loaded ? 1 : 0,
+        transform: loaded ? "translateY(0)" : "translateY(30px)",
+        transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`,
+    });
 
     return (
         <MotionsFade>
             <div
-                ref={sectionRef}
-                className="bg-black snap-start scroll-smooth justify-center max-w-[1400px] m-auto font-hubot flex flex-col items-center sm:h-[100vh] h-[100vh] relative"
+                className="bg-black scroll-smooth justify-center max-w-[1440px] m-auto font-hubot flex flex-col items-center sm:h-[100vh] h-[100vh] relative"
                 style={{ scrollBehavior: "auto" }}
             >
                 <div
                     ref={scrollRef}
-                    className=" w-full m-auto h-[75vh]  scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
+                    className="w-full m-auto h-[75vh] scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
                     style={{ scrollBehavior: "smooth" }}
                 >
-                    <div className="flex   flex-col-reverse gap-8 justify-center items-center min-h-[125vh] w-full  relative">
+                    <div className="flex flex-col-reverse gap-8 justify-center items-center min-h-[125vh] w-full relative">
                         <div
                             className="w-full sticky top-[40vh] scroll-smooth h-[60px] flex justify-center items-center will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            style={{ transform: "translateZ(0)", ...fadeSlideStyles(0) }}
                         >
                             <span className="text-[32px] sm:text-2xl md:text-5xl lg:text-5xl text-white font-bold text-center leading-[1.25]">
                                 Apka dla futbolowych Ekspertów.
@@ -76,24 +69,26 @@ export default function App() {
 
                         <div
                             className="w-[95%] scroll-smooth z-40 sticky !top-[24vh] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            style={{ transform: "translateZ(0)", ...fadeSlideStyles(0.2) }}
                         >
                             <span className="text-2xl sm:text-3xl leading-[1.25] md:text-4xl lg:text-5xl font-bold">
                                 “To było oczywiste!”
                             </span>
                         </div>
+
                         <div
-                            delay={0.3}
+                            ref={middleCardRef}
                             className="w-[85%] scroll-smooth sticky top-[21.1vh] z-30 max-w-full sm:w-[445px] sm:max-w-none text-center py-4 bg-white will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            style={{ transform: "translateZ(0)", ...fadeSlideStyles(0.4) }}
                         >
                             <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                                 “A nie mówiłem?”
                             </span>
                         </div>
+
                         <div
                             className="w-[75%] scroll-smooth sticky top-[18.5vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            style={{ transform: "translateZ(0)", ...fadeSlideStyles(0.6) }}
                         >
                             <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                                 “Wiedziałem!”
@@ -102,7 +97,7 @@ export default function App() {
 
                         <div
                             className="bg-white scroll-smooth sticky top-[1.7rem] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            style={{ transform: "translateZ(0)", ...fadeSlideStyles(0.8) }}
                         >
                             <img
                                 src={groupFootbal}

@@ -13,7 +13,7 @@ const frames = [
     { image: FramThree, css: "mt-5" },
 ];
 
-export default function Ranking() {
+export default function Ranking({ onScroll }) {
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { amount: 0.15, once: true });
 
@@ -34,7 +34,7 @@ export default function Ranking() {
                 animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.4 }}
-                className="ranking-container snap-start scroll-smooth max-w-[1360px] m-auto  min-h-screen  relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
+                className="ranking-container scroll-smooth max-w-[1360px] m-auto  min-h-screen  relative bg-black  flex gap-2  pb-10 flex-col justify-center items-center w-full font-hubot"
             >
                 <section className="m-auto w-full">
                     <div className="flex relative pt-14 sm:pt-20  flex-col gap-10 justify-center items-center ">
@@ -53,7 +53,10 @@ export default function Ranking() {
                             transition={{ duration: 0.3, ease: "easeOut", delay: 0.2 }}
                             className="-mt-4"
                         >
-                            <button className="ranking-button bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93] py-[8px] text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[40px] w-[140px] min-w-[120px] fill-transparent">
+                            <button
+                                onClick={onScroll}
+                                className="ranking-button bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93] py-[8px] text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[40px] w-[140px] min-w-[120px] fill-transparent"
+                            >
                                 pobierz apkę
                             </button>
                         </div>

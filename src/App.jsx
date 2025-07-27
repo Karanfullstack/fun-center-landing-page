@@ -1,3 +1,5 @@
+import FadeInSection from "./common/WrapperScoll";
+import WindScrollWrapper from "./common/WrapperScoll";
 import Download from "./components/Download";
 import Footer from "./components/Footer";
 import Frame from "./components/Frame";
@@ -5,7 +7,7 @@ import Hero from "./components/Hero";
 
 import Ranking from "./components/Ranking";
 import Slides from "./components/Slides";
-import Stacking from "./components/Stacking";
+
 import { useRef } from "react";
 
 function App() {
@@ -19,8 +21,9 @@ function App() {
             <Hero onScroll={scrollToPage2} />
 
             <Frame />
+
             <Slides />
-            <Ranking />
+            <Ranking onScroll={scrollToPage2} />
 
             <div ref={page2Ref}>
                 <Download />
