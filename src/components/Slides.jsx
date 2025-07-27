@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { motion, useInView } from "framer-motion";
-
+import { Helmet } from "react-helmet";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -16,6 +16,8 @@ import screen4 from "../assets/FOOVA SCREENS/Screen-4.svg";
 import screen5 from "../assets/FOOVA SCREENS/Screen-5.svg";
 import screen6 from "../assets/FOOVA SCREENS/Screen-6.svg";
 import MotionsFade from "../common/Motions";
+
+import ArrowNavigation from "../common/ArrowNavigation";
 
 const data = [
     { img: screen1, text: "Zbieraj punkty w predykcjach przed i w trakcie meczu!" },
@@ -71,93 +73,83 @@ export default function Slides() {
     }, []);
 
     return (
-        <MotionsFade
-            className="w-full sm:max-w-[1440px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start  h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
-            style={{ height: "calc(var(--vh, 1vh) * 100)" }}
-        >
-            <div className="w-full    ">
-                <div className="flex flex-col justify-center gap-3 h-full">
-                    {/* Header with arrows */}
-                    <div className="h-[48px] flex gap-2 justify-between  mb-2 items-center  px-4 sm:px-8">
-                        <span className="text-white text-sm sm:text-base lg:text-md font-normal">
-                            Predykcje, ciekawostki i Wy, Eksperci:
-                        </span>
+        <>
+            <Helmet>
+                <link rel="preload" as="image" href={screen1} type="image/svg" />
+                <link rel="preload" as="image" href={screen2} type="image/svg" />
+                <link rel="preload" as="image" href={screen3} type="image/svg" />
+                <link rel="preload" as="image" href={screen4} type="image/svg" />
+                <link rel="preload" as="image" href={screen5} type="image/svg" />
+                <link rel="preload" as="image" href={screen6} type="image/svg" />
+            </Helmet>
+            <MotionsFade
+                className="w-full sm:max-w-[1440px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start  h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+                style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+            >
+                <div className="w-full ">
+                    <div className="flex flex-col justify-center gap-3 h-full">
+                        {/* Header with arrows */}
+                        <div className="h-[48px] flex gap-2 justify-between  mb-2 items-center  px-4 sm:px-8">
+                            <span className="text-white text-sm sm:text-base lg:text-md font-normal">
+                                Predykcje, ciekawostki i Wy, Eksperci:
+                            </span>
 
-                        {/* Arrows */}
-                        <div className="w-[80px] sm:w-[92px] flex gap-1 items-center justify-between h-[40px] sm:h-[48px]  shadow-sm bg-[#121212]">
-                            <button
-                                onClick={handlePrev}
-                                className={`w-1/2 flex items-center justify-center h-full transition-all duration-200 ease-in-out ${
-                                    isBeginning
-                                        ? "bg-[#232323] opacity-40 cursor-not-allowed"
-                                        : "bg-[#DBFD01] cursor-pointer hover:bg-[#c7ea00]"
-                                }`}
-                                aria-label="Previous slide"
-                                disabled={isBeginning}
-                            >
-                                <img src={arrow} alt="left arrow" className="w-4 h-4" />
-                            </button>
-                            <button
-                                onClick={handleNext}
-                                className={`w-1/2 flex items-center justify-center h-full transition-all duration-200 ease-in-out ${
-                                    isEnd
-                                        ? "bg-[#232323] opacity-40 cursor-not-allowed"
-                                        : "bg-[#DBFD01] cursor-pointer hover:bg-[#c7ea00]"
-                                }`}
-                                aria-label="Next slide"
-                                disabled={isEnd}
-                            >
-                                <img src={arrow} alt="right arrow" className="w-4 h-4 rotate-180" />
-                            </button>
+                            {/* Arrows */}
+                            <ArrowNavigation
+                                isBeginning={isBeginning}
+                                isEnd={isEnd}
+                                handleNext={handleNext}
+                                handlePrev={handlePrev}
+                            />
                         </div>
-                    </div>
 
-                    {/* Slide content */}
-                    <motion.section
-                        ref={sectionRef}
-                        initial={{ opacity: 0, y: 80 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="flex-grow  px-2 sm:px-4 flex items-center overflow-visible"
-                    >
-                        <Swiper
-                            modules={[Navigation]}
-                            spaceBetween={10}
-                            loop={false}
-                            speed={300}
-                            fadeEffect={{ crossFade: true }}
-                            breakpoints={{
-                                0: { slidesPerView: 1 },
-                                640: { slidesPerView: 2 },
-                                768: { slidesPerView: 2 },
-                                1024: { slidesPerView: 3.1 },
-                            }}
-                            style={{ height: "auto" }}
-                            onSwiper={(swiper) => {
-                                swiperRef.current = swiper;
-                            }}
-                            slidesPerView={1.2}
-                            initialSlide={0}
-                            onSlideChange={handleSlideChange}
+                        {/* Slide content */}
+                        <motion.section
+                            ref={sectionRef}
+                            initial={{ opacity: 0, y: 80 }}
+                            animate={inView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="flex-grow  px-2 sm:px-4 flex items-center overflow-visible"
                         >
-                            {data.map((item, index) => (
-                                <SwiperSlide key={index}>
-                                    <div
-                                        style={{
-                                            transition:
-                                                "transform 300ms ease-out, opacity 300ms ease-out",
-                                            willChange: "transform, opacity",
-                                        }}
-                                        className="z-10"
-                                    >
-                                        <Card index={index} data={item} />
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </motion.section>
+                            <Swiper
+                                modules={[Navigation]}
+                                spaceBetween={10}
+                                loop={false}
+                                speed={300}
+                                fadeEffect={{ crossFade: true }}
+                                breakpoints={{
+                                    0: { slidesPerView: 1 },
+                                    640: { slidesPerView: 2 },
+                                    768: { slidesPerView: 2 },
+                                    1024: { slidesPerView: 3.1 },
+                                }}
+                                style={{ height: "auto" }}
+                                onSwiper={(swiper) => {
+                                    swiperRef.current = swiper;
+                                }}
+                                slidesPerView={1.2}
+                                initialSlide={0}
+                                onSlideChange={handleSlideChange}
+                            >
+                                {data.map((item, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div
+                                            style={{
+                                                transition:
+                                                    "transform 300ms ease-out, opacity 300ms ease-out",
+                                                willChange: "transform, opacity",
+                                            }}
+                                            className="z-10"
+                                        >
+                                            <Card index={index} data={item} />
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </motion.section>
+                    </div>
                 </div>
-            </div>
-        </MotionsFade>
+            </MotionsFade>
+        </>
     );
 }

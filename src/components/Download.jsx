@@ -102,7 +102,7 @@ export default function Download() {
                                 )
                             }
                             src={downloadApple}
-                            alt="Ikony sklepów App Store i Google Play"
+                            alt="Foova FC Google Play"
                             className="w-full hover:cursor-pointer h-auto object-contain"
                         />
                         <img
@@ -113,7 +113,7 @@ export default function Download() {
                                 )
                             }
                             src={downloadPlay}
-                            alt="Ikony sklepów App Store i Google Play"
+                            alt="Foova FC Apple Store"
                             className="w-full hover:cursor-pointer h-auto object-contain"
                         />
                     </motion.figure>
