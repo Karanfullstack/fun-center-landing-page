@@ -14,7 +14,7 @@ export default function Footer() {
                 id="container"
                 className="
                 w-full
-                min-h-[94.1%]
+                min-h-[96.1%]
                 h-auto
                 p-4
                 flex-col
@@ -116,18 +116,21 @@ export default function Footer() {
                     </div>
                     <div className="flex w-full h-full flex-col md:flex-row items-center justify-end gap-2 md:gap-3">
                         <Link
+                            onScroll={top}
                             to="/regulamin"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
                         >
                             Regulamin
                         </Link>
                         <Link
+                            onScroll={top}
                             to="/polityka-prytwatności"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
                         >
                             Polityka Prytwatności
                         </Link>
                         <Link
+                            onScroll={top}
                             to="/informacje-usunięciu-konta"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
                         >
