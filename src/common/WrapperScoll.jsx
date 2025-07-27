@@ -1,25 +1,33 @@
 import { useEffect, useRef } from "react";
 
-const ParallaxWrapper = ({ speed = 0.3, children }) => {
-    const ref = useRef(null);
+export default function Parallax({ speed = 0.2, children }) {
+    const ref = useRef();
+
     useEffect(() => {
         const handleScroll = () => {
-            const el = ref.current;
-            if (!el) return;
-
-            const offset = window.scrollY * speed;
-            el.style.transform = `translateY(${offset}px)`;
+            const scrollY = window.scrollY;
+            if (ref.current) {
+                // Negative to move in opposite scroll direction (typical parallax)
+                ref.current.style.transform = `translateY(${scrollY * speed * -1}px)`;
+            }
         };
 
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        // Initial call so position is correct on load
+        handleScroll();
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, [speed]);
 
     return (
-        <div ref={ref} style={{ willChange: "transform", transition: "transform 0.1s linear" }}>
+        <div
+            ref={ref}
+            style={{
+                willChange: "transform",
+                transition: "transform 0.1s linear",
+            }}
+        >
             {children}
         </div>
     );
-};
-
-export default ParallaxWrapper;
+}

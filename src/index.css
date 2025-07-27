@@ -53,3 +53,21 @@ body.iphone-bottom-fix .iphone\:mb-\[60px\] {
         perspective: 1000px;
     }
 }
+
+/* heropage text animaton */
+.animated-text {
+    will-change: transform, opacity;
+    backface-visibility: hidden; /* helps on some browsers */
+}
+
+/* frammer page */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-slide.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}

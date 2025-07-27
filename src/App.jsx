@@ -19,9 +19,7 @@ function App() {
     };
     return (
         <div className="h-screen snap-y scroll-container snap-mandatory  w-screen m-auto overflow-y-scroll  scroll-smooth scrollbar-hide ">
-            <ParallaxWrapper delay={0.2}>
-                <Hero onScroll={scrollToPage2} />
-            </ParallaxWrapper>
+            <Hero onScroll={scrollToPage2} />
 
             <ParallaxWrapper delay={0.2}>
                 <Frame />

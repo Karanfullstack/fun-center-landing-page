@@ -6,31 +6,47 @@ export default function TextAnimate({ children }) {
     const ref2 = useRef(null);
 
     useEffect(() => {
-        const el1 = ref1.current;
-        const el2 = ref2.current;
+        const ctx = gsap.context(() => {
+            // Animate first child from left -100vw to 0
+            gsap.fromTo(
+                ref1.current,
+                { x: "-100vw", opacity: 0 },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: "elastic.out(1, 0.6)",
+                    delay: 0.3,
+                    force3D: true,
+                }
+            );
 
-        gsap.set(el1, { x: "-150vw", opacity: 0 });
-        gsap.set(el2, { x: "150vw", opacity: 0 });
-
-        gsap.to(el1, {
-            x: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "elastic.out(1, 0.6)",
-            delay: 0.3,
+            // Animate second child from right 100vw to 0
+            gsap.fromTo(
+                ref2.current,
+                { x: "100vw", opacity: 0 },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: "elastic.out(1, 0.5)",
+                    delay: 1.2,
+                    force3D: true,
+                }
+            );
         });
 
-        gsap.to(el2, {
-            x: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "elastic.out(1, 0.5)",
-            delay: 1.2,
-        });
+        return () => ctx.revert();
     }, []);
 
-    const first = React.cloneElement(children[0], { ref: ref1 });
-    const second = React.cloneElement(children[1], { ref: ref2 });
+    const first = React.cloneElement(children[0], {
+        ref: ref1,
+        className: "animated-text",
+    });
+    const second = React.cloneElement(children[1], {
+        ref: ref2,
+        className: "animated-text",
+    });
 
     return (
         <>
