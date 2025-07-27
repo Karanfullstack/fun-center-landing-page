@@ -20,51 +20,42 @@ export default function App() {
         return () => window.removeEventListener("resize", setVh);
     }, []);
 
-    // Scroll reset helper
-    const resetScroll = () => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollTo({ top: 0, behavior: "auto" });
-        }
-    };
-
-    // Scroll reset on mount
+    // Scroll reset only once on first mount
     useEffect(() => {
-        resetScroll();
+        const timeout = setTimeout(() => {
+            if (scrollRef.current) {
+                scrollRef.current.scrollTop = -202;
+            }
+        }, 10); // Slight delay to ensure rendering before scroll reset
+
+        return () => clearTimeout(timeout);
     }, []);
-
-    // Intersection Observer to reset scroll when section enters viewport
     useEffect(() => {
-        if (!sectionRef.current) return;
+        const el = scrollRef.current;
+        if (!el) return;
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        resetScroll();
-                    }
-                });
-            },
-            { threshold: 0.5 }
-        );
+        const handleScroll = () => {
+            console.log(el.scrollTop); // correct scroll position
+        };
 
-        observer.observe(sectionRef.current);
+        el.addEventListener("scroll", handleScroll);
 
-        return () => observer.disconnect();
+        return () => el.removeEventListener("scroll", handleScroll);
     }, []);
 
     return (
         <MotionsFade>
             <div
                 ref={sectionRef}
-                className="bg-black  justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[100vh] h-[100vh] relative"
+                className="bg-black justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[80vh] relative"
                 style={{ scrollBehavior: "auto" }}
             >
                 <div
                     ref={scrollRef}
-                    className=" w-full m-auto h-[70vh] flex-col-reverse  scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
+                    className="w-full m-auto h-[70vh] flex-col-reverse scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
                     style={{ scrollBehavior: "smooth" }}
                 >
-                    <div className="flex  flex-col-reverse gap-8 justify-center items-center min-h-[115vh] w-full  relative">
+                    <div className="flex flex-col-reverse gap-8 justify-center items-center min-h-[120vh] w-full relative">
                         <div
                             className="w-full sticky bottom-0 h-[60px] flex justify-center items-center will-change-top"
                             style={{ transform: "translateZ(0)" }}
@@ -82,8 +73,8 @@ export default function App() {
                                 “To było oczywiste!”
                             </span>
                         </div>
+
                         <div
-                            delay={0.3}
                             className="w-[85%] sticky bottom-[17.6vh] z-30 max-w-full sm:w-[445px] sm:max-w-none text-center py-4 bg-white will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
@@ -91,8 +82,9 @@ export default function App() {
                                 “A nie mówiłem?”
                             </span>
                         </div>
+
                         <div
-                            className="w-[75%] sticky bottom-[17vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
+                            className="w-[75%] sticky bottom-[20vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -101,7 +93,7 @@ export default function App() {
                         </div>
 
                         <div
-                            className="bg-white sticky bottom-[35vh] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
+                            className="bg-white sticky -top-0 rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
                             style={{ transform: "translateZ(0)" }}
                         >
                             <img

@@ -7,8 +7,8 @@ export default function Footer() {
     return (
         <MotionsFade
             className="
-            h-[85vh] p-4 
-        md:w-full  md:max-w-[100vw]  m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
+            h-[90vh] p-4 
+        md:w-full  md:max-w-[100vw]  font-hubot m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
         >
             <div
                 id="container"
@@ -25,7 +25,7 @@ export default function Footer() {
                 {/* Heading */}
                 <section
                     className=" 
-                    w-[95%] h-[100px]
+                    w-[100%] h-[100px]
                     m-auto
                     md:m-0
                     gap-1
