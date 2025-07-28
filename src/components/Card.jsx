@@ -9,7 +9,7 @@ export default function Card({ data }) {
             <div className="relative flex flex-col justify-between items-center w-full h-full p-4 sm:p-8">
                 {/* Title Section */}
                 <div className="w-[90%] z-10">
-                    <h2 className="text-[#F6F6F6] font-bold text-[20px] sm:text-[28px] leading-[1.25] break-words">
+                    <h2 className="text-[#F6F6F6] font-bold text-[22px] sm:text-[28px] leading-[1.25] break-words">
                         {data.text}
                     </h2>
                 </div>
@@ -20,7 +20,7 @@ export default function Card({ data }) {
                         src={data.img}
                         alt={data.alt || "Card image"}
                         loading="eager"
-                        className="w-[120%] sm:w-[100%] h-auto object-contain"
+                        className="w-[120%] block sm:w-[100%] h-auto object-contain"
                     />
                 </div>
             </div>
