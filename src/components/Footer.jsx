@@ -41,13 +41,13 @@ export default function Footer() {
     
     md:w-[151px] bg-[#DBFD01]"
                     >
-                        <p className="text-[clamp(1.25rem,2vw,2rem)] sm:text-[1.25rem] leading-[1.25] font-bold font-hubot">
+                        <p className="text-[clamp(1.25rem,2vw,2rem)] sm:text-[1.25rem] leading-[125%] font-bold font-hubot">
                             W 1 dzień
                         </p>
                     </div>
 
                     <div className="w-full  p-2 h-auto flex justify-center items-center md:w-auto">
-                        <p className="text-[clamp(16px, 2vw, 20px)] md:text-[1.2rem] text-[#F6F6F6] font-medium leading-[1.25] font-hubot">
+                        <p className="text-[clamp(16px, 2vw, 20px)] md:text-[1.2rem] text-[#F6F6F6] font-medium leading-[125%] font-hubot">
                             Wdrożenie na Twoich kanałach!
                         </p>
                     </div>
@@ -67,7 +67,7 @@ export default function Footer() {
   "
                 >
                     <div className=" w-[100%] h-auto text-left   md:w-full md:h-full ">
-                        <h3 className="text-[150%] md:text-[4rem] w-full text-[#F6F6F6] font-hubot font-bold leading-[1.25]">
+                        <h3 className="text-[150%] md:text-[4rem] w-full text-[#F6F6F6] font-hubot font-bold leading-[125%]">
                             Chcesz zostać
                             <br />
                             Partnerem Foova FC?
@@ -87,12 +87,12 @@ export default function Footer() {
                 {/* email section */}
 
                 <section className="flex w-[100%] flex-col gap-1 md:gap-3 md:items-start md:justify-start">
-                    <p className="text-[clamp(1rem, 2vw, 2rem)] font-medium leading-[1.25] text-[#F6F6F6] font-hubot">
+                    <p className="text-[clamp(1rem, 2vw, 2rem)] font-medium leading-[125%] text-[#F6F6F6] font-hubot">
                         Napisz do nas:
                     </p>
                     <a
                         href="mailto:partners@foova.org"
-                        className="text-[clamp(1.25rem,2vw,1.75rem)] md:text-[62px] underline text-[#F6F6F6] font-bold leading-[1.25] font-hubot"
+                        className="text-[clamp(1.25rem,2vw,1.75rem)] md:text-[62px] underline text-[#F6F6F6] font-bold leading-[125%] font-hubot"
                     >
                         partners@foova.org
                     </a>
@@ -110,7 +110,7 @@ export default function Footer() {
   "
                 >
                     <div className="w-full h-full flex-col items-center  flex  md:flex-row md:items-center md:justify-start">
-                        <p className="text-[100%]  md:text-base font-medium font-hubot leading-[1.25] text-[#F6F6F6]">
+                        <p className="text-[100%]  md:text-base font-medium font-hubot leading-[125%] text-[#F6F6F6]">
                             © FOOVA 2025
                         </p>
                     </div>
@@ -118,21 +118,21 @@ export default function Footer() {
                         <Link
                             onScroll={top}
                             to="/regulamin"
-                            className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                            className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >
                             Regulamin
                         </Link>
                         <Link
                             onScroll={top}
                             to="/polityka-prytwatności"
-                            className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                            className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >
                             Polityka Prytwatności
                         </Link>
                         <Link
                             onScroll={top}
                             to="/informacje-usunięciu-konta"
-                            className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[1.25] text-[#D1D1D1]"
+                            className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >
                             Informacje o Usunięciu Konta
                         </Link>

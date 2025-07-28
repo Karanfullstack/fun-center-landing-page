@@ -77,7 +77,7 @@ export default function Download() {
                     {/* Other content just uses variants for simple fade/slide */}
                     <motion.h2
                         variants={itemVariants}
-                        className="text-2xl sm:text-5xl md:text-[64px] font-hubot font-bold text-white leading-tight"
+                        className="text-2xl sm:text-5xl md:text-[64px] font-hubot font-bold text-white leading-[125%]"
                         id="download-heading"
                     >
                         Dawaj do gry!
