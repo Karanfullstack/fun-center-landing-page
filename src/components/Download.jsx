@@ -53,7 +53,7 @@ export default function Download() {
             <div
                 ref={ref}
                 aria-labelledby="download-heading"
-                className="min-h-[100vh] snap-start  w-full flex font-hubot justify-center items-center sm:items-center bg-black overflow-hidden py-20"
+                className="min-h-[100vh]   w-full flex font-hubot justify-center items-center sm:items-center bg-black overflow-hidden py-20"
             >
                 <motion.article
                     variants={containerVariants}

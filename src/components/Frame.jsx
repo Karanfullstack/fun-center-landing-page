@@ -47,7 +47,7 @@ export default function App() {
         <MotionsFade>
             <div
                 ref={sectionRef}
-                className="bg-black snap-start justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[100vh] relative"
+                className="bg-black justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[100vh] relative"
                 style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
             >
                 <div

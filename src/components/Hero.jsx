@@ -36,7 +36,7 @@ export default function Hero({ onScroll }) {
 
     return (
         <>
-            <div className="bg-black snap-start w-full max-w-[1440px] m-auto px-3  font-hubot overflow-hidden min-h-screen relative">
+            <div className="bg-black  w-full max-w-[1440px] m-auto px-3  font-hubot overflow-hidden min-h-screen relative">
                 <Navbar onScroll={onScroll} />
                 <div
                     className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32"
@@ -48,7 +48,7 @@ export default function Hero({ onScroll }) {
                         className="absolute top-3 left-0 right-0 h-[75vh] bg-no-repeat bg-contain bg-top transition-transform duration-75 ease-out will-change-transform pointer-events-none"
                         style={{ backgroundImage: `url(${HeroVector})` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/70" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/100" />
 
                     {/* Foreground Content */}
                     <div className="relative z-10 flex flex-col items-center justify-center text-white p-4 sm:p-6 flex-grow">

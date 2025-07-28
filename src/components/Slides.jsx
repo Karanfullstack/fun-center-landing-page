@@ -2,11 +2,10 @@ import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { motion, useInView } from "framer-motion";
-import { Helmet } from "react-helmet";
+
 import "swiper/css";
 import "swiper/css/navigation";
 
-import arrow from "../assets/chevron-left.svg";
 import Card from "./Card";
 
 import screen1 from "../assets/FOOVA SCREENS/Screen-1.svg";
@@ -74,23 +73,19 @@ export default function Slides() {
 
     return (
         <>
-            <Helmet>
-                <link rel="preload" as="image" href={screen1} type="image/svg" />
-                <link rel="preload" as="image" href={screen2} type="image/svg" />
-                <link rel="preload" as="image" href={screen3} type="image/svg" />
-                <link rel="preload" as="image" href={screen4} type="image/svg" />
-                <link rel="preload" as="image" href={screen5} type="image/svg" />
-                <link rel="preload" as="image" href={screen6} type="image/svg" />
-            </Helmet>
             <MotionsFade
-                className="w-full sm:max-w-[1440px] sm:m-auto max-w-[353px] m-auto   items-center gap-2 justify-center  font-hubot snap-start  h-screen  font-[800] sm:px-0   bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
-                style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+                className="w-full max-w-[1440px] sm:m-auto m-auto   items-center gap-2 justify-center  font-hubot  h-screen  font-[800] sm:px-3  px-2  bg-black pt-4 pb-[env(safe-area-inset-bottom)] flex flex-col"
+                style={{
+                    height: "calc(var(--vh, 1vh) * 100)",
+                    scrollBehavior: "smooth",
+                    WebkitOverflowScrolling: "touch",
+                }}
             >
-                <div className="w-full ">
-                    <div className="flex flex-col justify-center gap-3 h-full">
+                <div className="w-full">
+                    <div className="flex flex-col max-w-[1360px] w-full mx-auto  justify-center gap-8 h-full">
                         {/* Header with arrows */}
-                        <div className="h-[48px] flex gap-2 justify-between  mb-2 items-center  px-4 sm:px-8">
-                            <span className="text-white text-sm sm:text-base lg:text-md font-normal">
+                        <div className="h-[6vh]  flex gap-2 justify-between  items-center  px-4 sm:px-8">
+                            <span className="text-white text-[100%] font-normal">
                                 Predykcje, ciekawostki i Wy, Eksperci:
                             </span>
 
