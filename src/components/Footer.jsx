@@ -3,12 +3,13 @@ import FoovaVector from "../assets/FOOVA.svg";
 import JerseyPartner from "../assets/animation/lp-jersey-partner.json";
 import { Link } from "react-router-dom";
 import MotionsFade from "../common/Motions";
+
 export default function Footer() {
     return (
         <MotionsFade
             className="
             h-[90vh] p-4 
-        md:w-full  max-w-[1440px] w-full   font-hubot m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
+        md:w-full  max-w-[1440px] w-full  font-hubot m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
         >
             <div
                 id="container"
@@ -116,21 +117,20 @@ export default function Footer() {
                     </div>
                     <div className="flex w-full h-full flex-col md:flex-row items-center justify-end gap-2 md:gap-3">
                         <Link
-                            onScroll={top}
                             to="/regulamin"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >
                             Regulamin
                         </Link>
                         <Link
-                            onScroll={top}
+                            
                             to="/polityka-prytwatności"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >
                             Polityka Prytwatności
                         </Link>
                         <Link
-                            onScroll={top}
+                           
                             to="/informacje-usunięciu-konta"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >

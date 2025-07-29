@@ -43,7 +43,7 @@ export default function App() {
         const lenis = new Lenis({
             wrapper,
             content,
-            duration: 1.2,
+            duration: 1.5,
             easing: (t) => t,
             smoothWheel: false,
             smoothTouch: true,

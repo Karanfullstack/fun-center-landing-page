@@ -3,7 +3,14 @@ import icon from "../assets/icon/chevron-left.png";
 import logo from "../assets/App-Icon.svg";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 const PrivacyPolicy = () => {
+    useEffect(() => {
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: "instant" });
+        };
+        scrollToTop();
+    }, []);
     return (
         <div>
             <div className="bg-black  whitespace-normal font-hubo text-justify p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">

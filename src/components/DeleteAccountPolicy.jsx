@@ -2,7 +2,14 @@ import logo from "../assets/App-Icon.svg";
 import Footer from "../components/Footer";
 import icon from "../assets/icon/chevron-left.png";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 const DeleteAccountPolicy = () => {
+    useEffect(() => {
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: "instant" });
+        };
+        scrollToTop();
+    }, []);
     return (
         <div>
             <div className="bg-black  font-hubot whitespace-normal  p-10 text-white m-auto  max-w-[700px] w-full  min-h-screen  font-hubspot">

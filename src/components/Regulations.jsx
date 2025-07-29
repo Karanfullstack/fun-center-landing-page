@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 import logo from "../assets/App-Icon.svg";
 import Footer from "./Footer";
 import icon from "../assets/icon/chevron-left.png";
+import { useEffect } from "react";
 
 const Regulamin = () => {
+    useEffect(() => {
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: "instant" });
+        };
+        scrollToTop();
+    }, []);
+
     return (
         <div>
             <div className="bg-black font-hubot whitespace-normal  p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
