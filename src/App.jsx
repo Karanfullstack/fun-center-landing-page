@@ -14,29 +14,37 @@ function App() {
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => t,
-            smoothWheel: true,
+            smoothWheel: false,
             smoothTouch: true,
             touchMultiplier: 2,
         });
 
-        function raf(time) {
+        const raf = (time) => {
             lenis.raf(time);
             requestAnimationFrame(raf);
-        }
+        };
 
         requestAnimationFrame(raf);
 
+        const onLoad = () => {
+            lenis.resize(); // Recalculate scroll size after full load
+        };
+
+        window.addEventListener("load", onLoad);
+
         return () => {
-            lenis.destroy();
+            window.removeEventListener("load", onLoad);
+            lenis.destroy(); // Clean up
         };
     }, []);
+
     const page2Ref = useRef(null);
 
     const scrollToPage2 = () => {
         page2Ref.current?.scrollIntoView({ behavior: "smooth" });
     };
     return (
-        <div className=" h-screen snap-y   relative  scroll-container snap-mandatory  max-w-[1440px] m-auto overflow-y-scroll  scroll-smooth scrollbar-hide ">
+        <div className=" h-screen    relative  scroll-container   max-w-[1440px] m-auto overflow-y  scroll-auto scrollbar-hide ">
             <Hero onScroll={scrollToPage2} />
 
             <Frame />
