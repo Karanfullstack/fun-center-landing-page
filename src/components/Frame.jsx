@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import groupFootbal from "../assets/Group.svg";
 import MotionsFade from "../common/Motions";
+import Lenis from "lenis";
 
 const Container = ({ children }) => (
     <div className="max-w-[1100px] mx-auto px-4 pt-0 pb-0 sm:px-6 lg:px-8">{children}</div>
@@ -30,32 +31,53 @@ export default function App() {
 
         return () => clearTimeout(timeout);
     }, []);
-    useEffect(() => {
-        const el = scrollRef.current;
-        if (!el) return;
 
-        const handleScroll = () => {
-            console.log(el.scrollTop); // correct scroll position
+    useEffect(() => {
+        const wrapper = scrollRef.current;
+
+        if (!wrapper) return;
+
+        // Optional: if your scrollable content is a child inside
+        const content = wrapper.firstElementChild;
+
+        const lenis = new Lenis({
+            wrapper,
+            content,
+            duration: 1.2,
+            easing: (t) => t,
+            smoothWheel: false,
+            smoothTouch: true,
+            touchMultiplier: 1.5,
+            scrollFromAnywhere: true,
+            direction: "vertical",
+            gestureDirection: "vertical",
+        });
+
+        const raf = (time) => {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
         };
 
-        el.addEventListener("scroll", handleScroll);
+        requestAnimationFrame(raf);
 
-        return () => el.removeEventListener("scroll", handleScroll);
+        return () => {
+            lenis.destroy();
+        };
     }, []);
-
     return (
         <MotionsFade>
             <div
                 ref={sectionRef}
-                className="bg-black justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[100vh] relative"
-                style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
+                className="bg-black  justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[100vh] relative"
             >
                 <div
                     ref={scrollRef}
-                    className="w-full m-auto h-[70vh] flex-col-reverse scrollbar-hide overflow-y-auto scroll-smooth flex justify-center items-center"
-                    style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
+                    className="w-full m-auto h-[70vh] flex-col-reverse scrollbar-hide overflow-y-auto scroll-auto flex justify-center items-center"
                 >
-                    <div className="flex flex-col-reverse gap-9 justify-center items-center min-h-[120vh] w-full relative">
+                    <div
+                        className="flex flex-col-reverse gap-9 justify-center items-center min-h-[120vh] w-full relative"
+                        style={{ WebkitOverflowScrolling: "touch", scrollBehavior: "auto" }}
+                    >
                         <div
                             className="w-full sticky bottom-0 h-[60px] flex justify-center items-center will-change-top"
                             style={{ transform: "translateZ(0)" }}
