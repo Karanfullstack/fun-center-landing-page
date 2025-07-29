@@ -8,7 +8,7 @@ export default function ArrowNavigation({ handlePrev, isBeginning, handleNext, i
                 className={`w-1/2 flex items-center justify-center h-full transition-all duration-200 ease-in-out ${
                     isBeginning
                         ? "bg-[#232323] opacity-40 cursor-not-allowed"
-                        : "bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93]"
+                        : "bg-[#DBFD01] cursor-pointer hover:bg-[#DBFD01]"
                 }`}
                 aria-label="Previous slide"
                 disabled={isBeginning}
@@ -23,7 +23,7 @@ export default function ArrowNavigation({ handlePrev, isBeginning, handleNext, i
                 className={`w-1/2 flex items-center justify-center h-full transition-all duration-200 ease-in-out ${
                     isEnd
                         ? "bg-[#232323] opacity-40 cursor-not-allowed"
-                        : "bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93]"
+                        : "bg-[#DBFD01] cursor-pointer hover:bg-[#DBFD01]"
                 }`}
                 aria-label="Next slide"
                 disabled={isEnd}
