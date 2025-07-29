@@ -1,11 +1,10 @@
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useRef } from "react";
 import Lottie from "lottie-react";
-import DownloadsIcon from "../assets/Stores.svg";
-import LeftTopIcon from "../assets/stadion.svg";
-import Cup from "../assets/puchar.svg";
-import Glasses from "../assets/okularki.svg";
-import FootBall from "../assets/pilka.svg";
+import LeftTopIcon from "../assets/FOOVA-LP-cards/stadion-card.png";
+import Cup from "../assets/FOOVA-LP-cards/puchar-card.png";
+import Glasses from "../assets/FOOVA-LP-cards/okularki-card.png";
+import FootBall from "../assets/FOOVA-LP-cards/pilka-card.png";
 import IPBOY from "../assets/animation/lp-boy.json";
 import MotionsFade from "../common/Motions";
 import downloadApple from "../assets/downloadapple.svg";
@@ -53,7 +52,7 @@ export default function Download() {
             <div
                 ref={ref}
                 aria-labelledby="download-heading"
-                className="min-h-[100vh]   w-full flex font-hubot justify-center items-center sm:items-center bg-black overflow-hidden py-20"
+                className="min-h-[100vh]    w-full flex font-hubot justify-center items-center sm:items-center bg-black overflow-hidden py-20"
             >
                 <motion.article
                     variants={containerVariants}
