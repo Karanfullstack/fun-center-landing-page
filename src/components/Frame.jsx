@@ -1,17 +1,12 @@
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef } from "react";
 import groupFootbal from "../assets/Group.svg";
 import MotionsFade from "../common/Motions";
-import Lenis from "lenis";
-
-const Container = ({ children }) => (
-    <div className="max-w-[1100px] mx-auto px-4 pt-0 pb-0 sm:px-6 lg:px-8">{children}</div>
-);
 
 export default function App() {
     const scrollRef = useRef(null);
     const sectionRef = useRef(null);
 
-    // Set --vh CSS var for mobile viewport height fix
+    // vh CSS var for mobile viewport height fix
     useEffect(() => {
         function setVh() {
             document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
@@ -21,108 +16,101 @@ export default function App() {
         return () => window.removeEventListener("resize", setVh);
     }, []);
 
-    // Scroll reset only once on first mount
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            if (scrollRef.current) {
-                scrollRef.current.scrollTop = -202;
-            }
-        }, 10); // Slight delay to ensure rendering before scroll reset
+    // Scroll reset helper
+    const resetScroll = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollTo({ top: 0, behavior: "auto" });
+        }
+    };
 
-        return () => clearTimeout(timeout);
+    // Scroll reset on mount
+    useEffect(() => {
+        resetScroll();
     }, []);
 
+    // Intersection Observer to reset scroll when section enters viewport
     useEffect(() => {
-        const wrapper = scrollRef.current;
+        if (!sectionRef.current) return;
 
-        if (!wrapper) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        resetScroll();
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
 
-        // Optional: if your scrollable content is a child inside
-        const content = wrapper.firstElementChild;
+        observer.observe(sectionRef.current);
 
-        const lenis = new Lenis({
-            wrapper,
-            content,
-            duration: 1.5,
-            easing: (t) => t,
-            smoothWheel: false,
-            smoothTouch: true,
-            touchMultiplier: 1.5,
-            scrollFromAnywhere: true,
-            direction: "vertical",
-            gestureDirection: "vertical",
-        });
-
-        const raf = (time) => {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        };
-
-        requestAnimationFrame(raf);
-
-        return () => {
-            lenis.destroy();
-        };
+        return () => observer.disconnect();
     }, []);
+
     return (
         <MotionsFade>
+            <div className="h-[30vh]"></div>
             <div
                 ref={sectionRef}
-                className="bg-black  justify-start max-w-[1400px] m-auto font-hubot flex flex-col items-start sm:h-[89vh] h-[100vh] relative"
+                className="bg-black max-w-[1440px] m-auto   justify-center font-hubot flex flex-col items-center sm:h-[100vh] h-[100vh] relative"
+                style={{ scrollBehavior: "auto" }}
             >
                 <div
                     ref={scrollRef}
-                    className="w-full m-auto h-[70vh] flex-col-reverse scrollbar-hide overflow-y-auto scroll-auto flex justify-center items-center"
+                    className="w-full    m-auto mb-48  flex justify-start items-start"
+                    style={{ scrollBehavior: "smooth" }}
                 >
                     <div
-                        className="flex flex-col-reverse gap-9 justify-center items-center min-h-[120vh] w-full relative"
-                        style={{ WebkitOverflowScrolling: "touch", scrollBehavior: "auto" }}
+                        className="flex flex-col m-auto    gap-4  justify-start items-center h-full w-full max-w-[1100px] relative"
+                        style={{ transform: "translateY(-15.6vh)" }}
                     >
                         <div
-                            className="w-full sticky bottom-0 h-[60px] flex justify-center items-center will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            className="w-[75%] flex flex-col justify-center items-center   sticky bottom-[10vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
+                            style={{ transform: "translateY(-4.6vh)" }}
                         >
-                            <span className="text-3xl sm:text-[48px] md:text-5xl lg:text-5xl text-white font-bold text-center leading-[1.25]">
-                                Apka dla futbolowych Ekspertów.
+                            <span className="text-2xl sm:w-[365px] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+                                “Wiedziałem!”
                             </span>
+
+                            <div
+                                className="bg-white absolute top-[5vh] rounded-full w-[80px] h-[80px] flex items-center justify-center overflow-hidden will-change-top"
+                                style={{ transform: "translateY(-20vh)" }}
+                            >
+                                <img
+                                    src={groupFootbal}
+                                    alt="football"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
                         </div>
 
                         <div
-                            className="w-[95%] z-40 sticky bottom-[15vh] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
-                            style={{ transform: "translateZ(0)" }}
+                            delay={0.3}
+                            className="w-[85%] sticky bottom-[9.4vh] z-30 max-w-full sm:w-[445px] sm:max-w-none text-center py-4 bg-white will-change-top"
+                            style={{ transform: "translateY(-2.4vh)" }}
                         >
-                            <span className="text-2xl sm:text-3xl leading-[1.25] md:text-4xl lg:text-5xl font-bold">
-                                “To było oczywiste!”
-                            </span>
-                        </div>
-
-                        <div
-                            className="w-[85%] sticky bottom-[17.6vh] z-30 max-w-full sm:w-[445px] sm:max-w-none text-center py-4 bg-white will-change-top"
-                            style={{ transform: "translateZ(0)" }}
-                        >
-                            <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+                            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
                                 “A nie mówiłem?”
                             </span>
                         </div>
 
                         <div
-                            className="w-[75%] sticky bottom-[21vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
-                            style={{ transform: "translateY(6px)" }}
+                            className="w-full flex flex-col justify-center items-center z-40 sticky bottom-[9vh] max-w-full sm:w-[510px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
+                            style={{ transform: "translateY(0)" }}
                         >
-                            <span className="text-2xl leading-[1.25] sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-                                “Wiedziałem!”
+                            <span className="text-2xl sm:w-[510px]  sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+                                “To było oczywiste!”
                             </span>
-                        </div>
 
-                        <div
-                            className="bg-white sticky top-[1vh] rounded-full w-[80px] h-[80px] flex items-end justify-center overflow-hidden will-change-top"
-                            style={{ transform: "translateZ(0)" }}
-                        >
-                            <img
-                                src={groupFootbal}
-                                alt="football"
-                                className="w-full h-full object-cover"
-                            />
+                            <div
+                                className="w-full m-auto sm:w-[900px] mx-auto absolute -bottom-[10vh] h-[60px] flex justify-center items-center will-change-top"
+                                style={{ transform: "translateY(4vh)" }}
+                            >
+                                <span className="text-xl  sm:text-2xl md:text-3xl lg:text-5xl text-white font-bold text-center leading-tight">
+                                    Apka dla futbolowych Ekspertów.
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
