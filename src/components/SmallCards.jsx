@@ -56,6 +56,7 @@ export default function SmallCards() {
             setIsIphone12Mini(true);
         }
     }, []);
+
     const handlePrev = () => {
         if (swiperRef.current) swiperRef.current.slidePrev();
     };
@@ -78,7 +79,7 @@ export default function SmallCards() {
             {/* Swiper */}
             <Swiper
                 modules={[Navigation, Autoplay]}
-                spaceBetween={5}
+                spaceBetween={6}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: true,
@@ -105,20 +106,20 @@ export default function SmallCards() {
                     setIsEnd(swiper.isEnd);
                 }}
                 breakpoints={{
-                    0: { slidesPerView: 2.3 },
-                    640: { slidesPerView: 3 },
-                    768: { slidesPerView: 7.5 },
-                    1024: { slidesPerView: 7.5 },
+                    0: { slidesPerView: 2.1 },
+                    640: { slidesPerView: 5.3 },
+                    768: { slidesPerView: 6.7 },
+                    1024: { slidesPerView: 6.7 },
                 }}
             >
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className="flex justify-center w-full h-full">
-                            <div className="w-[180px] h-[150px] sm:w-[200px] p-4 bg-[#232323] shadow-md flex flex-col items-start">
+                        <div className="flex flex-wrap justify-center w-full h-full">
+                            <div className="sm:w-[190px] sm:h-[190px] w-[170px] h-[170px] aspect-square justify-between gap-5 p-4 bg-[#232323] shadow-md flex flex-col items-start">
                                 <span className="font-hubot leading-[1.25] font-bold text-[20px] text-[#DBFD01]">
                                     {index + 1}.
                                 </span>
-                                <div className="mt-auto w-full flex flex-col gap-2">
+                                <div className="mt-auto flex-wrap  h-[100px]  justify-start w-full flex flex-col gap-2">
                                     <h2 className="text-white font-hubot font-[700] text-[24px] leading-[1.25]">
                                         {item.price} zł
                                     </h2>

@@ -123,14 +123,12 @@ export default function Footer() {
                             Regulamin
                         </Link>
                         <Link
-                            
                             to="/polityka-prytwatności"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >
-                            Polityka Prytwatności
+                            Prywatności
                         </Link>
                         <Link
-                           
                             to="/informacje-usunięciu-konta"
                             className="text-[85%] md:text-base hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                         >
