@@ -34,6 +34,7 @@ export default function Ranking({ onScroll }) {
                 <link rel="preload" as="image" href={FrameTwo} type="image/svg" />
                 <link rel="preload" as="image" href={FramThree} type="image/svg" />
             </Helmet>
+
             <MotionsFade className="">
                 <motion.div
                     ref={sectionRef}
@@ -41,9 +42,10 @@ export default function Ranking({ onScroll }) {
                     animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.4 }}
-                    className="ranking-container  scroll-smooth max-w-[1360px] m-auto  min-h-screen  relative bg-black  flex gap-2    pb-10 flex-col justify-center items-center w-full font-hubot"
+                    className="ranking-container  scroll-smooth max-w-[1440px] m-auto  min-h-screen  relative bg-black  flex gap-2    pb-10 flex-col justify-center items-center w-full font-hubot"
+                    style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
                 >
-                    <section className="m-auto w-full">
+                    <section className="m-auto max-w-[1360px] w-full">
                         <div className="flex relative pt-14 sm:pt-20  flex-col gap-10 justify-center items-center ">
                             <h2
                                 initial={{ opacity: 0, y: 20 }}
