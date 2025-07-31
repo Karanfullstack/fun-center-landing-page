@@ -26,10 +26,10 @@ export default function Navbar({ onScroll }) {
                 </div>
 
                 {/* Download Button */}
-                <div className="flex-shrink-0 cursor-pointer ">
+                <div className="flex-shrink-0 pointer-events-auto cursor-pointer ">
                     <button
                         onClick={onScroll}
-                        className="bg-[#DBFD01] pointer-events-auto  sm:text-base min-w-[120px] cursor-pointer hover:bg-[#F1FF93] text-[#1A1A1A] text-base leading-[100%] md:text-base uppercase font-bold font-hubot  py-2 px-3 w-[153px] md:w-[153px] h-[48px] md:h-12  "
+                        className="bg-[#DBFD01]  sm:text-base min-w-[120px] !hover:cursor-pointer hover:bg-[#F1FF93] text-[#1A1A1A] text-base leading-[100%] md:text-base uppercase font-bold font-hubot  py-2 px-3 w-[153px] md:w-[153px] h-[48px] md:h-12  "
                     >
                         pobierz apkę
                     </button>
