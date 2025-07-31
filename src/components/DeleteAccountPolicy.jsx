@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import icon from "../assets/icon/chevron-left.png";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { HashLink } from "react-router-hash-link";
+
 const DeleteAccountPolicy = () => {
     useEffect(() => {
         const scrollToTop = () => {
@@ -12,7 +14,7 @@ const DeleteAccountPolicy = () => {
     }, []);
     return (
         <div>
-            <div className="bg-black  font-hubot whitespace-normal  p-10 text-white m-auto  max-w-[700px] w-full  min-h-screen  font-hubspot">
+            <div className="bg-black  font-hubot   p-10 text-white m-auto  max-w-[700px] w-full  min-h-screen  font-hubspot">
                 <div className="h-[40px] p-2 hover:cursor-pointer  hover:bg-[#DBFD01] bg-[#232323] flex items-center justify-right w-[40px] ml-0 mr-0 m-auto ">
                     <Link to="/">
                         <img className="" src={icon} alt="back-icon" />
@@ -33,7 +35,9 @@ const DeleteAccountPolicy = () => {
                             <p className="text-sm text-gray-400 ">Ostatnia zmiana: 15.07.2025</p>
                         </div>
                         <div className="w-[153px] mt-2 flex items-center justify-center text-[#1A1A1A] font-hubot font-bold h-[48px] p-2 bg-[#DBFD01] uppercase">
-                            <Link to="/">pobierz apkę</Link>
+                            <HashLink smooth to="/#download">
+                                pobierz apkę
+                            </HashLink>
                         </div>
                     </div>
 
@@ -42,7 +46,7 @@ const DeleteAccountPolicy = () => {
                         <p>
                             Jeśli chcesz usunąć swoje konto użytkownika w aplikacji FOOVA Fan
                             Center, prosimy o przesłanie wiadomości e-mail z prośbą o usunięcie
-                            konta na adres:{" "}
+                            konta na adres:
                             <a href="mailto:support@foova.org" className="underline text-blue-400">
                                 support@foova.org
                             </a>

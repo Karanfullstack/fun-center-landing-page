@@ -1,18 +1,23 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import SmallCards from "./SmallCards";
-import FrameOne from "../assets/Frame.svg";
-import FrameTwo from "../assets/Frame2.svg";
-import FramThree from "../assets/Frame3.svg";
+import FrameOne from "../assets/desktop-ranking/Frame-1.png";
+import FrameTwo from "../assets/desktop-ranking/Frame-2.png";
+import FramThree from "../assets/desktop-ranking/Frame.png";
 import "../styles/ranking.module.css";
 import RankingTwo from "../components/RankingTwo";
 import MotionsFade from "../common/Motions";
-import { Helmet } from "react-helmet";
-const frames = [
-    { image: FrameOne },
-    { image: FrameTwo, css: "-mt-10" },
-    { image: FramThree, css: "mt-5" },
+import FrameMobile1 from "../assets/mobile-icons/Frame-1.png";
+import FrameMobile2 from "../assets/mobile-icons/Frame-2.png";
+import FrameMobile3 from "../assets/mobile-icons/Frame.png";
+
+const framesDesktop = [
+    { image: FramThree },
+    { image: FrameOne, css: "-mt-10" },
+    { image: FrameTwo, css: "mt-5" },
 ];
+
+const framesMobile = [{ image: FrameMobile3 }, { image: FrameMobile1 }, { image: FrameMobile2 }];
 
 export default function Ranking({ onScroll }) {
     const sectionRef = useRef(null);
@@ -29,12 +34,6 @@ export default function Ranking({ onScroll }) {
 
     return (
         <>
-            <Helmet>
-                <link rel="preload" as="image" href={FrameOne} type="image/svg" />
-                <link rel="preload" as="image" href={FrameTwo} type="image/svg" />
-                <link rel="preload" as="image" href={FramThree} type="image/svg" />
-            </Helmet>
-
             <MotionsFade className="">
                 <motion.div
                     ref={sectionRef}
@@ -51,7 +50,7 @@ export default function Ranking({ onScroll }) {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.3, ease: "easeOut", delay: 0.1 }}
-                                className="ranking-title  text-[32px] font-hubot sm:text-5xl font-bold text-white text-center leading-[1.25]"
+                                className="ranking-title break-words  text-[35px] font-hubot sm:text-5xl font-bold text-white text-center leading-[1.25]"
                             >
                                 Wygraj niezłe nagrody
                             </h2>
@@ -64,7 +63,7 @@ export default function Ranking({ onScroll }) {
                             >
                                 <button
                                     onClick={onScroll}
-                                    className="ranking-button bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93] py-[8px] text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[40px] w-[140px] min-w-[120px] fill-transparent"
+                                    className="ranking-button bg-[#DBFD01] cursor-pointer hover:bg-[#F1FF93] p-1 text-[16px] uppercase leading-[100%] font-bold font-hubot font-semicondensed md:w-[153px] md:h-[48px] h-[48px] w-[153px] min-w-[120px] fill-transparent"
                                 >
                                     pobierz apkę
                                 </button>
@@ -75,40 +74,56 @@ export default function Ranking({ onScroll }) {
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
                             >
-                                <h2 className="ranking-subtitle leading-[1.25] text-[28px] sm:text-3xl font-hubot font-bold text-white text-center">
+                                <h2 className="ranking-subtitle leading-[1.25] text-[27px] sm:text-3xl font-hubot font-bold text-white text-center">
                                     Ranking miesięczny
                                 </h2>
                             </h2>
 
-                            <div className="ranking-frames  flex relative justify-center mt-4 w-full items-end gap-0">
-                                {frames.map((frame, index) => (
-                                    <motion.img
-                                        key={index}
-                                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                                        animate={
-                                            isInView
-                                                ? { opacity: 1, scale: 1, y: 0 }
-                                                : { opacity: 0, scale: 0.9, y: 20 }
-                                        }
-                                        transition={{
-                                            duration: 0.4,
-                                            delay: 0.4 + index * 0.1,
-                                            ease: "easeOut",
-                                        }}
-                                        className={`${
-                                            frame.css || ""
-                                        } max-w-[30vw] sm:max-w-none h-auto object-contain`}
-                                        src={frame.image}
-                                        loading="eager"
-                                        alt={`Ranking Frame ${index + 1}`}
-                                    />
-                                ))}
+                            <div className="w-full h-full sm:block hidden ">
+                                <div className="ranking-frames  flex relative justify-center mt-4 w-full items-end gap-0">
+                                    {framesDesktop.map((frame, index) => (
+                                        <motion.img
+                                            key={index}
+                                            initial={{ opacity: 0, scale: 0.1, y: 20 }}
+                                            animate={
+                                                isInView
+                                                    ? { opacity: 1, scale: 1, y: 0 }
+                                                    : { opacity: 0, scale: 0.9, y: 20 }
+                                            }
+                                            transition={{
+                                                duration: 0.4,
+                                                delay: 0.4 + index * 0.1,
+                                                ease: "easeOut",
+                                            }}
+                                            className={`${
+                                                frame.css || ""
+                                            }  sm:w-[300px] h-auto object-contain`}
+                                            src={frame.image}
+                                            loading="eager"
+                                            alt={`Ranking Frame ${index + 1}`}
+                                        />
+                                    ))}
+                                </div>
                             </div>
+                            {/* mobile version */}
+
+                            <div className="w-full h-full sm:hidden">
+                                <div className="flex justify-center items-end">
+                                    {framesMobile.map((f, i) => (
+                                        <img
+                                            className="max-w-[30vw] h-full"
+                                            src={f.image}
+                                            alt={`Ranking Frame ${i + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.4, ease: "easeOut", delay: 0.6 }}
-                                className=" sm:mt-20 mb-4 ranking-cards w-full"
+                                className=" sm:mt-4 mb-4 ranking-cards w-full"
                             >
                                 <SmallCards />
                             </motion.div>

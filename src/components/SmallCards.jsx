@@ -66,7 +66,7 @@ export default function SmallCards() {
     };
 
     return (
-        <div className={`w-full  md:-mt-20 mb-24 m-auto bg-black ${isIphone12Mini ? "pb-8" : ""}`}>
+        <div className={`w-full  md:-mt-10 mb-24 m-auto bg-black ${isIphone12Mini ? "pb-8" : ""}`}>
             {/* Arrow buttons */}
             <div className="w-full  flex justify-end py-5">
                 <ArrowNavigation
@@ -79,7 +79,7 @@ export default function SmallCards() {
             {/* Swiper */}
             <Swiper
                 modules={[Navigation, Autoplay]}
-                spaceBetween={6}
+                spaceBetween={2}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: true,
@@ -106,16 +106,17 @@ export default function SmallCards() {
                     setIsEnd(swiper.isEnd);
                 }}
                 breakpoints={{
-                    0: { slidesPerView: 2.1 },
+                    0: { slidesPerView: 2.2 },
                     640: { slidesPerView: 5.3 },
-                    768: { slidesPerView: 6.7 },
-                    1024: { slidesPerView: 6.7 },
+                    425: { slidesPerView: 2.4 },
+                    768: { slidesPerView: 4.7 },
+                    1024: { slidesPerView: 7.4 },
                 }}
             >
                 {data.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className="flex flex-wrap justify-center w-full h-full">
-                            <div className="sm:w-[190px] sm:h-[190px] w-[170px] h-[170px] aspect-square justify-between gap-5 p-4 bg-[#232323] shadow-md flex flex-col items-start">
+                            <div className="sm:w-[166px] sm:h-[166px] w-[160px] h-[160px] aspect-square justify-between gap-5 p-4 bg-[#232323] shadow-md flex flex-col items-start">
                                 <span className="font-hubot leading-[1.25] font-bold text-[20px] text-[#DBFD01]">
                                     {index + 1}.
                                 </span>

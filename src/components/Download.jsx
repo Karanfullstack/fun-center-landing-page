@@ -1,14 +1,14 @@
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Lottie from "lottie-react";
-import LeftTopIcon from "../assets/FOOVA-LP-cards/stadion-card.png";
-import Cup from "../assets/FOOVA-LP-cards/puchar-card.png";
+import StickMan from "../assets/animation/lp-boy.json";
+import DownloadApple from "../assets/downloadapple.svg";
+import DownloadPlay from "../assets/downloadplay.svg";
 import Glasses from "../assets/FOOVA-LP-cards/okularki-card.png";
-import FootBall from "../assets/FOOVA-LP-cards/pilka-card.png";
-import IPBOY from "../assets/animation/lp-boy.json";
-import MotionsFade from "../common/Motions";
-import downloadApple from "../assets/downloadapple.svg";
-import downloadPlay from "../assets/downloadplay.svg";
+import Football from "../assets/FOOVA-LP-cards/pilka-card.png";
+import Cup from "../assets/FOOVA-LP-cards/puchar-card.png";
+import Stadion from "../assets/FOOVA-LP-cards/stadion-card.png";
+
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -41,113 +41,205 @@ const itemVariants = {
 
 export default function Download() {
     const ref = useRef(null);
-    // Remove 'once: true' so isInView updates every time section enters/leaves viewport
     const isInView = useInView(ref, { margin: "-100px" });
 
-    // Controls only for SZEF figure
-    const szefControls = useAnimation();
-
     return (
-        <MotionsFade>
+        <>
+            {/* Mobile Version */}
             <div
-                ref={ref}
-                aria-labelledby="download-heading"
-                className="min-h-[100vh]    w-full flex font-hubot justify-center items-center sm:items-center bg-black overflow-hidden py-20"
+                id="download"
+                className="max-w-[1440px] sm:hidden p-4 flex items-center justify-center w-full h-[100vh]"
             >
-                <motion.article
+                <motion.section
                     variants={containerVariants}
                     initial="hidden"
-                    animate={isInView ? "visible" : "exit"}
-                    className="relative flex h-full w-full flex-col items-center justify-center gap-5 px-4 text-center"
+                    animate="visible"
+                    className="flex flex-col sm:hidden text-white relative w-[1360px] h-[537px] items-center justify-center gap-14"
                 >
-                    {/* SZEF figure with custom controls for bounce */}
-                    <motion.figure
-                        initial="hidden"
-                        className="max-w-[190px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
+                    <motion.div
+                        variants={itemVariants}
+                        className="flex relative w-full justify-center items-center"
                     >
                         <Lottie
-                            animationData={IPBOY}
+                            animationData={StickMan}
                             loop={true}
-                            className="w-full h-auto object-contain"
                             autoplay={true}
+                            className="w-[35vh] h-auto object-contain"
                         />
-                    </motion.figure>
 
-                    {/* Other content just uses variants for simple fade/slide */}
-                    <motion.h2
+                        <motion.div
+                            variants={itemVariants}
+                            className="w-[78px] absolute bottom-4 left-0 h-[100px]"
+                        >
+                            <img src={Football} alt="football-icon" />
+                        </motion.div>
+
+                        <motion.div
+                            variants={itemVariants}
+                            className="w-[78px] absolute -bottom-[20px] right-0 h-[100px]"
+                        >
+                            <img src={Glasses} alt="glasses-icon" />
+                        </motion.div>
+                    </motion.div>
+
+                    <motion.div
                         variants={itemVariants}
-                        className="text-2xl sm:text-5xl md:text-[64px] font-hubot font-bold text-white leading-[125%]"
-                        id="download-heading"
+                        className="w-[78px] absolute -top-[12vh] left-0 h-[100px]"
                     >
-                        Dawaj do gry!
-                    </motion.h2>
+                        <img src={Cup} alt="stadion-icon" />
+                    </motion.div>
 
-                    <motion.p
+                    <motion.div
                         variants={itemVariants}
-                        className="text-lg sm:text-xl md:text-[20px] font-medium text-white font-hubot"
+                        className="w-[78px] absolute -top-24 right-0 h-[100px]"
                     >
-                        Pobierz aplikację:
-                    </motion.p>
+                        <img src={Stadion} alt="football-icon" />
+                    </motion.div>
 
-                    <motion.figure
+                    <motion.section
                         variants={itemVariants}
-                        className=" w-[45%] flex items-center justify-center gap-4 sm:max-w-[250px] md:max-w-[200px]  h-auto"
+                        className="flex flex-col justify-center items-center gap-4"
                     >
-                        <img
-                            onClick={() =>
-                                window.open(
-                                    "https://apps.apple.com/us/app/foova-fc/id6748235923",
-                                    "_blank"
-                                )
-                            }
-                            src={downloadApple}
-                            alt="Foova FC Google Play"
-                            className="w-full hover:cursor-pointer h-auto object-contain"
-                        />
-                        <img
-                            onClick={() =>
-                                window.open(
-                                    "https://play.google.com/store/apps/details?id=org.foova",
-                                    "_blank"
-                                )
-                            }
-                            src={downloadPlay}
-                            alt="Foova FC Apple Store"
-                            className="w-full hover:cursor-pointer h-auto object-contain"
-                        />
-                    </motion.figure>
+                        <div className="flex flex-col justify-center items-center gap-4">
+                            <h2 className="text-[40px] text-[#F6F6F6] font-hubot font-bold leading-[1.25]">
+                                Dawaj do gry!
+                            </h2>
+                            <span className="font-medium text-[#F6F6F6] font-hubot text-[20px] leading-[1.25]">
+                                Pobierz aplikację:
+                            </span>
+                        </div>
 
-                    {/* Decorative icons */}
-                    <motion.img
-                        variants={itemVariants}
-                        className="absolute -top-10 left-2 w-16 h-auto object-contain sm:top-8 sm:left-8 sm:w-16 md:-top-16 md:left-56 md:w-32"
-                        src={LeftTopIcon}
-                        alt=""
-                        aria-hidden="true"
-                    />
-                    <motion.img
-                        variants={itemVariants}
-                        className="absolute bottom-30 left-2 w-16 h-auto object-contain sm:bottom-8 sm:left-8 sm:w-16 md:bottom-32 md:left-12 md:w-32"
-                        src={FootBall}
-                        alt=""
-                        aria-hidden="true"
-                    />
-                    <motion.img
-                        variants={itemVariants}
-                        className="absolute top-2 right-2 w-16 h-auto object-contain sm:top-8 sm:right-8 sm:w-20 md:-top-0 md:right-56 md:w-32"
-                        src={Cup}
-                        alt=""
-                        aria-hidden="true"
-                    />
-                    <motion.img
-                        variants={itemVariants}
-                        className="absolute top-200 right-4 w-16 h-auto object-contain sm:top-50 sm:right-8 sm:w-16 md:top-[20.25rem] md:right-14 md:w-32"
-                        src={Glasses}
-                        alt=""
-                        aria-hidden="true"
-                    />
-                </motion.article>
+                        <div className="w-full items-center mt-[1vh] justify-center">
+                            <figure className="w-[43%] m-auto flex items-center justify-center gap-4 sm:max-w-[250px] md:max-w-[200px] h-auto">
+                                <img
+                                    onClick={() =>
+                                        window.open(
+                                            "https://apps.apple.com/us/app/foova-fc/id6748235923",
+                                            "_blank"
+                                        )
+                                    }
+                                    src={DownloadApple}
+                                    alt="Foova FC Google Play"
+                                    className="w-full hover:cursor-pointer h-auto object-contain"
+                                />
+                                <img
+                                    onClick={() =>
+                                        window.open(
+                                            "https://play.google.com/store/apps/details?id=org.foova",
+                                            "_blank"
+                                        )
+                                    }
+                                    src={DownloadPlay}
+                                    alt="Foova FC Apple Store"
+                                    className="w-full hover:cursor-pointer h-auto object-contain"
+                                />
+                            </figure>
+                        </div>
+                    </motion.section>
+                </motion.section>
             </div>
-        </MotionsFade>
+
+            {/* Desktop Version */}
+            <div className="sm:h-[100vh] sm:max-w-[1440px] sm:w-full hidden sm:block">
+                <div
+                    id="download"
+                    ref={ref}
+                    aria-labelledby="download-heading"
+                    className="sm:min-h-[100vh] w-full flex font-hubot justify-center items-center bg-black overflow-hidden py-20"
+                >
+                    <motion.article
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "exit"}
+                        className="relative flex h-full w-full flex-col items-center justify-center gap-5 px-4 text-center"
+                    >
+                        <motion.figure
+                            variants={itemVariants}
+                            className="sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
+                        >
+                            <Lottie
+                                animationData={StickMan}
+                                loop={true}
+                                autoplay={true}
+                                className="w-full h-auto object-contain"
+                            />
+                        </motion.figure>
+
+                        <motion.h2
+                            variants={itemVariants}
+                            className="mt-10 sm:text-5xl md:text-[64px] font-hubot font-bold text-white leading-[125%]"
+                            id="download-heading"
+                        >
+                            Dawaj do gry!
+                        </motion.h2>
+
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-lg sm:text-xl md:text-[20px] font-medium text-white font-hubot"
+                        >
+                            Pobierz aplikację:
+                        </motion.p>
+
+                        <motion.figure
+                            variants={itemVariants}
+                            className="w-[45%] flex items-center justify-center gap-4 sm:max-w-[250px] md:max-w-[200px] h-auto"
+                        >
+                            <img
+                                onClick={() =>
+                                    window.open(
+                                        "https://apps.apple.com/us/app/foova-fc/id6748235923",
+                                        "_blank"
+                                    )
+                                }
+                                src={DownloadApple}
+                                alt="Foova FC Google Play"
+                                className="w-full hover:cursor-pointer h-auto object-contain"
+                            />
+                            <img
+                                onClick={() =>
+                                    window.open(
+                                        "https://play.google.com/store/apps/details?id=org.foova",
+                                        "_blank"
+                                    )
+                                }
+                                src={DownloadPlay}
+                                alt="Foova FC Apple Store"
+                                className="w-full hover:cursor-pointer h-auto object-contain"
+                            />
+                        </motion.figure>
+
+                        {/* Decorative icons */}
+                        <motion.img
+                            variants={itemVariants}
+                            className="absolute -top-14 left-2 w-[20%] h-auto object-contain sm:top-8 sm:left-8 sm:w-16 md:-top-16 md:left-56 md:w-32"
+                            src={Stadion}
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <motion.img
+                            variants={itemVariants}
+                            className="absolute bottom-30 left-2 w-[20%] h-auto object-contain sm:bottom-8 sm:left-8 sm:w-16 md:bottom-32 md:left-12 md:w-32"
+                            src={Football}
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <motion.img
+                            variants={itemVariants}
+                            className="absolute -top-16 right-2 w-[20%] h-auto object-contain sm:top-8 sm:right-8 sm:w-20 md:-top-0 md:right-56 md:w-32"
+                            src={Cup}
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <motion.img
+                            variants={itemVariants}
+                            className="absolute top-200 right-4 w-[20%] h-auto object-contain sm:top-50 sm:right-8 sm:w-16 md:top-[20.25rem] md:right-14 md:w-32"
+                            src={Glasses}
+                            alt=""
+                            aria-hidden="true"
+                        />
+                    </motion.article>
+                </div>
+            </div>
+        </>
     );
 }

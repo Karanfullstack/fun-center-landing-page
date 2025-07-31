@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
 function App() {
     useEffect(() => {
         const lenis = new Lenis({
-            duration: 1.2,
+            duration: 1.5,
             easing: (t) => t,
             smoothWheel: false,
             smoothTouch: true,

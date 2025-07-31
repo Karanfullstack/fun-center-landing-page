@@ -82,7 +82,7 @@ export default function Slides() {
                 }}
             >
                 <div className="w-full">
-                    <div className="flex flex-col max-w-[1360px] w-full mx-auto  justify-center gap-8 h-full">
+                    <div className="flex flex-col max-w-[1440px] w-full mx-auto  justify-center gap-8 h-full">
                         {/* Header with arrows */}
                         <div className="h-[6vh]  flex gap-2 justify-between  items-center  px-4 sm:px-8">
                             <span className="text-white text-[100%] font-normal">

@@ -1,0 +1,154 @@
+import { motion, useInView, useAnimation } from "framer-motion";
+import { useRef } from "react";
+import Lottie from "lottie-react";
+import LeftTopIcon from "../assets/FOOVA-LP-cards/stadion-card.png";
+import Cup from "../assets/FOOVA-LP-cards/puchar-card.png";
+import Glasses from "../assets/FOOVA-LP-cards/okularki-card.png";
+import FootBall from "../assets/FOOVA-LP-cards/pilka-card.png";
+import IPBOY from "../assets/animation/lp-boy.json";
+import MotionsFade from "../common/Motions";
+import downloadApple from "../assets/downloadapple.svg";
+import downloadPlay from "../assets/downloadplay.svg";
+const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.6,
+            ease: "easeOut",
+            staggerChildren: 0.15,
+        },
+    },
+    exit: {
+        opacity: 0,
+        y: 50,
+        transition: {
+            duration: 0.6,
+            ease: "easeIn",
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" },
+    },
+};
+
+export default function Download() {
+    const ref = useRef(null);
+    // Remove 'once: true' so isInView updates every time section enters/leaves viewport
+    const isInView = useInView(ref, { margin: "-100px" });
+
+    // Controls only for SZEF figure
+
+
+    return (
+        <MotionsFade>
+            <div
+                id="download"
+                ref={ref}
+                aria-labelledby="download-heading"
+                className="sm:min-h-[100vh]  h-[90vh]   w-full flex font-hubot justify-center items-center sm:items-center bg-black overflow-hidden py-20"
+            >
+                <motion.article
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "exit"}
+                    className="relative flex h-full w-full flex-col items-center justify-center gap-5 px-4 text-center"
+                >
+                    {/* SZEF figure with custom controls for bounce */}
+                    <motion.figure
+                        initial="hidden"
+                        className="max-w-[240px] sm:max-w-[30px] md:max-w-[30px] lg:max-w-80 w-full h-auto"
+                    >
+                        <Lottie
+                            animationData={IPBOY}
+                            loop={true}
+                            className="w-full h-auto object-contain"
+                            autoplay={true}
+                        />
+                    </motion.figure>
+
+                    {/* Other content just uses variants for simple fade/slide */}
+                    <motion.h2
+                        variants={itemVariants}
+                        className="text-3xl mt-10 sm:text-5xl md:text-[64px] font-hubot font-bold text-white leading-[125%]"
+                        id="download-heading"
+                    >
+                        Dawaj do gry!
+                    </motion.h2>
+
+                    <motion.p
+                        variants={itemVariants}
+                        className="text-lg sm:text-xl md:text-[20px] font-medium text-white font-hubot"
+                    >
+                        Pobierz aplikację:
+                    </motion.p>
+
+                    <motion.figure
+                        variants={itemVariants}
+                        className=" w-[45%] flex items-center justify-center gap-4 sm:max-w-[250px] md:max-w-[200px]  h-auto"
+                    >
+                        <img
+                            onClick={() =>
+                                window.open(
+                                    "https://apps.apple.com/us/app/foova-fc/id6748235923",
+                                    "_blank"
+                                )
+                            }
+                            src={downloadApple}
+                            alt="Foova FC Google Play"
+                            className="w-full hover:cursor-pointer h-auto object-contain"
+                        />
+                        <img
+                            onClick={() =>
+                                window.open(
+                                    "https://play.google.com/store/apps/details?id=org.foova",
+                                    "_blank"
+                                )
+                            }
+                            src={downloadPlay}
+                            alt="Foova FC Apple Store"
+                            className="w-full hover:cursor-pointer h-auto object-contain"
+                        />
+                    </motion.figure>
+
+                    {/* Decorative icons */}
+                    <motion.img
+                        variants={itemVariants}
+                        className="absolute -top-14 left-2 w-[20%] h-auto object-contain sm:top-8 sm:left-8 sm:w-16 md:-top-16 md:left-56 md:w-32"
+                        src={LeftTopIcon}
+                        alt=""
+                        aria-hidden="true"
+                    />
+                    <motion.img
+                        variants={itemVariants}
+                        className="absolute bottom-30 left-2 w-[20%] h-auto object-contain sm:bottom-8 sm:left-8 sm:w-16 md:bottom-32 md:left-12 md:w-32"
+                        src={FootBall}
+                        alt=""
+                        aria-hidden="true"
+                    />
+                    <motion.img
+                        variants={itemVariants}
+                        className="absolute -top-16 right-2 w-[20%] h-auto object-contain sm:top-8 sm:right-8 sm:w-20 md:-top-0 md:right-56 md:w-32"
+                        src={Cup}
+                        alt=""
+                        aria-hidden="true"
+                    />
+                    <motion.img
+                        variants={itemVariants}
+                        className="absolute top-200 right-4 w-[20%] h-auto object-contain sm:top-50 sm:right-8 sm:w-16 md:top-[20.25rem] md:right-14 md:w-32"
+                        src={Glasses}
+                        alt=""
+                        aria-hidden="true"
+                    />
+                </motion.article>
+            </div>
+        </MotionsFade>
+    );
+}

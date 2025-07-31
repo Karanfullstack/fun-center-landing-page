@@ -41,7 +41,7 @@ export default function TextAnimate({ children }) {
 
     const first = React.cloneElement(children[0], {
         ref: ref1,
-        className: "animated-text",
+        className: "animated-text will-change-transform",
     });
     const second = React.cloneElement(children[1], {
         ref: ref2,

@@ -4,6 +4,7 @@ import logo from "../assets/App-Icon.svg";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { HashLink } from "react-router-hash-link";
 const PrivacyPolicy = () => {
     useEffect(() => {
         const scrollToTop = () => {
@@ -32,7 +33,9 @@ const PrivacyPolicy = () => {
                             <p className="text-sm text-gray-400 ">Ostatnia zmiana: 15.07.2025</p>
                         </div>
                         <div className="w-[153px] mt-2 flex items-center justify-center text-[#1A1A1A] font-hubot font-bold h-[48px] p-2 bg-[#DBFD01] uppercase">
-                            <Link to="/">pobierz apkę</Link>
+                            <HashLink smooth to="/#download">
+                                pobierz apkę
+                            </HashLink>
                         </div>
                     </div>
 
