@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
     }, []);
     return (
         <div>
-            <div className="bg-black  whitespace-normal font-hubo text-justify p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
+            <div className="bg-black   font-hubo text-justify p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
                 <div className="h-[40px] p-2 hover:cursor-pointer  hover:bg-[#DBFD01] bg-[#232323] flex items-center justify-right w-[40px] ml-0 mr-0 m-auto ">
                     <Link to="/" onScroll={top}>
                         <img className="" src={icon} alt="back-icon" />
@@ -39,13 +39,15 @@ const PrivacyPolicy = () => {
                         </div>
                     </div>
 
-                    <div className="space-y-6 font-hubot text-base leading-loose whitespace-pre-wrap">
+                    <div className="space-y-6  text-left font-hubot text-base leading-loose whitespace-pre-wrap">
                         <p>
                             <strong>POLITYKA PRYWATNOŚCI Foova Prosta Spółka Akcyjna</strong>
                         </p>
 
-                        <h2 className="text-xl font-semibold">1. Administrator danych osobowych</h2>
-                        <p>
+                        <h2 className="text-xl text-left font-semibold">
+                            1. Administrator danych osobowych
+                        </h2>
+                        <p className="text-left">
                             Administratorem Państwa danych osobowych jest Foova Prosta Spółka
                             Akcyjna z siedzibą w Warszawie Alei „Solidarności” 68/121 (00-240
                             Warszawa), wpisanej do Krajowego Rejestru Sądowego przez Sąd Rejonowy
