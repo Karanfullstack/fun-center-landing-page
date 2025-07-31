@@ -109,8 +109,10 @@ export default function SmallCards() {
                     0: { slidesPerView: 2.2 },
                     640: { slidesPerView: 5.3 },
                     425: { slidesPerView: 2.4 },
-                    768: { slidesPerView: 4.7 },
-                    1024: { slidesPerView: 7.4 },
+
+                    768: { slidesPerView: 5.7 },
+                    1024: { slidesPerView: 6.3 },
+                    1280: { slidesPerView: 7.4 },
                 }}
             >
                 {data.map((item, index) => (

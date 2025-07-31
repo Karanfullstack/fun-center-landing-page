@@ -25,7 +25,7 @@ export default function Hero({ onScroll }) {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             if (bgRef.current) {
-                bgRef.current.style.transform = `translateY(${scrollY * 0.4}px)`;
+                bgRef.current.style.transform = `translateY(${scrollY * 0.3}px)`;
             }
         };
 
@@ -45,7 +45,7 @@ export default function Hero({ onScroll }) {
                     {/* Background Vector */}
                     <div
                         ref={bgRef}
-                        className="absolute top-3 left-0 right-0 h-[75vh] bg-no-repeat bg-contain bg-top transition-transform duration-75 ease-out will-change-transform pointer-events-none"
+                        className="absolute top-3 left-0 right-0 h-[70vh] bg-no-repeat bg-contain bg-top transition-transform duration-75 ease-out will-change-transform pointer-events-none"
                         style={{ backgroundImage: `url(${HeroVector})` }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/100" />

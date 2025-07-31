@@ -95,7 +95,7 @@ export default function RankingTwo() {
                             <motion.div
                                 key={index}
                                 variants={itemVariants}
-                                className="w-full flex-col sm:flex-row gap-2d  text-white flex items-start justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
+                                className="w-full flex-col sm:flex-row gap-2d  text-white flex sm:items-center justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
                             >
                                 <div className="text-lg flex flex-col items-start max-w-[80%]">
                                     <div className="flex flex-col gap-1  items-start sm:flex-row sm:items-center sm:gap-2 max-w-full">

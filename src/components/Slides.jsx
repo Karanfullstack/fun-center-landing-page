@@ -8,12 +8,12 @@ import "swiper/css/navigation";
 
 import Card from "./Card";
 
-import screen1 from "../assets/FOOVA SCREENS/Screen-1.svg";
-import screen2 from "../assets/FOOVA SCREENS/Screen-2.svg";
-import screen3 from "../assets/FOOVA SCREENS/Screen-3.svg";
-import screen4 from "../assets/FOOVA SCREENS/Screen-4.svg";
-import screen5 from "../assets/FOOVA SCREENS/Screen-5.svg";
-import screen6 from "../assets/FOOVA SCREENS/Screen-6.svg";
+import screen1 from "../assets/screens-png/Screen-1.png";
+import screen2 from "../assets/screens-png/Screen-2.png";
+import screen3 from "../assets/screens-png/Screen-3.png";
+import screen4 from "../assets/screens-png/Screen-4.png";
+import screen5 from "../assets/screens-png/Screen-5.png";
+import screen6 from "../assets/screens-png/Screen-6.png";
 import MotionsFade from "../common/Motions";
 
 import ArrowNavigation from "../common/ArrowNavigation";

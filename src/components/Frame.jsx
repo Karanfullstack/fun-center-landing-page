@@ -61,7 +61,7 @@ export default function App() {
                     className="w-full    m-auto mb-48  flex justify-start items-start"
                     style={{ scrollBehavior: "smooth" }}
                 >
-                    <div className="flex flex-col p-2 m-auto sm:translate-y-[-23.6vh] translate-y-[-22%]    gap-4  justify-end items-center h-full w-full max-w-[1100px] relative">
+                    <div className="flex flex-col p-2 m-auto sm:translate-y-[-23.6vh] translate-y-[-24%]    gap-4  justify-end items-center h-full w-full max-w-[1100px] relative">
                         <div
                             className="w-[75%] flex flex-col justify-center items-center   sticky bottom-[10vh] max-w-full sm:w-[365px] sm:max-w-none text-center py-4 bg-[#DBFD01] will-change-top"
                             style={{ transform: "translateY(-4.6vh)" }}
