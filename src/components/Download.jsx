@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Lottie from "lottie-react";
 import StickMan from "../assets/animation/lp-boy.json";
 import DownloadApple from "../assets/downloadapple.svg";
@@ -47,10 +47,10 @@ export default function Download() {
     return (
         <>
             {/* Mobile Version */}
-            <MotionsFade>
+            <MotionsFade className=" sm:hidden">
                 <div
                     ref={ref}
-                    id="download"
+                    id="download_mobile"
                     className="max-w-[1440px] sm:hidden p-4 flex items-center justify-center w-full h-[100vh]"
                 >
                     <motion.section
@@ -144,11 +144,11 @@ export default function Download() {
             </MotionsFade>
 
             {/* Desktop Version */}
-            <MotionsFade>
+            <MotionsFade className="sm:block hidden">
                 <div className="sm:h-[100vh] sm:max-w-[1440px] sm:w-full hidden sm:block">
                     <div
                         delay={0.2}
-                        id="download"
+                        id="downlaod_desktop"
                         ref={ref}
                         aria-labelledby="download-heading"
                         className="sm:min-h-[100vh] w-full flex font-hubot justify-center items-center bg-black overflow-hidden py-20"
