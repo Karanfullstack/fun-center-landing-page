@@ -50,7 +50,6 @@ export default function Download() {
             <MotionsFade className=" sm:hidden">
                 <div
                     ref={ref}
-                    id="download_mobile"
                     className="max-w-[1440px] sm:hidden p-4 flex items-center justify-center w-full h-[100vh]"
                 >
                     <motion.section
@@ -64,6 +63,7 @@ export default function Download() {
                             className="flex relative w-full justify-center items-center"
                         >
                             <Lottie
+                                id="download_mobile"
                                 animationData={StickMan}
                                 loop={true}
                                 autoplay={true}
