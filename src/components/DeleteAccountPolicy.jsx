@@ -38,7 +38,7 @@ const DeleteAccountPolicy = () => {
                             <HashLink className="sm:hidden" smooth to="/#download_mobile">
                                 pobierz apkę
                             </HashLink>
-                            <HashLink className="sm:block hidden" smooth to="/#downlaod_desktop">
+                            <HashLink className="sm:block hidden" smooth to="/#download_desktop">
                                 pobierz apkę
                             </HashLink>
                         </div>

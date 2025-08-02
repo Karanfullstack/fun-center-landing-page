@@ -144,11 +144,11 @@ export default function Download() {
             </MotionsFade>
 
             {/* Desktop Version */}
-            <MotionsFade className="sm:block hidden">
-                <div className="sm:h-[100vh] sm:max-w-[1440px] sm:w-full hidden sm:block">
+            <MotionsFade className="sm:block md:h-[100vh] hidden">
+                <div className="sm:min-h-[100vh] sm:max-w-[1440px] sm:w-full hidden sm:block">
                     <div
                         delay={0.2}
-                        id="downlaod_desktop"
+                        id="download_desktop"
                         ref={ref}
                         aria-labelledby="download-heading"
                         className="sm:min-h-[100vh] w-full flex font-hubot justify-center items-center bg-black overflow-hidden py-20"

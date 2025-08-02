@@ -9,13 +9,13 @@ export default function Footer() {
         <MotionsFade
             className="
             h-[90vh] p-4 
-        md:w-full  max-w-[1440px] w-full  font-hubot m-auto md:h-full flex justify-center items-center md:max-h-[83.51vh]"
+        md:w-full  max-w-[1440px] w-full  font-hubot m-auto md:h-full flex justify-center items-center md:max-h-[85.51vh]"
         >
             <div
                 id="container"
                 className="
                 w-full
-                min-h-[96.1%]
+                min-h-[94.1%]
                 h-auto
                 p-4
                 flex-col

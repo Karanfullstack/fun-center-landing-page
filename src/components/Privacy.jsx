@@ -13,6 +13,7 @@ const PrivacyPolicy = () => {
         };
         scrollToTop();
     }, []);
+
     return (
         <div>
             <div className="bg-black   font-hubo text-justify p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
@@ -37,7 +38,7 @@ const PrivacyPolicy = () => {
                             <HashLink className="sm:hidden" smooth to="/#download_mobile">
                                 pobierz apkę
                             </HashLink>
-                            <HashLink className="sm:block hidden" smooth to="/#downlaod_desktop">
+                            <HashLink className="sm:block hidden" smooth to="/#download_desktop">
                                 pobierz apkę
                             </HashLink>
                         </div>
