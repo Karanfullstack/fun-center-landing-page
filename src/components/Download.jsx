@@ -44,10 +44,33 @@ export default function Download() {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-100px" });
 
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const scrollToSection = (id) => {
+            const el = document.getElementById(id);
+            if (el) {
+                setTimeout(() => {
+                    el.scrollIntoView({ behavior: "smooth", block: "center" });
+                    // ✅ Remove hash from URL after scroll
+                    history.replaceState(null, "", window.location.pathname);
+                }, 100);
+            }
+        };
+
+        const hash = window.location.hash;
+
+        if (hash === "#download_desktop") {
+            scrollToSection("download_desktop");
+        } else if (hash === "#download_mobile") {
+            scrollToSection("download_mobile");
+        }
+    }, []);
+
     return (
         <>
             {/* Mobile Version */}
-            <MotionsFade className=" sm:hidden">
+            <MotionsFade className="h-[100dvh]  sm:hidden">
                 <div
                     ref={ref}
                     className="max-w-[1440px] sm:hidden p-4 flex items-center justify-center w-full h-[100vh]"
@@ -59,11 +82,11 @@ export default function Download() {
                         className="flex flex-col sm:hidden text-white relative w-[1360px] h-[537px] items-center justify-center gap-14"
                     >
                         <motion.div
+                            id="download_mobile"
                             variants={itemVariants}
                             className="flex relative w-full justify-center items-center"
                         >
                             <Lottie
-                                id="download_mobile"
                                 animationData={StickMan}
                                 loop={true}
                                 autoplay={true}
