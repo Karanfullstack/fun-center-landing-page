@@ -41,7 +41,7 @@ function App() {
     const page2Ref = useRef(null);
 
     const scrollToPage2 = () => {
-        page2Ref.current?.scrollIntoView({ behavior: "smooth" });
+        page2Ref.current?.scrollIntoView({ behavior: "smooth", block:"center" });
     };
     return (
         <div className=" h-screen    relative  scroll-container   max-w-[1440px] m-auto overflow-y  scroll-auto scrollbar-hide ">
