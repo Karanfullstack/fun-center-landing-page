@@ -167,8 +167,8 @@ export default function Download() {
             </MotionsFade>
 
             {/* Desktop Version */}
-            <MotionsFade className="sm:block md:h-[100vh] hidden">
-                <div className="sm:h-[100vh] overflow-y-auto sm:max-w-[1440px] sm:w-full hidden sm:block">
+            <MotionsFade className="sm:block relative md:h-[100vh] hidden">
+                <div className="sm:h-[100vh] relative overflow-y-auto sm:max-w-[1440px] sm:w-full hidden sm:block">
                     <div
                         delay={0.2}
                         id="download_desktop"
