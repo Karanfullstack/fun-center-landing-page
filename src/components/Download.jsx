@@ -67,12 +67,28 @@ export default function Download() {
         }
     }, []);
 
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const hash = window.location.hash;
+
+        if (hash === "#download_desktop" || hash === "#download_mobile") {
+            if (containerRef.current && window.innerWidth < 640) {
+                // Check if the ref exists and the screen is small (to target mobile)
+                containerRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "center",
+                });
+            }
+        }
+    }, []);
     return (
         <>
             {/* Mobile Version */}
             <MotionsFade className="h-[100dvh]  sm:hidden">
                 <div
-                    ref={ref}
+                    ref={containerRef}
                     className="max-w-[1440px] sm:hidden p-4 flex items-center justify-center w-full h-[100vh]"
                 >
                     <motion.section
