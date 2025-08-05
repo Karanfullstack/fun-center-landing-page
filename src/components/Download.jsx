@@ -139,14 +139,14 @@ export default function Download() {
                             variants={itemVariants}
                             className="w-[78px] absolute -top-[12vh] left-0 h-[100px]"
                         >
-                            <img src={Cup} alt="stadion-icon" />
+                            <img src={Stadion} alt="stadion-icon" />
                         </motion.div>
 
                         <motion.div
                             variants={itemVariants}
                             className="w-[78px] absolute -top-24 right-0 h-[100px]"
                         >
-                            <img src={Stadion} alt="football-icon" />
+                            <img src={Cup} alt="football-icon" />
                         </motion.div>
 
                         <motion.section
@@ -343,14 +343,14 @@ export default function Download() {
                             variants={itemVariants}
                             className="w-[18%] h-[18%] absolute -top-[12vh] left-0 "
                         >
-                            <img src={Cup} alt="stadion-icon" />
+                            <img src={Stadion} alt="stadion-icon" />
                         </motion.div>
 
                         <motion.div
                             variants={itemVariants}
                             className="w-[18%] h-[18%] absolute -top-24 right-0 "
                         >
-                            <img src={Stadion} alt="football-icon" />
+                            <img src={Cup} alt="football-icon" />
                         </motion.div>
 
                         <motion.section

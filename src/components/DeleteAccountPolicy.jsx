@@ -34,15 +34,6 @@ const DeleteAccountPolicy = () => {
                         <div className="w-fit p-3 h-fit m-auto  flex items-center justify-center bg-[#1A1A1A]  ">
                             <p className="text-sm text-gray-400 ">Ostatnia zmiana: 15.07.2025</p>
                         </div>
-                        <div className="w-[153px] mt-2 flex items-center justify-center text-[#1A1A1A] font-hubot font-bold h-[48px] p-2 bg-[#DBFD01] uppercase">
-                            <Link to="/#download_mobile" className="sm:hidden">
-                                pobierz apkę
-                            </Link>
-
-                            <Link to="/#download_desktop" className="sm:block hidden" smooth>
-                                pobierz apkę
-                            </Link>
-                        </div>
                     </div>
 
                     {/* Main content area */}
