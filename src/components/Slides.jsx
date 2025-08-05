@@ -84,8 +84,8 @@ export default function Slides() {
                 <div className="w-full">
                     <div className="flex flex-col max-w-[1440px] w-full mx-auto  justify-center gap-8 h-full">
                         {/* Header with arrows */}
-                        <div className="h-[6vh]  flex gap-2 justify-between  items-center  px-4 sm:px-8">
-                            <span className="text-white text-[100%] font-normal">
+                        <div className="h-[6vh] md:px-[5vh]  flex gap-2 justify-between  items-center  px-4 sm:px-8">
+                            <span className="text-white lg:text-[100%] md:text-[2vh] text-[100%] font-normal">
                                 Predykcje, ciekawostki i Wy, Eksperci:
                             </span>
 
@@ -114,8 +114,8 @@ export default function Slides() {
                                 fadeEffect={{ crossFade: true }}
                                 breakpoints={{
                                     0: { slidesPerView: 1 },
-                                    640: { slidesPerView: 2 },
-                                    768: { slidesPerView: 2 },
+                                    640: { slidesPerView: 1.5 },
+                                    768: { slidesPerView: 1.2 },
                                     1024: { slidesPerView: 3.1 },
                                 }}
                                 style={{ height: "auto" }}

@@ -36,7 +36,7 @@ export default function Hero({ onScroll }) {
 
     return (
         <>
-            <div className="bg-black md:hidden lg:block   w-full max-w-[1440px] m-auto px-3  font-hubot overflow-hidden min-h-screen relative">
+            <div className="bg-black  md:hidden lg:block   w-full max-w-[1440px] m-auto px-3  font-hubot overflow-hidden min-h-screen relative">
                 <Navbar onScroll={onScroll} />
                 <div
                     className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32"
@@ -96,7 +96,7 @@ export default function Hero({ onScroll }) {
             </div>
 
             {/* tablet */}
-            <div className="bg-black  sm:hidden hidden lg:hidden md:block   md:w-full md:max-w-[1140px] m-auto px-3  font-hubot  h-screen relative">
+            <div className="bg-black   sm:hidden hidden lg:hidden md:block   md:w-full md:max-w-[1140px] m-auto px-3  font-hubot  h-[100dvh] relative">
                 <Navbar onScroll={onScroll} />
                 <div className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32">
                     {/* Background Vector */}
@@ -135,7 +135,7 @@ export default function Hero({ onScroll }) {
                 </div>
 
                 {/* CTA */}
-                <div className="absolute h-full md:max-h-[10vw]  bg-black md:bottom-4 md:translate-y-[-100%] left-0 w-full px-4">
+                <div className="absolute h-full md:max-h-[10vw]  bg-black md:bottom-4  left-0 w-full px-4">
                     <div
                         onClick={onScroll}
                         className="bg-[#232323] cursor-pointer w-full md:w-fit mx-auto flex items-center gap-3 sm:gap-4 h-full px-1 sm:px-1 shadow-lg"

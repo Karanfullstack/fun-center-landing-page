@@ -41,7 +41,7 @@ export default function Ranking({ onScroll }) {
                     animate={isInView ? { opacity: 1, transform: "translateY(0px)" } : {}}
                     transition={{ duration: 0.4, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.4 }}
-                    className="ranking-container  scroll-smooth max-w-[1440px] m-auto  min-h-screen  relative bg-black  flex gap-2    pb-10 flex-col justify-center items-center w-full font-hubot"
+                    className="ranking-container  scroll-smooth max-w-[1440px] m-auto  min-h-screen  relative bg-black  flex gap-2 md:p-10   pb-10 flex-col justify-center items-center w-full font-hubot"
                     style={{ scrollBehavior: "smooth", WebkitOverflowScrolling: "touch" }}
                 >
                     <section className="m-auto max-w-[1360px] w-full">
@@ -79,7 +79,7 @@ export default function Ranking({ onScroll }) {
                                 </h2>
                             </h2>
 
-                            <div className="w-full h-full sm:block hidden ">
+                            <div className="w-full md:hidden lg:block h-full sm:block hidden ">
                                 <div className="ranking-frames  flex relative justify-center mt-4 w-full items-end gap-0">
                                     {framesDesktop.map((frame, index) => (
                                         <motion.img
@@ -105,13 +105,28 @@ export default function Ranking({ onScroll }) {
                                     ))}
                                 </div>
                             </div>
+
                             {/* mobile version */}
 
-                            <div className="w-full h-full sm:hidden">
+                            <div className="w-full md:hidden h-full sm:hidden">
                                 <div className="flex justify-center items-end">
                                     {framesMobile.map((f, i) => (
                                         <img
                                             className="max-w-[30vw] h-full"
+                                            src={f.image}
+                                            alt={`Ranking Frame ${i + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* tablet */}
+
+                            <div className="w-full h-full md:block lg:hidden hidden sm:hidden">
+                                <div className="flex justify-center items-end">
+                                    {framesMobile.map((f, i) => (
+                                        <img
+                                            className="md:max-w-[22vw] w-full h-full"
                                             src={f.image}
                                             alt={`Ranking Frame ${i + 1}`}
                                         />
