@@ -42,7 +42,7 @@ export default function RankingTwo() {
     return (
         <section
             ref={ref}
-            className=" font-hubot bg-black px-5 sm:px-6 md:px-8 pb-6 sm:pb-10 flex flex-col justify-start sm:justify-center items-center w-full"
+            className=" font-hubot bg-black px-5  md:px-8 pb-6 sm:pb-10 flex flex-col justify-start md:justify-center items-center w-full"
         >
             <div className="flex flex-col justify-center flex-grow items-center w-full max-w-screen-xl">
                 <motion.div
@@ -59,7 +59,7 @@ export default function RankingTwo() {
 
                     flex
                      flex-col
-                      sm:flex-row 
+                      sm:flex-col 
                       justify-between
                        gap-y-8 
                      
@@ -68,7 +68,7 @@ export default function RankingTwo() {
                     {/* Ranking kolejki */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-col items-start gap-3 w-full"
+                        className="flex flex-col  items-start gap-3 w-full"
                     >
                         <h2
                             className="
@@ -81,19 +81,19 @@ export default function RankingTwo() {
 
                         <motion.div
                             variants={itemVariants}
-                            className="w-full text-white sm:items-center gap-2 flex sm:flex-row flex-col items-start justify-between px-4 py-3 bg-[#232323] min-h-[4rem]
-                            md:min-h-[9vh]
+                            className="w-full text-white lg:items-center gap-2 flex lg:flex-row flex-col items-start justify-between px-4 py-3 bg-[#232323] min-h-[4rem]
+                            lg:min-h-[9vh]
                             "
                         >
-                            <div className="text-lg lg:gap-1 md:gap-[1.1vw]  flex flex-col sm:flex-row items-start gap-1 max-w-[80%]">
+                            <div className="text-lg lg:gap-1 md:gap-[1.1vw]  flex flex-col lg:flex-row items-start gap-1 max-w-[80%]">
                                 <span className="text-[20px] lg:text-[20px] md:text-[3vw]  leading-[1] font-bold text-[#DBFD01]">
                                     1.
                                 </span>
-                                <span className="text-[14px] lg:text-[14px] md:text-[3vw] sm:text-[1rem] font-[500] leading-[1.25] text-left break-words">
+                                <span className="text-[14px] lg:text-[14px] md:text-[3vw] sm:text-[1rem] font-[500] leading-[1.5] text-left break-words">
                                     Bon do wykorzystania w Media Expert
                                 </span>
                             </div>
-                            <span className="text-[1.5rem] leading-[1.25] sm:text-[24px] font-bold whitespace-nowrap">
+                            <span className="text-[1.5rem] leading-[1.5] lg:text-[24px] font-bold whitespace-nowrap">
                                 500 zł
                             </span>
                         </motion.div>
@@ -116,22 +116,22 @@ export default function RankingTwo() {
                             <motion.div
                                 key={index}
                                 variants={itemVariants}
-                                className="w-full  flex-col md:min-h-[9vh]  sm:flex-row gap-1  text-white flex sm:items-center justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
+                                className="w-full  flex-col md:min-h-[9vh]  lg:flex-row gap-1  text-white flex lg:items-center justify-between px-4 py-3 bg-[#232323] min-h-[4rem]"
                             >
                                 <div className="text-lg  flex flex-col items-start max-w-[80%]">
-                                    <div className="flex flex-col lg:gap-1 md:gap-[1.1vw] gap-1  items-start sm:flex-row sm:items-center sm:gap-2 max-w-full">
+                                    <div className="flex flex-col lg:gap-1 md:gap-[1.1vw] gap-1  items-start lg:flex-row lg:items-center  max-w-full">
                                         <span className="text-[20px] lg:text-[20px] md:text-[3vw]  leading-[1] font-bold text-[#DBFD01]">
                                             {pos.pos}.
                                         </span>
-                                        <span className="text-[14px] lg:text-[14px] md:text-[3vw]   sm:text-[1rem] font-[500] leading-[1.25] text-left break-words">
+                                        <span className="text-[14px] lg:text-[14px] md:text-[3vw]  font-[500] leading-[1.5] text-left break-words">
                                             Bon do wykorzystania w Media Expert
                                         </span>
                                     </div>
-                                    <span className="text-[0.75rem] sm:text-[0.85rem] sm:pl-4  leading-tight font-normal text-left">
+                                    <span className="text-[clamp(1.1rem,1vw,2rem)] lg:text-[0.85rem] lg:pl-4  leading-[1.5] font-normal text-left">
                                         + Wkład Klubu/Ligi
                                     </span>
                                 </div>
-                                <span className="text-[1.5rem] leading-[1.25] sm:p-0 pl-2 sm:text-[24px] font-bold whitespace-nowrap">
+                                <span className="text-[1.5rem] leading-[1.5] lg:p-0 pl-2 lg:text-[24px] font-bold whitespace-nowrap">
                                     {pos.price} zł
                                 </span>
                             </motion.div>

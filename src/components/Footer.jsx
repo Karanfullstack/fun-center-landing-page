@@ -162,9 +162,9 @@ export default function Footer() {
                     {/* Heading */}
                     <section
                         className=" 
-                    w-[100%] h-[11vh] 
+                    w-[100%] h-40 
                     m-auto
-                   
+                    
                     gap-1
     flex flex-col items-center justify-between
      p-1 bg-[#343434]
@@ -173,19 +173,19 @@ export default function Footer() {
                     >
                         <div
                             className=" 
-                         w-full p-3 
-    flex justify-center items-center h-full
+                         w-full p-3  h-1/2
+    flex justify-center items-center 
 
     
      bg-[#DBFD01]"
                         >
-                            <p className="text-[clamp(1.25rem,3vw,4rem)]  leading-[125%] flex items-center justify-center h-full font-bold font-hubot">
+                            <p className="text-[clamp(2rem,3vw,4rem)]  leading-[1.5] flex items-center justify-center h-full font-bold font-hubot">
                                 W 1 dzień
                             </p>
                         </div>
 
-                        <div className="w-full  p-2 h-auto flex justify-center items-center lg:w-auto">
-                            <p className="text-[clamp(1rem,2.2vw,4rem)]  text-[#F6F6F6] font-medium leading-[125%] font-hubot">
+                        <div className="w-full h-1/2  p-2  flex justify-center items-center lg:w-auto">
+                            <p className="text-[clamp(1.6rem,2.2vw,4rem)]  text-[#F6F6F6] font-medium leading-[125%] font-hubot">
                                 Wdrożenie na Twoich kanałach!
                             </p>
                         </div>
@@ -239,19 +239,18 @@ export default function Footer() {
                     <section
                         className="
                     w-[100%] h-[15%]
-                   
-    flex flex-col 
+                   flex flex-row 
     items-center gap-2 py-2 lg:py-3
-   
+   justify-center 
     border-t border-t-[#FFFFFF4D]
   "
                     >
-                        <div className="w-full h-full flex-col items-center  flex  ">
+                        <div className="w-1/3 h-full flex-row justify-start  items-center  flex  ">
                             <p className="text-[clamp(1rem, 1vw,1rem)]  font-medium font-hubot leading-[125%] text-[#F6F6F6]">
                                 © FOOVA 2025
                             </p>
                         </div>
-                        <div className="flex w-full h-full flex-col items-center justify-end gap-2">
+                        <div className="flex w-full h-full flex-row items-center justify-end gap-4">
                             <Link
                                 to="/regulamin"
                                 className="text-[clamp(1rem, 1vw,1rem)]  hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
@@ -266,7 +265,7 @@ export default function Footer() {
                             </Link>
                             <Link
                                 to="/informacje-usunięciu-konta"
-                                className="text-[clamp(1rem, 1vw,1rem)] hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
+                                className="text-[clamp(1rem, 1vw,1rem)]  hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
                             >
                                 Informacje o Usunięciu Konta
                             </Link>

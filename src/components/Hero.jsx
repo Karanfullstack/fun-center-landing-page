@@ -36,7 +36,7 @@ export default function Hero({ onScroll }) {
 
     return (
         <>
-            <div className="bg-black  md:hidden lg:block   w-full max-w-[1440px] m-auto px-3  font-hubot overflow-hidden min-h-screen relative">
+            <div className="bg-black  md:hidden lg:block   w-full max-w-[1440px] m-auto px-3  font-hubot  min-h-screen relative">
                 <Navbar onScroll={onScroll} />
                 <div
                     className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32"
@@ -114,7 +114,7 @@ export default function Hero({ onScroll }) {
                                 <Lottie
                                     animationData={jersey}
                                     loop={true}
-                                    className="md:w-[15vh] max-w-xs transition-opacity duration-500 ease-in-out"
+                                    className="w-[clamp(170px,15vw,400px)] transition-opacity duration-500 ease-in-out"
                                     autoplay={true}
                                 />
                                 <span className=" md:text-[2.4vw] text-center opacity-80">
@@ -124,7 +124,7 @@ export default function Hero({ onScroll }) {
                         </MotionsFade>
 
                         <MotionsFade delay={0.4}>
-                            <h1 className=" md:text-[7vw] font-bold leading-[1.5] text-center mt-4">
+                            <h1 className=" text-[clamp(3.3rem,5vw,5rem)] font-bold leading-[1.5] text-center mt-4">
                                 <TextAnimate>
                                     <p>Udowodnij, że wiesz więcej </p>
                                     <p>niż reszta i zgarnij nagrody!</p>
@@ -135,7 +135,7 @@ export default function Hero({ onScroll }) {
                 </div>
 
                 {/* CTA */}
-                <div className="absolute h-full md:max-h-[10vw]  bg-black md:bottom-4  left-0 w-full px-4">
+                <div className="absolute h-full md:max-h-[clamp(4rem,5vw,7rem)]  bg-black md:bottom-4 mx-auto m-auto right-0  left-0 w-[clamp(50rem,12vw,60rem)]  px-4">
                     <div
                         onClick={onScroll}
                         className="bg-[#232323] cursor-pointer w-full md:w-fit mx-auto flex items-center gap-3 sm:gap-4 h-full px-1 sm:px-1 shadow-lg"
@@ -145,7 +145,7 @@ export default function Hero({ onScroll }) {
                             alt="app icon"
                             className="h-full p-2 aspect-square w-auto flex-shrink-0 object-contain"
                         />
-                        <span className="md:text-white md:text-[2.5vw]  md:font-hubot md:text-left md:pr-2 md:leading-tight md:break-words md:w-full">
+                        <span className="md:text-white md:text-[clamp(0.4rem,2.5vw,1rem)]  md:font-hubot md:text-left md:pr-2 md:leading-tight md:break-words md:w-full">
                             Pobierz apkę FOOVA FC i pokaż kto tu rządzi.
                         </span>
                     </div>
