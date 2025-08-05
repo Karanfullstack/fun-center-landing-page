@@ -96,7 +96,7 @@ export default function Hero({ onScroll }) {
             </div>
 
             {/* tablet */}
-            <div className="bg-black   sm:hidden hidden lg:hidden md:block   md:w-full md:max-w-[1140px] m-auto px-3  font-hubot  h-[100dvh] relative">
+            <div className="bg-black overflow-hidden  mx-auto sm:hidden hidden lg:hidden md:block   md:w-full md:max-w-[900px] m-auto px-3  font-hubot  h-[100dvh] relative">
                 <Navbar onScroll={onScroll} />
                 <div className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32">
                     {/* Background Vector */}

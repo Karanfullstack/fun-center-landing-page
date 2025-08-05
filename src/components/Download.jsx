@@ -9,6 +9,7 @@ import Football from "../assets/FOOVA-LP-cards/pilka-card.png";
 import Cup from "../assets/FOOVA-LP-cards/puchar-card.png";
 import Stadion from "../assets/FOOVA-LP-cards/stadion-card.png";
 import MotionsFade from "../common/Motions";
+import { useLocation } from "react-router-dom";
 
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -43,7 +44,7 @@ const itemVariants = {
 export default function Download() {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-100px" });
-
+    const location = useLocation();
     useEffect(() => {
         if (typeof window === "undefined") return;
 
@@ -52,7 +53,7 @@ export default function Download() {
             if (el) {
                 setTimeout(() => {
                     el.scrollIntoView({ behavior: "smooth", block: "center" });
-                    // ✅ Remove hash from URL after scroll
+
                     history.replaceState(null, "", window.location.pathname);
                 }, 100);
             }
@@ -68,7 +69,7 @@ export default function Download() {
     }, []);
 
     const containerRef = useRef(null);
-
+    const tabletContainer = useRef();
     useEffect(() => {
         const hash = window.location.hash;
 
@@ -76,6 +77,16 @@ export default function Download() {
             if (containerRef.current && window.innerWidth < 640) {
                 // Check if the ref exists and the screen is small (to target mobile)
                 containerRef.current.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "center",
+                });
+            } else if (
+                tabletContainer.current &&
+                window.innerWidth >= 768 &&
+                window.innerWidth < 1024
+            ) {
+                tabletContainer.current.scrollIntoView({
                     behavior: "smooth",
                     block: "center",
                     inline: "center",
@@ -183,7 +194,7 @@ export default function Download() {
             </MotionsFade>
 
             {/* Desktop Version */}
-            <MotionsFade className="sm:block relative md:h-[100vh] hidden">
+            <MotionsFade className=" md:hidden lg:block relative lg:h-[100vh] hidden">
                 <div className="sm:h-[100vh] relative overflow-y-auto sm:max-w-[1440px] sm:w-full hidden sm:block">
                     <div
                         delay={0.2}
@@ -286,6 +297,103 @@ export default function Download() {
                             />
                         </motion.article>
                     </div>
+                </div>
+            </MotionsFade>
+
+            {/* tablet */}
+            <MotionsFade className="md:h-[100dvh] hidden md:block lg:hidden">
+                <div
+                    ref={tabletContainer}
+                    className="md:max-w-[900px]  md:h-[100vh] hidden sm:hidden md:flex lg:hidden p-4 items-center justify-center w-full"
+                >
+                    <motion.section
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className=" flex-col hidden sm:hidden md:flex lg:hidden text-white relative w-[700px] h-[537px] items-center justify-center gap-14"
+                    >
+                        <motion.div
+                            id="#download_desktop"
+                            variants={itemVariants}
+                            className="flex relative w-full justify-center items-center"
+                        >
+                            <Lottie
+                                animationData={StickMan}
+                                loop={true}
+                                autoplay={true}
+                                className="w-[43vw] h-auto object-contain"
+                            />
+
+                            <motion.div
+                                variants={itemVariants}
+                                className="w-[18%] h-[18%] absolute bottom-4 left-0 "
+                            >
+                                <img src={Football} alt="football-icon" />
+                            </motion.div>
+
+                            <motion.div
+                                variants={itemVariants}
+                                className="w-[18%] h-[18%] absolute -bottom-[20px] right-0 "
+                            >
+                                <img src={Glasses} alt="glasses-icon" />
+                            </motion.div>
+                        </motion.div>
+
+                        <motion.div
+                            variants={itemVariants}
+                            className="w-[18%] h-[18%] absolute -top-[12vh] left-0 "
+                        >
+                            <img src={Cup} alt="stadion-icon" />
+                        </motion.div>
+
+                        <motion.div
+                            variants={itemVariants}
+                            className="w-[18%] h-[18%] absolute -top-24 right-0 "
+                        >
+                            <img src={Stadion} alt="football-icon" />
+                        </motion.div>
+
+                        <motion.section
+                            variants={itemVariants}
+                            className="flex flex-col justify-center items-center gap-4"
+                        >
+                            <div className="flex flex-col justify-center items-center gap-4">
+                                <h2 className="text-[40px] text-[#F6F6F6] font-hubot font-bold leading-[1.25]">
+                                    Dawaj do gry!
+                                </h2>
+                                <span className="font-medium text-[#F6F6F6] font-hubot text-[20px] leading-[1.25]">
+                                    Pobierz aplikację:
+                                </span>
+                            </div>
+
+                            <div className="w-full items-center mt-[1vh] justify-center">
+                                <figure className="w-[80%] h-auto m-auto flex items-center justify-center gap-4 sm:max-w-[250px] md:max-w-[300px] ">
+                                    <img
+                                        onClick={() =>
+                                            window.open(
+                                                "https://apps.apple.com/us/app/foova-fc/id6748235923",
+                                                "_blank"
+                                            )
+                                        }
+                                        src={DownloadApple}
+                                        alt="Foova FC Google Play"
+                                        className="w-full hover:cursor-pointer h-auto object-contain"
+                                    />
+                                    <img
+                                        onClick={() =>
+                                            window.open(
+                                                "https://play.google.com/store/apps/details?id=org.foova",
+                                                "_blank"
+                                            )
+                                        }
+                                        src={DownloadPlay}
+                                        alt="Foova FC Apple Store"
+                                        className="w-full hover:cursor-pointer h-auto object-contain"
+                                    />
+                                </figure>
+                            </div>
+                        </motion.section>
+                    </motion.section>
                 </div>
             </MotionsFade>
         </>
