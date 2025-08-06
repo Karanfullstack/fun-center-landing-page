@@ -3,7 +3,7 @@ import logo from "../assets/App-Icon.svg";
 import Footer from "./Footer";
 import icon from "../assets/icon/chevron-left.png";
 import { useEffect } from "react";
-import { HashLink } from "react-router-hash-link";
+import TopArrow from "../assets/top-scroll/Frame.png";
 
 const Regulamin = () => {
     useEffect(() => {
@@ -13,6 +13,9 @@ const Regulamin = () => {
         scrollToTop();
     }, []);
 
+    const handleTopScroll = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
     return (
         <div>
             <div className="bg-black font-hubot whitespace-normal  p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
@@ -896,6 +899,14 @@ const Regulamin = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+            <div className="w-full max-w-[1200px] px-5 mb-4 mx-auto flex items-center justify-end">
+                <img
+                    onClick={handleTopScroll}
+                    className=" object-cover cursor-pointer w-[55px] aspect-[16/16]"
+                    src={TopArrow}
+                    alt
+                />
             </div>
             <Footer />
         </div>

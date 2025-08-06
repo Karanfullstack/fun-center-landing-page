@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import icon from "../assets/icon/chevron-left.png";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { HashLink } from "react-router-hash-link";
+import TopArrow from "../assets/top-scroll/Frame.png";
 
 const DeleteAccountPolicy = () => {
     useEffect(() => {
@@ -12,9 +12,13 @@ const DeleteAccountPolicy = () => {
         };
         scrollToTop();
     }, []);
+
+    const handleTopScroll = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
     return (
         <div>
-            <div className="bg-black  font-hubot   p-10 text-white m-auto  max-w-[700px] w-full  min-h-screen  font-hubspot">
+            <div className="bg-black  font-hubot mx-auto   p-10 text-white m-auto  max-w-[700px] w-full  min-h-screen  font-hubspot">
                 <div className="h-[40px] p-2 hover:cursor-pointer  hover:bg-[#DBFD01] bg-[#232323] flex items-center justify-right w-[40px] ml-0 mr-0 m-auto ">
                     <Link to="/">
                         <img className="" src={icon} alt="back-icon" />
@@ -75,7 +79,17 @@ const DeleteAccountPolicy = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <div className="w-full max-w-[1200px] px-5 mb-4 mx-auto flex items-center justify-end">
+                <img
+                    onClick={handleTopScroll}
+                    className=" object-cover cursor-pointer w-[55px] aspect-[16/16]"
+                    src={TopArrow}
+                    alt
+                />
+            </div>
+            <div>
+                <Footer />
+            </div>
         </div>
     );
 };

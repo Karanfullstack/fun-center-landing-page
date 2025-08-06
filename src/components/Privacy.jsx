@@ -4,7 +4,7 @@ import logo from "../assets/App-Icon.svg";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-
+import TopArrow from "../assets/top-scroll/Frame.png";
 const PrivacyPolicy = () => {
     useEffect(() => {
         const scrollToTop = () => {
@@ -12,7 +12,9 @@ const PrivacyPolicy = () => {
         };
         scrollToTop();
     }, []);
-
+    const handleTopScroll = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
     return (
         <div>
             <div className="bg-black   font-hubo text-justify p-10 text-white m-auto  max-w-[680px] w-full  min-h-screen  font-hubspot">
@@ -190,7 +192,17 @@ const PrivacyPolicy = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <div className="w-full max-w-[1200px] px-5 mb-4 mx-auto flex items-center justify-end">
+                <img
+                    onClick={handleTopScroll}
+                    className=" object-cover cursor-pointer w-[55px] aspect-[16/16]"
+                    src={TopArrow}
+                    alt
+                />
+            </div>
+            <div>
+                <Footer />
+            </div>
         </div>
     );
 };
