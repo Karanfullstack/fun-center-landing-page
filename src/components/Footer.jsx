@@ -9,15 +9,15 @@ export default function Footer() {
         <>
             <MotionsFade
                 className="
-            max-h-[90vh] p-4  h-full
-        lg:w-full max-w-[1440px] lg:block md:hidden sm:block  w-full  font-hubot m-auto  flex justify-center items-center lg:max-h-[85.51vh]"
+            max-h-[91vh] p-4  h-full
+        lg:w-full max-w-[1440px] overflow-x-hidden lg:block md:hidden sm:block  w-full  font-hubot m-auto  flex justify-center items-center lg:max-h-[85.51vh]"
             >
                 <div
                     id="container"
                     className="
                 w-full
-                max-h-[96.1%]
-                h-full
+                max-h-[90%]
+                h-auto
                
                 p-4
                 flex-col
@@ -44,7 +44,7 @@ export default function Footer() {
     
     lg:w-[151px] bg-[#DBFD01]"
                         >
-                            <p className="text-[clamp(1.25rem,2vw,2rem)] sm:text-[1.25rem] leading-[125%] font-bold font-hubot">
+                            <p className="text-[clamp(1.25rem,2vw,2rem)] sm:text-[1.25rem] leading-[1.5] font-bold font-hubot">
                                 W 1 dzień
                             </p>
                         </div>
@@ -104,8 +104,8 @@ export default function Footer() {
                     {/* footer */}
                     <section
                         className="
-                    w-[100%] min-h-[20%]
-                   md:min-h-[15%]
+                    w-[100%] max-h-[20%]
+                   
     flex flex-col lg:flex-row lg:justify-between lg:items-center
     items-center gap-2 py-2 lg:py-3
     lg:w-full lg:max-w-[1296px] lg:max-h-[44px] lg:h-full lg:mt-4
@@ -113,7 +113,7 @@ export default function Footer() {
   "
                     >
                         <div className="w-full h-full flex-col items-center  flex  lg:flex-row lg:items-center lg:justify-start">
-                            <p className="text-[100%]  lg:text-base font-medium font-hubot leading-[125%] text-[#F6F6F6]">
+                            <p className="text-[100%]  lg:text-base font-medium font-hubot leading-[1.5] text-[#F6F6F6]">
                                 © FOOVA 2025
                             </p>
                         </div>

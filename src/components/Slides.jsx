@@ -115,7 +115,7 @@ export default function Slides() {
                                 breakpoints={{
                                     0: { slidesPerView: 1 },
                                     640: { slidesPerView: 1.5 },
-                                    768: { slidesPerView: 1.2 },
+                                    768: { slidesPerView: 1.3 },
                                     1024: { slidesPerView: 3.1 },
                                 }}
                                 style={{ height: "auto" }}

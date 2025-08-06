@@ -69,7 +69,7 @@ export default function Download() {
     }, []);
 
     const containerRef = useRef(null);
-    const tabletContainer = useRef(null);
+    const tabletContainer = useRef();
     useEffect(() => {
         const hash = window.location.hash;
 
@@ -307,7 +307,6 @@ export default function Download() {
                     className="md:max-w-[900px]  md:h-[100vh] hidden sm:hidden md:flex lg:hidden p-4 items-center justify-center w-full"
                 >
                     <motion.section
-                        ref={tabletContainer}
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
