@@ -36,7 +36,7 @@ export default function Hero({ onScroll }) {
 
     return (
         <>
-            <div className="bg-black  md:hidden lg:block   w-full max-w-[1440px] m-auto px-3  font-hubot  min-h-screen relative">
+            <div className="bg-black md:hidden lg:block   w-full max-w-[1440px] m-auto px-3  font-hubot overflow-hidden min-h-screen relative">
                 <Navbar onScroll={onScroll} />
                 <div
                     className="relative w-full  max-w-[1400px] flex flex-col px-2 sm:px-0 pt-6 pb-32"
@@ -77,7 +77,7 @@ export default function Hero({ onScroll }) {
                     </div>
 
                     {/* CTA */}
-                    <div className="absolute bg-black bottom-[3.4vh] safari:bottom-6 left-0 w-full px-4">
+                    <div className="absolute bg-black bottom-[3.8vh] safari:bottom-6 left-0 w-full px-4">
                         <div
                             onClick={onScroll}
                             className="bg-[#232323] cursor-pointer w-full sm:w-fit mx-auto flex items-center gap-3 sm:gap-4 h-[60px] max-h-[64px] min-h-[48px] px-1 sm:px-1 shadow-lg"

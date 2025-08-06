@@ -9,15 +9,16 @@ export default function Footer() {
         <>
             <MotionsFade
                 className="
-            h-[90vh] p-4 
-        lg:w-full  max-w-[1440px] lg:block md:hidden sm:block  w-full  font-hubot m-auto lg:h-full flex justify-center items-center lg:max-h-[85.51vh]"
+            max-h-[90vh] p-4  h-full
+        lg:w-full max-w-[1440px] lg:block md:hidden sm:block  w-full  font-hubot m-auto  flex justify-center items-center lg:max-h-[85.51vh]"
             >
                 <div
                     id="container"
                     className="
                 w-full
-                min-h-[94.1%]
-                h-auto
+                max-h-[96.1%]
+                h-full
+               
                 p-4
                 flex-col
                 gap-5
@@ -32,7 +33,7 @@ export default function Footer() {
                     lg:m-0
                     gap-1
     flex flex-col items-center justify-between
-     p-1 bg-[#343434]
+     p-1 bg-[#343434] 
     lg:flex-row lg:justify-between lg:items-center
     lg:w-full lg:h-full lg:max-w-[484px] lg:p-1 lg:max-h-[67px] lg:pr-3"
                     >
@@ -69,7 +70,7 @@ export default function Footer() {
   "
                     >
                         <div className=" w-[100%] h-auto text-left   lg:w-full lg:h-full ">
-                            <h3 className="text-[150%] lg:text-[4rem] w-full text-[#F6F6F6] font-hubot font-bold leading-[125%]">
+                            <h3 className="text-[150%] md:text-[clamp(3.5rem,2vw,64px)] w-full text-[#F6F6F6] font-hubot font-bold leading-[125%]">
                                 Chcesz zostać
                                 <br />
                                 Partnerem Foova FC?
@@ -103,8 +104,8 @@ export default function Footer() {
                     {/* footer */}
                     <section
                         className="
-                    w-[100%] h-[15%]
-                   
+                    w-[100%] min-h-[20%]
+                   md:min-h-[15%]
     flex flex-col lg:flex-row lg:justify-between lg:items-center
     items-center gap-2 py-2 lg:py-3
     lg:w-full lg:max-w-[1296px] lg:max-h-[44px] lg:h-full lg:mt-4

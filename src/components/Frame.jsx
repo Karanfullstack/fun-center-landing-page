@@ -126,12 +126,12 @@ export default function App() {
                 >
                     <div
                         ref={scrollRef}
-                        className="md:w-full    md:m-auto md:mb-48  md:flex md:justify-start md:items-start"
+                        className="md:w-full    md:m-auto md:mb-48   md:flex md:justify-start md:items-start"
                         style={{ scrollBehavior: "smooth" }}
                     >
-                        <div className="md:flex md:flex-col md:p-2 m-auto md:translate-y-[-23.6vh]     md:gap-4  md:justify-end md:items-center md:h-full md:w-full md:max-w-[1100px] md:relative">
+                        <div className="md:flex md:flex-col md:p-2 m-auto md:translate-y-[-23.6vh]  md:gap-4  md:justify-end md:items-center md:h-full md:w-full md:max-w-[1100px] md:relative">
                             <div
-                                className="md:flex md:flex-col md:justify-center md:items-center   md:sticky md:bottom-[10vh] md:max-w-[55vw] md:w-full  md:text-center md:py-[2.3vh] bg-[#DBFD01] md:will-change-top"
+                                className="flex flex-col justify-center items-center   sticky md:bottom-[10vh] max-w-[55vw] w-full  text-center py-[2.3vh] bg-[#DBFD01] will-change-top"
                                 style={{ transform: "translateY(-4.6vh)" }}
                             >
                                 <span className=" md:w-[55vw] md:text-4xl  md:font-bold">
@@ -139,7 +139,7 @@ export default function App() {
                                 </span>
 
                                 <div
-                                    className="bg-white absolute md:top-[6vh] md:rounded-full md:w-[15vw] md:h-[15vw] md:flex md:items-center justify-center md:overflow-hidden md:will-change-top"
+                                    className="bg-white absolute md:top-[6vh] md:rounded-full md:w-[clamp(10vh,13vh,9vh)]  md:flex md:items-center justify-center md:overflow-hidden md:will-change-top"
                                     style={{ transform: "translateY(-20vh)" }}
                                 >
                                     <img

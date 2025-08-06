@@ -79,7 +79,7 @@ export default function Ranking({ onScroll }) {
                                 </h2>
                             </h2>
 
-                            <div className="w-full md:hidden lg:block h-full sm:block hidden ">
+                            <div className="w-full md:hidden lg:block h-full sm:hidden hidden ">
                                 <div className="ranking-frames  flex relative justify-center mt-4 w-full items-end gap-0">
                                     {framesDesktop.map((frame, index) => (
                                         <motion.img
@@ -108,7 +108,7 @@ export default function Ranking({ onScroll }) {
 
                             {/* mobile version */}
 
-                            <div className="w-full md:hidden h-full sm:hidden">
+                            <div className="w-full md:hidden h-full sm:block">
                                 <div className="flex justify-center items-end">
                                     {framesMobile.map((f, i) => (
                                         <img
@@ -122,7 +122,7 @@ export default function Ranking({ onScroll }) {
 
                             {/* tablet */}
 
-                            <div className="w-full h-full md:block lg:hidden hidden sm:hidden">
+                            <div className="w-full h-full md:block lg:hidden hidden sm:hidden ">
                                 <div className="flex justify-center items-end">
                                     {framesMobile.map((f, i) => (
                                         <img
