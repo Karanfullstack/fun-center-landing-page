@@ -127,7 +127,7 @@ export default function RankingTwo() {
                                             Bon do wykorzystania w Media Expert
                                         </span>
                                     </div>
-                                    <span className="text-[clamp(1.1rem,1vw,2rem)] lg:text-[0.85rem] lg:pl-4  leading-[1.5] font-normal text-left">
+                                    <span className="text-[clamp(0.88rem,1vw,2rem)] lg:text-[0.85rem] lg:pl-4  leading-[1.5] font-normal text-left">
                                         + Wkład Klubu/Ligi
                                     </span>
                                 </div>
