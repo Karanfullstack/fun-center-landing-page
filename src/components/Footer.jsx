@@ -16,12 +16,12 @@ export default function Footer() {
                     id="container"
                     className="
                 w-full
-                max-h-[90%]
+                min-h-[91%]
                 h-auto
                
                 p-4
                 flex-col
-                gap-5
+                gap-[clamp(1.5rem,2vw,2rem)]
                 lg:w-full lg:p-[32px] lg:max-w-[1360px] flex lg:flex-col lg:items-start lg:justify-start  lg:gap-4 lg:h-full lg:max-h-[581.66px] m-auto  bg-[#232323] bg-center bg-cover bg-no-repeat"
                     style={{ backgroundImage: `url(${FoovaVector})` }}
                 >
@@ -104,7 +104,7 @@ export default function Footer() {
                     {/* footer */}
                     <section
                         className="
-                    w-[100%] max-h-[20%]
+                    w-[100%]  h-auto
                    
     flex flex-col lg:flex-row lg:justify-between lg:items-center
     items-center gap-2 py-2 lg:py-3
@@ -241,6 +241,7 @@ export default function Footer() {
                         className="
                     w-[100%] h-[15%]
                    flex flex-row 
+                   
     items-center gap-2 py-2 lg:py-3
    justify-center 
     border-t border-t-[#FFFFFF4D]
@@ -251,7 +252,7 @@ export default function Footer() {
                                 © FOOVA 2025
                             </p>
                         </div>
-                        <div className="flex w-full h-full flex-row items-center justify-end gap-4">
+                        <div className="flex  w-full h-full flex-row items-center justify-end gap-4">
                             <Link
                                 to="/regulamin"
                                 className="text-[clamp(1rem, 1vw,1rem)]  hover:underline font-medium font-hubot leading-[125%] text-[#D1D1D1]"
